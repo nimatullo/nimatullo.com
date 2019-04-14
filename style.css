@@ -1,0 +1,73 @@
+.navbar {
+	background-color: transparent !important;
+}
+body {
+	background-color: #e6e6e6;
+	color: white;
+}
+
+a {
+	color: white !important;
+	 text-shadow: 2px 2px #000 !important;
+}
+a:hover {
+	text-decoration: underline !important;
+}
+.icon {
+	width: 5vh;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+html,
+body,
+header,
+#intro {
+	height: 100%;
+}
+#intro {
+	background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 3, 0.5)
+    ),
+    url(vectors/background.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+#name {
+	color: #44DDEE !important;
+	text-shadow: 1px 1px 2px black !important;
+}
+#opener {
+	color: #F55358 !important;
+	text-shadow: 1px 1px 2px black !important;
+	font-size: 7vh;
+}
+#paragraph {
+	text-shadow: 1px 1px 5px black !important;
+}
+.text-of-center {
+	color: white !important;
+}
+.logo {
+	width: 2vh;
+}
+.nav-item {
+	font-size: 24px !important;
+}
+.text-container {
+	padding-top: 50vh;
+}
+.text-holder {
+	font-size: 5vh;
+}
+.color {
+	background-color: #010001;
+	height: 100%;
+}
+.foot {
+	height: 10vh;
+}
+.icons {
+	padding-top: 2vh;
+}
