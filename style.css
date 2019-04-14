@@ -2,8 +2,13 @@
 background-color: transparent !important;
 }
 body {
+font-family: 'PT Sans Narrow', sans-serif !important;
 background-color: #e6e6e6;
 color: white;
+letter-spacing: 0.1em;
+}
+p {
+	font-family: 'Arial';
 }
 a {
 color: white !important;
@@ -90,7 +95,20 @@ transition-duration: 0.4s;
 text-shadow: 1px 1px 5px black !important;
 }
 .buttonColor:hover {
-	background-color: #44DDEE;
-	border-color: #44DDEE;
-	text-shadow: 1px 1px 5px black !important;
+background-color: #44DDEE;
+border-color: #44DDEE;
+text-shadow: 1px 1px 5px black !important;
+}
+.received-page {
+height: 100%;
+background-image: url(https://raw.githubusercontent.com/mmvvpp123/mmvvpp123.github.io/master/Holder/me.jpg?token=AhkinSf7UgAOlLifB5AKVwDF9LMJQSFcks5cvO2IwA%3D%3D);
+background-size: 100%;
+}
+.received-page a {
+	font-size: 2vh;
+	letter-spacing: 0.3em;
+}
+.received-page h1{
+font-size: 10vh;
+font-family: 'Staatliches', cursive !important;
 }
