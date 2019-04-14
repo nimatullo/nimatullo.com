@@ -13,9 +13,15 @@ p {
 a {
 color: white !important;
 text-shadow: 2px 2px #000 !important;
+transition: 0.3s;
+}
+.active a{
+	color: #44DDEE !important;
+	text-shadow: 1px 2px #f55358 !important;
+
 }
 .navbar-nav a:hover {
-text-decoration: underline;
+text-shadow: 1px 5px #f55358 !important;
 }
 .icon {
 width: 5vh;
