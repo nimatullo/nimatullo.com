@@ -40,8 +40,10 @@ rgba(0, 0, 0, 0.5),
 rgba(0, 0, 3, 0.5)
 ),
 url(vectors/background.jpg);
-background-size: 100%;
 background-repeat: no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
 }
 #name {
 color: #F55358 !important;
@@ -124,8 +126,15 @@ rgba(0, 0, 0, 0.5),
 rgba(0, 0, 3, 0.5)
 ),
 url(vectors/aboutbackground.jpg);
-background-size: 100%;
+/*background-size: 100%;*/
 background-repeat: no-repeat;
 padding-top: 30vh;
 height: 100%;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}
+.about-paragraph {
+	text-shadow: 1px 1px 5px black !important;
+
 }
