@@ -8,7 +8,7 @@ color: white;
 letter-spacing: 0.1em;
 }
 p {
-	font-family: 'Arial';
+font-family: 'Arial';
 }
 a {
 color: white !important;
@@ -16,9 +16,8 @@ text-shadow: 2px 2px #000 !important;
 transition: 0.3s;
 }
 .active a{
-	color: #44DDEE !important;
-	text-shadow: 1px 2px #f55358 !important;
-
+color: #44DDEE !important;
+text-shadow: 1px 2px #f55358 !important;
 }
 .navbar-nav a:hover {
 text-shadow: 1px 5px #f55358 !important;
@@ -111,10 +110,22 @@ background-image: url(https://raw.githubusercontent.com/mmvvpp123/mmvvpp123.gith
 background-size: 100%;
 }
 .received-page a {
-	font-size: 2vh;
-	letter-spacing: 0.3em;
+font-size: 2vh;
+letter-spacing: 0.3em;
 }
 .received-page h1{
 font-size: 10vh;
 font-family: 'Staatliches', cursive !important;
+}
+.about-holder {
+background-image:
+linear-gradient(
+rgba(0, 0, 0, 0.5),
+rgba(0, 0, 3, 0.5)
+),
+url(vectors/aboutbackground.jpg);
+background-size: 100%;
+background-repeat: no-repeat;
+padding-top: 30vh;
+height: 100%;
 }
