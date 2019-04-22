@@ -1,0 +1,30 @@
+.yellow {
+  background-color: #ffeeba !important;
+  font-size: .8em;
+}
+.green {
+  background-color: #c3e6cb;
+  font-size: .8em;
+}
+.red {
+  background-color: #f5c6cb;
+  font-size: .8em;
+}
+.back {
+  display: inline-block;
+  position: absolute;
+}
+.key {
+  margin-left: 85%;
+  display: inline-block;
+  border: 1px solid black;
+  padding-right: 1vh;
+}
+
+a {
+  color:#F55358;
+}
+
+a:hover {
+  color:  #44DDEE;
+}
