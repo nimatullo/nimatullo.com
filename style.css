@@ -1,204 +1,215 @@
-.navbar {
-  background-color: transparent !important;
-}
+  .navbar-default {
+    z-index: 1 !important;
+    transition: 500ms ease;
+    background: transparent;
+  }
 
-.list-group-item-action {
-  text-shadow: 0px 0px !important;
-  background-color: white;
-  border: 0px;
-  border-radius: 10px;
-  color: black;
-}
+  .navbar-default.scrolled {
+    background: linear-gradient(rgba(159, 159, 159, 0.8), rgba(125, 123, 123, 0.8));
+  }
 
-.list-group>.active, .list-group>a:hover {
-  background-color: lightgrey;
-  color: black !important;
-  border: 0px;
-  border-radius: 10px;
-  font-size: 1.2em;
-}
+  .list-group-item-action {
+    text-shadow: 0px 0px !important;
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    color: black;
+  }
 
-.list-group>a {
-  color: black !important;
-}
+  .list-group>.active, .list-group>a:hover {
+    background-color: lightgrey;
+    color: black !important;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 1.2em;
+  }
 
-.tab-content {
-  font-size: 1.5em;
-  border-left: 1px solid black;
-  padding-left: 5%;
-}
+  .list-group>a {
+    color: black !important;
+  }
 
-.front-page-text {
-  color: black;
-}
+  .tab-content {
+    font-size: 1.5em;
+    border-left: 1px solid black;
+    padding-left: 5%;
+  }
 
-body {
-  font-family: 'PT Sans Narrow', sans-serif !important;
-  background-color: white;
-  color: black;
-  letter-spacing: 0.1em;
-}
+  .front-page-text {
+    color: black;
+  }
 
-p {
-  font-family: 'Arial';
-}
+  body {
+    font-family: 'PT Sans Narrow', sans-serif !important;
+    background-color: white;
+    color: black;
+    letter-spacing: 0.1em;
+  }
 
-a {
-  color: white !important;
-  text-shadow: 2px 2px #000 !important;
-  transition: 0.3s;
-}
+  p {
+    font-family: 'Arial';
+  }
 
-.active a {
-  color: #44DDEE !important;
-  text-shadow: 1px 2px #f55358 !important;
-}
+  a {
+    color: white !important;
+    text-shadow: 2px 2px #000 !important;
+    transition: 0.3s;
+  }
 
-.navbar-nav a:hover {
-  text-shadow: 1px 5px #f55358 !important;
-}
+  .active a {
+    color: #44DDEE !important;
+    text-shadow: 1px 2px #f55358 !important;
+  }
 
-.icon {
-  width: 5vh;
-  margin-right: 5%;
-  margin-left: 5%;
-}
+  .navbar-nav a:hover {
+    text-shadow: 1px 5px #f55358 !important;
+  }
 
-html,
-body,
-header,
-#intro {
-  height: 100%;
-}
+  .icon {
+    width: 5vh;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
 
-#intro {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(159, 159, 159, 0.5)),
-    url(vectors/background.jpg);
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
+  html,
+  body,
+  header,
+  #intro {
+    height: 100%;
+  }
 
-#name {
-  color: #F55358 !important;
-  text-shadow: 1px 1px 2px black !important;
-}
+  #intro {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5),
+      rgba(159, 159, 159, 0.5)),
+      url(vectors/background.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
 
-#opener {
-  color: #44DDEE !important;
-  text-shadow: 1px 1px 2px black !important;
-  font-size: 7vh;
-}
+  #name {
+    color: #F55358 !important;
+    text-shadow: 1px 1px 2px black !important;
+  }
 
-#paragraph {
-  color: white;
-  text-shadow: 1px 1px 5px black !important;
-}
+  #opener {
+    color: #44DDEE !important;
+    text-shadow: 1px 1px 2px black !important;
+    font-size: 7vh;
+  }
 
-.text-of-center {
-  color: white !important;
-}
+  #paragraph {
+    color: white;
+    text-shadow: 1px 1px 5px black !important;
+  }
 
-.logo {
-  width: 2vh;
-}
+  .text-of-center {
+    color: white !important;
+  }
 
-.nav-item {
-  font-size: 24px !important;
-}
+  .logo {
+    width: 2vh;
+  }
 
-.text-container {
-  padding-top: 50vh;
-}
+  .nav-item {
+    z-index: 2 !important;
+    font-size: 24px !important;
+  }
 
-.text-holder {
-  font-size: 5vh;
-}
+  .text-container {
+    padding-top: 50vh;
+  }
 
-.color {
-  background-color: white;
-  height: 100%;
-}
+  .text-holder {
+    font-size: 5vh;
+  }
 
-.foot {
-  height: 10vh;
-}
+  .color {
+    background-color: white;
+    height: 100%;
+  }
 
-.icons {
-  padding-top: 2vh;
-}
+  .foot {
+    height: 10vh;
+    padding-bottom: 5%;
+  }
+  .stay-connected{
+    padding: 1%;
+  }
 
-.icons:hover {
-  text-decoration: none;
-}
+  .icons {
+    padding-top: 2vh;
+  }
 
-h1 {
-  color: white;
-}
+  .icons:hover {
+    text-decoration: none;
+  }
 
-#josh {
-  text-shadow: 0px 0px 0px black !important;
-  color: #010001 !important;
-}
+  h1 {
+    color: white;
+  }
 
-.form-hold {
-  background-color: #010001;
-  padding-top: 30vh;
-  height: 100%;
-  color: white;
-}
+  #josh {
+    text-shadow: 0px 0px 0px black !important;
+    color: #010001 !important;
+  }
 
-.buttonColor {
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  background-color: #f55358;
-  border-color: #f55358;
-  color: white;
-  transition-duration: 0.4s;
-  text-shadow: 1px 1px 5px black !important;
-}
+  .form-hold {
+    background-color: #010001;
+    padding-top: 30vh;
+    height: 100%;
+    color: white;
+  }
 
-.buttonColor:hover {
-  background-color: #44DDEE;
-  border-color: #44DDEE;
-  text-shadow: 1px 1px 5px black !important;
-}
+  .buttonColor {
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    background-color: #f55358;
+    border-color: #f55358;
+    color: white;
+    transition-duration: 0.4s;
+    text-shadow: 1px 1px 5px black !important;
+  }
 
-.received-page {
-  height: 100%;
-  background-image: url(https://raw.githubusercontent.com/mmvvpp123/mmvvpp123.github.io/master/Holder/me.jpg?token=AhkinSf7UgAOlLifB5AKVwDF9LMJQSFcks5cvO2IwA%3D%3D);
-  background-size: 100%;
-}
+  .buttonColor:hover {
+    background-color: #44DDEE;
+    border-color: #44DDEE;
+    text-shadow: 1px 1px 5px black !important;
+  }
 
-.received-page a {
-  font-size: 2vh;
-  letter-spacing: 0.3em;
-}
+  .received-page {
+    height: 100%;
+    background-image: url(https://raw.githubusercontent.com/mmvvpp123/mmvvpp123.github.io/master/Holder/me.jpg?token=AhkinSf7UgAOlLifB5AKVwDF9LMJQSFcks5cvO2IwA%3D%3D);
+    background-size: 100%;
+  }
 
-.received-page h1 {
-  font-size: 10vh;
-  font-family: 'Staatliches', cursive !important;
-}
+  .received-page a {
+    font-size: 2vh;
+    letter-spacing: 0.3em;
+  }
 
-.about-holder {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 3, 0.5)),
-    url(vectors/aboutbackground.jpg);
-  /*background-size: 100%;*/
-  background-repeat: no-repeat;
-  padding-top: 30vh;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
+  .received-page h1 {
+    font-size: 10vh;
+    font-family: 'Staatliches', cursive !important;
+  }
 
-.about-paragraph {
-  color: white;
-  text-shadow: 1px 1px 5px black !important;
-}
+  .about-holder {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 3, 0.5)),
+      url(vectors/aboutbackground.jpg);
+    /*background-size: 100%;*/
+    background-repeat: no-repeat;
+    padding-top: 30vh;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .about-paragraph {
+    color: white;
+    text-shadow: 1px 1px 5px black !important;
+  }
