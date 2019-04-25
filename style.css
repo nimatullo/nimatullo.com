@@ -2,10 +2,40 @@
   background-color: transparent !important;
 }
 
+.list-group-item-action {
+  text-shadow: 0px 0px !important;
+  background-color: white;
+  border: 0px;
+  border-radius: 10px;
+  color: black;
+}
+
+.list-group>.active, .list-group>a:hover {
+  background-color: lightgrey;
+  color: black !important;
+  border: 0px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+.list-group>a {
+  color: black !important;
+}
+
+.tab-content {
+  font-size: 1.5em;
+  border-left: 1px solid black;
+  padding-left: 5%;
+}
+
+.front-page-text {
+  color: black;
+}
+
 body {
   font-family: 'PT Sans Narrow', sans-serif !important;
-  background-color: #dfdbdb;
-  color: white;
+  background-color: white;
+  color: black;
   letter-spacing: 0.1em;
 }
 
@@ -44,7 +74,7 @@ header,
 #intro {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 3, 0.5)),
+    rgba(159, 159, 159, 0.5)),
     url(vectors/background.jpg);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -64,6 +94,7 @@ header,
 }
 
 #paragraph {
+  color: white;
   text-shadow: 1px 1px 5px black !important;
 }
 
@@ -88,7 +119,7 @@ header,
 }
 
 .color {
-  background-color: #010001;
+  background-color: white;
   height: 100%;
 }
 
@@ -100,6 +131,14 @@ header,
   padding-top: 2vh;
 }
 
+.icons:hover {
+  text-decoration: none;
+}
+
+h1 {
+  color: white;
+}
+
 #josh {
   text-shadow: 0px 0px 0px black !important;
   color: #010001 !important;
@@ -109,6 +148,7 @@ header,
   background-color: #010001;
   padding-top: 30vh;
   height: 100%;
+  color: white;
 }
 
 .buttonColor {
@@ -159,6 +199,6 @@ header,
 }
 
 .about-paragraph {
+  color: white;
   text-shadow: 1px 1px 5px black !important;
 }
-http://localhost:35729/livereload.js

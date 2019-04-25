@@ -64,41 +64,48 @@
     <br><br><br>
     <div class="container">
       <div class="about">
-        <h1>About Me</h1>
+        <h1 class="front-page-text">About Me</h1>
         <br>
-        <p>I am a CS Student and this website was created to help me track my code and progress. Most of my stuff is written in Java. There are so many resources for developers and I feel like I know like 3 of them. It excites me to continue learning in order to develop the best projects possible. Thanks for reading. I love you. 💖
+        <p>I am a CS Student and this website was created to help me track my code and progress. Most of my stuff is written in Java. There are so many resources for developers and I feel like I know like 3 of them. It excites me to continue learning
+          in order to develop the best projects possible. Thanks for reading. I love you. 💖
         </p>
       </div>
       <br><br><br>
-      <h1>To Do List:</h1>
-      <ul>
-        <li>Port Java Applications to Web. (I'm not even sure if this is possible without a webserver.)</li>
-        <li>Add online indicator to Chat Application</li>
-        <li>Handle exceptions in Library Project
-          <ul>
-            <li>Add Log Out button for Admin Window</li>
-            <li>Remove File Loader from Admin Window. The books should load as soon as admin logs in.</li>
-          </ul>
-        </li>
-      </ul>
-      <hr>
+      <h1 class="front-page-text">To Do List</h1>
+      <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Port Java Application to Web</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Add online indicator to Chat App</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Library Project</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">To be honest, I'm not even sure if this is possible without a webserver. The idea is that my Java applications will run on a web page
+              rather than on a Desktop.</div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">I want to add a little green icon somewhere in the window that indicates whether or not the server is on, letting the user know if they can
+              connect or not.</div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+              <ul>
+                <li>Handle exceptions so the console isn't bombarded with error messages.</li>
+                <li>Add a log out button for the admin</li>
+                <li>Remove the load from file function from the admin window. The books should load as soon as the admin logs in.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <hr>
   <div class="container foot">
     <footer>
       <div class="container text-center icons">
-        <a href="https://facebook.com/sherzodnimatullo" class="fa" target="_blank">
-          <img class="icon" src="vectors/Facebook.svg">
-        </a>
-        <a href="https://github.com/mmvvpp123" class="fa" target="_blank">
-          <img class="icon" src="vectors/Github.svg">
-        </a>
-        <a href="https://snapchat.com/add/mmvvpp123" class="fa" target="_blank">
-          <img class="icon" src="vectors/Snapchat.svg">
-        </a>
-        <a href="https://Instagram.com/sherzodnimatullo" class="fa" target="_blank">
-          <img class="icon" src="vectors/Instagram.svg">
-        </a>
+        <a href="https://facebook.com/sherzodnimatullo" class="fa" target="_blank"><img class="icon" src="vectors/Facebook.svg"></a>
+        <a href="https://github.com/mmvvpp123" class="fa" target="_blank"><img class="icon" src="vectors/Github.svg"></a>
+        <a href="https://snapchat.com/add/mmvvpp123" class="fa" target="_blank"><img class="icon" src="vectors/Snapchat.svg"></a>
+        <a href="https://Instagram.com/sherzodnimatullo" class="fa" target="_blank"><img class="icon" src="vectors/Instagram.svg"></a>
         <p style="color: black;">STAY <a target="_blank" id="josh" href="https://josh8.com">CONNECTED</a></p>
       </div>
       <!--End container-->
