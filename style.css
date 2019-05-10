@@ -28,11 +28,11 @@ header,
   .navbar {
     background-color: white;
   }
-  .navbar-default a {
+  .navbar a {
     color: #333333 !important;
     text-shadow: 0 0 0 !important;
   }
-  .navbar-default .navbar-toggler-icon {
+  .navbar-toggler-icon {
     background-image: url("vectors/hamburger_scrolled.png") !important;
   }
 }
@@ -56,7 +56,7 @@ header,
   background-image: url("vectors/hamburger_scrolled.png") !important;
 }
 
-.navbar-toggler-icon {
+.navbar-default .navbar-toggler-icon {
   background-image: url("vectors/hamburger.png") !important;
 }
 
