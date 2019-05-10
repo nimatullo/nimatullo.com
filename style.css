@@ -39,6 +39,14 @@ header,
   text-shadow: 0 0 0 !important;
 }
 
+.navbar-default.scrolled  .navbar-toggler-icon {
+  background-image: url("vectors/hamburger_scrolled.png") !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("vectors/hamburger.png") !important;
+}
+
 .navbar-default.scrolled a:hover {
   text-shadow: 0 0 0 !important;
   background-color: lightgrey;
@@ -61,11 +69,6 @@ header,
 /* Opening background image style and text */
 .front-page-text {
   color: #333333;
-}
-
-.color {
-  background-color: white;
-  height: 100%;
 }
 
 .text-holder {
@@ -100,6 +103,14 @@ header,
   color: white;
 }
 
+.about-me-div {
+  height: 50%;
+}
+.color {
+  background-color: white;
+  height: 70%;
+}
+
 /* To Do List list group style */
 .list-group-item-action {
   text-shadow: 0px 0px !important;
@@ -125,6 +136,7 @@ header,
   border-left: 1px solid #333333;
   padding-left: 5%;
 }
+
 
 /* Footer style */
 
