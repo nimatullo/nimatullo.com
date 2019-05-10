@@ -81,7 +81,7 @@
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.5),
       rgba(159, 159, 159, 0.5)),
-      url(vectors/background.jpg);
+      url(vectors/background.jpeg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
