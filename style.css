@@ -104,14 +104,13 @@ header,
 }
 
 .about-me-div {
-  height: 50%;
-}
-.color {
-  background-color: white;
-  height: 70%;
+  height: 30%;
 }
 
 /* To Do List list group style */
+.list-group {
+  height: 100%;
+}
 .list-group-item-action {
   text-shadow: 0px 0px !important;
   border: 0px;
