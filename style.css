@@ -32,6 +32,9 @@ header,
     color: #333333 !important;
     text-shadow: 0 0 0 !important;
   }
+  .navbar-default .navbar-toggler-icon {
+    background-image: url("vectors/hamburger_scrolled.png") !important;
+  }
 }
 
 .navbar-default {
