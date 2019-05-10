@@ -24,6 +24,12 @@ header,
 }
 
 /* nav style */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    background-color: rgba(251, 251, 251, 0.66)
+  }
+}
+
 .navbar-default {
   z-index: 1 !important;
   transition: 500ms ease;
