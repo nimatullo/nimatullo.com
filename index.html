@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <nav class="navbar navbar-default fixed-top navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="#">
         <img src="vectors/favicon.png" id="logo" height="30">
@@ -66,13 +66,56 @@
         </p>
       </div>
       <br><br><br>
-    </div>
-  </div>
-  <div class="color">
-    <div class="container">
       <h1 class="front-page-text">To Do List</h1>
       <br>
-      <div class="row">
+      <div id="accordion">
+
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              Port Java Application to Web
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              To be honest, I'm not even sure if this is possible without a webserver. The idea is that my Java applications will run on a web page rather than on a Desktop.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+              Add 'online' indicator to chat app
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              I want to add a little green icon somewhere in the window that indicates whether or not the server is on, letting the user know if they can connect or not.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+              Library Project
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <ul>
+                <li>Handle exceptions so the console isn't bombarded with error messages.</li>
+                <li><s>Add a log out button for the admin.</s></li>
+                <li><s>Remove the load from file function from the admin window. The books should load as soon as the admin logs in.</s></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Port Java Application to Web</a>
@@ -95,8 +138,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+  </div>
 
   </div>
   <hr>

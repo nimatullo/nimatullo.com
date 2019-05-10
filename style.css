@@ -103,41 +103,19 @@ header,
   color: white;
 }
 
-.about-me-div {
-  height: 30%;
-}
 .color {
-  display: block;
   background-color: white;
-  height: 70%;
 }
 
 /* To Do List list group style */
-.list-group-item-action {
-  text-shadow: 0px 0px !important;
-  border: 0px;
-  border-radius: 10px;
-  color: #333333;
-}
 
-.list-group>.active, .list-group>a:hover {
+.card-link {
+  color: #333333 !important;
+  text-shadow: 0 0 0 !important
+}
+.card-header {
   background-color: lightgrey;
-  color: #333333 !important;
-  border: 0px;
-  border-radius: 10px;
-  font-size: 1em;
 }
-
-.list-group>a {
-  color: #333333 !important;
-}
-
-.tab-content {
-  font-size: 1em;
-  border-left: 1px solid #333333;
-  padding-left: 5%;
-}
-
 
 /* Footer style */
 
