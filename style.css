@@ -107,6 +107,7 @@ header,
   height: 30%;
 }
 .color {
+  display: block;
   margin-top: 50%;
   background-color: white;
   height: 70%;
