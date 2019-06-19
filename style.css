@@ -168,6 +168,18 @@ header,
 .about-paragraph {
   color: white;
 }
+.tech {
+  padding: 5%;
+}
+.tech h1, .tech h2 {
+  color: #333333;
+}
+.webdev {
+  padding: 5%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1%;
+}
 
 .form-hold {
   background-color: #333333;
