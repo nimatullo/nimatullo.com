@@ -66,6 +66,7 @@ header,
 .navbar-default.scrolled a:hover {
   text-shadow: 0 0 0 !important;
   background-color: lightgrey;
+  border-radius: 10px;
 }
 
 .navbar-nav a:hover {
