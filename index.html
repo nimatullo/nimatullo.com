@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=.8">
   <title>SHERZOD NIMATULLO | HOME</title>
 
-  <link rel="icon" type="image/png" href="vectors/favicon.png">
+  <link rel="icon" type="image/png" href="../vectors/favicon.png">
 </head>
 
 <body>
@@ -28,19 +28,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" target="_blank" href="https://github.com/mmvvpp123">Github</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="software.html">Software</a>
+            <a class="nav-link" href="./software">Software</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="./contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="./about">About</a>
           </li>
         </ul>
       </div>
@@ -77,9 +77,13 @@
               Port Java Application to Web
             </a>
           </div>
-          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+          <div id="collapseOne" class="collapse" data-parent="#accordion">
             <div class="card-body">
               To be honest, I'm not even sure if this is possible without a webserver. The idea is that my Java applications will run on a web page rather than on a Desktop.
+              <ul>
+                <li>Currently learning JSP and Tomcat in order to host a webserver on Raspberry Pi.</li>
+                <li><a href="https://github.com/mmvvpp123/Student-Presentation-Randomizer-Web-App" target="_blank">Student Presentation Randomizer Web App</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -96,25 +100,7 @@
             </div>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header">
-            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-              Library Project
-            </a>
-          </div>
-          <div id="collapseThree" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-              <ul>
-                <h4>The deadline for this project has passed.</h4>
-                <li class="text-muted">Handle exceptions so the console isn't bombarded with error messages.</li>
-                <li class="text-muted">Add a log out button for the admin.</li>
-                <li class="text-muted">Remove the load from file function from the admin window. The books should load as soon as the admin logs in.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+        
         <div class="card">
           <div class="card-header">
             <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
@@ -124,19 +110,37 @@
           <div id="collapseFour" class="collapse" data-parent="#accordion">
             <div class="card-body">
               I want to learn Python so I can start some algorithm work. That's the focus right now but if I figure out other uses for Python, I'd definitely want to explore it.
+              <hr>
+              <a href="https://github.com/mmvvpp123/Python_Projects" target="_blank">GitHub</a>
             </div>
           </div>
         </div>
-        
+
         <div class="card">
            <div class="card-header">
              <a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
                Create wood-flooring website using Django for contact form and storing information.
              </a>
           </div>
-          <div id="collapseFive class="collapse" data-parent="#accordion">
+          <div id="collapseFive" class="collapse" data-parent="#accordion">
             <div class="card-body">
               I want to create a wood flooring website that is run on Django. By having a backend, users would be able to submit forms through the website that would be forwarded to the owner of the website.
+              <ul>
+                <li>Currently using Heroku for hosting.</li>
+                <li>Security is awful so please don't hack and get all my information.</li>
+                <li><a target="_blank" href="https://django-flooring.herokuapp.com">Magic Flooring</a></li>
+              </ul>
+              <hr>
+              <h4>Resources for Learning Django</h4>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=F5mRW0jo-U4" target="_blank">Python Django Web Framework</a>
+                  <ul>
+                    <li class="text-muted"style="font-size:.8em">God bless this guy. Super helpful video that provides great understanding of how Django works.</li>
+                  </ul>
+                </li>
+                <li><a href="https://docs.djangoproject.com/en/2.2/" target="_blank">Django Documentation</a></li>
+                <li><a href="https://wsvincent.com/django-contact-form/" target="_blank">How to make a Django Contact Form</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -147,12 +151,13 @@
   <div class="container foot">
     <footer>
       <div class="container text-center icons">
-        <a href="https://facebook.com/sherzodnimatullo" class="fa" target="_blank"><img alt="Facebook" class="icon" src="vectors/Facebook.svg"></a>
-        <a href="https://github.com/mmvvpp123" class="fa" target="_blank"><img alt="Github" class="icon" src="vectors/Github.svg"></a>
-        <a href="https://snapchat.com/add/mmvvpp123" class="fa" target="_blank"><img alt="Snapchat" class="icon" src="vectors/Snapchat.svg"></a>
-        <a href="https://Instagram.com/sherzodnimatullo" class="fa" target="_blank"><img alt="Instagram" class="icon" src="vectors/Instagram.svg"></a>
-        <p class="stay-connected" style="color: #333333;">STAY <a target="_blank" id="josh" href="https://josh8.com">CONNECTED</a></p>
+        <a href="https://facebook.com/sherzodnimatullo" class="fa" target="_blank"><img class="icon" src="vectors/Facebook.svg"></a>
+        <a href="https://github.com/mmvvpp123" class="fa" target="_blank"><img class="icon" src="vectors/Github.svg"></a>
+        <a href="https://snapchat.com/add/mmvvpp123" class="fa" target="_blank"><img class="icon" src="vectors/Snapchat.svg"></a>
+        <a href="https://Instagram.com/sherzodnimatullo" class="fa" target="_blank"><img class="icon" src="vectors/Instagram.svg"></a>
+        <p class="stay-connected"style="color: black;">STAY <a target="_blank" id="josh" href="https://josh8.com">CONNECTED</a></p>
       </div>
+      <!--End container-->
     </footer>
   </div>
 </body>

@@ -6,8 +6,7 @@ body {
 }
 
 a {
-  color: white !important;
-  text-shadow: 2px 2px #000 !important;
+  color: #f55358 !important;
   transition: 0.3s;
 }
 
@@ -37,6 +36,10 @@ header,
   }
 }
 
+
+.nav-link {
+  color: white !important;
+}
 .navbar-default {
   z-index: 1 !important;
   transition: 500ms ease;
@@ -63,6 +66,7 @@ header,
 .navbar-default.scrolled a:hover {
   text-shadow: 0 0 0 !important;
   background-color: lightgrey;
+  border-radius: 10px;
 }
 
 .navbar-nav a:hover {
@@ -165,6 +169,18 @@ header,
 .about-paragraph {
   color: white;
 }
+.tech {
+  padding: 5%;
+}
+.tech h1, .tech h2 {
+  color: #333333;
+}
+.webdev {
+  padding: 5%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1%;
+}
 
 .form-hold {
   background-color: #333333;
@@ -200,11 +216,17 @@ header,
 }
 
 .received-page a {
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
   font-size: 2vh;
   letter-spacing: 0.3em;
+  color: green;
 }
 
 .received-page h1 {
+  padding: 10%;
+  color: black;
   font-size: 10vh;
   font-family: 'Staatliches', cursive !important;
 }
