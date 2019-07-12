@@ -1,17 +1,8 @@
-.back {
-  display: inline-block;
-  position: absolute;
-}
-.key {
-  margin-left: 85%;
-  display: inline-block;
-  border: 1px solid black;
-  padding-right: 1vh;
-}
 a {
-  color:#F55358;
+	color: #f55358;
+	transition: 0.2s ease;
 }
 
 a:hover {
-  color:  #44DDEE;
+	color:#44DDEE;
 }
