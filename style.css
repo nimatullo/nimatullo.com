@@ -39,6 +39,7 @@ header,
 
 .nav-link {
   color: white !important;
+  font-size: 16px;
 }
 .navbar-default {
   z-index: 1 !important;
@@ -180,30 +181,6 @@ header,
   border: 1px solid black;
   border-radius: 5px;
   margin: 1%;
-}
-
-.form-hold {
-  background-color: #333333;
-  padding-top: 30vh;
-  height: 100%;
-  color: white;
-}
-
-.buttonColor {
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  background-color: #f55358;
-  border-color: #f55358;
-  color: white;
-  transition-duration: 0.4s;
-  text-shadow: 1px 1px 5px #333333 !important;
-}
-
-.buttonColor:hover {
-  background-color: #44DDEE;
-  border-color: #44DDEE;
-  text-shadow: 1px 1px 5px #333333 !important;
 }
 
 .received-page {
