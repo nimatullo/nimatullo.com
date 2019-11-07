@@ -1,18 +1,12 @@
 body {
   background-color: white;
-  color: #333333;
+  color: #000000;
   letter-spacing: 0.1em;
-  font-weight: lighter;
 }
 
 a {
   color: #f55358 !important;
   transition: 0.3s;
-}
-
-h1 {
-  color: white;
-  font-size: 2em;
 }
 
 html,
@@ -86,7 +80,7 @@ header,
 
 /* Opening background image style and text */
 .front-page-text {
-  color: #333333;
+  color: #f55358;
 }
 
 .text-holder {
