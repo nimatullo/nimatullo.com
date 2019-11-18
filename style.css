@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: white;
   color: #000000;
   letter-spacing: 0.1em;
@@ -7,6 +7,24 @@ body {
 a {
   color: #f55358 !important;
   transition: 0.3s;
+} */
+
+body {
+  font-family: 'Loto', sans-serif;
+  font-size: .8em;
+}
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+}
+a {
+  color: #f05555 !important;
+}
+a:hover {
+  color: #55dcf0;
+}
+h1 {
+font-size: 4vh;
 }
 
 html,
@@ -30,52 +48,13 @@ header,
   }
 }
 
-
-.nav-link {
-  color: white !important;
-  font-size: 16px;
-}
-.navbar-default {
-  z-index: 1 !important;
-  transition: 500ms ease;
-  background: transparent;
-}
-
-.navbar-default.scrolled {
-  background-color: white;
-}
-
-.navbar-default.scrolled a {
-  color: #333333 !important;
-  text-shadow: 0 0 0 !important;
-}
-
-.navbar-default.scrolled  .navbar-toggler-icon {
-  background-image: url("vectors/hamburger_scrolled.png") !important;
-}
-
 .navbar-default .navbar-toggler-icon {
   background-image: url("vectors/hamburger.png") !important;
-}
-
-.navbar-default.scrolled a:hover {
-  text-shadow: 0 0 0 !important;
-  background-color: lightgrey;
-  border-radius: 10px;
-}
-
-.navbar-nav a:hover {
-  text-shadow: 1px 2px #f55358 !important;
 }
 
 .nav-item {
   z-index: 2 !important;
   font-size: 25px !important;
-}
-
-.active a {
-  color: #44DDEE !important;
-  text-shadow: 1px 2px #f55358 !important;
 }
 
 /* Opening background image style and text */
@@ -100,7 +79,8 @@ header,
 }
 
 .text-container {
-  padding-top: 50vh;
+  padding: 40vh;
+  font-family: 'Lexend Deca';
 }
 
 #opener {
