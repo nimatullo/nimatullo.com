@@ -1,7 +1,8 @@
 /* body {
   background-color: white;
-  color: #000000;
+  color: #333333;
   letter-spacing: 0.1em;
+  font-weight: lighter;
 }
 
 a {
@@ -25,6 +26,11 @@ a:hover {
 }
 h1 {
 font-size: 4vh;
+}
+
+h1 {
+  color: white;
+  font-size: 2em;
 }
 
 html,
@@ -59,7 +65,7 @@ header,
 
 /* Opening background image style and text */
 .front-page-text {
-  color: #f55358;
+  color: #333333;
 }
 
 .text-holder {
