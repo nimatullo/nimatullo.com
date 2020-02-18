@@ -1,216 +1,176 @@
-body {
-  background-color: white;
-  color: #333333;
-  letter-spacing: 0.1em;
-  scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #f55358 !important;
-  transition: 0.3s;
-}
-
-p {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-h1 {
-  color: white;
-  font-size: 2em;
-  font-family: "Lato", sans-serif;
-}
-
-html,
 body,
-header,
-#intro {
-  height: 100%;
+html {
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  background: #fefefe;
+  color: #1c1c1c;
+  font-size: 100%;
+  font-family: "Cabin", sans-serif;
 }
 
-/* nav style */
-@media only screen and (max-width: 600px) {
-  .navbar {
-    background-color: white;
-  }
-  .navbar a {
-    color: #333333 !important;
-    text-shadow: 0 0 0 !important;
-  }
-  .navbar-toggler-icon {
-    background-image: url("vectors/hamburger_scrolled.png") !important;
-  }
+nav {
+  padding: 1em;
+  height: 100px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.nav-link {
-  color: white !important;
-  font-size: 0.5em;
-  text-transform: uppercase;
-}
-
-.navbar-default {
-  z-index: 1;
-  transition: 500ms ease;
-  background:rgba(50,50,50,0.6);
-}
-
-.navbar-default.scrolled  .navbar-toggler-icon {
-  background-image: url("vectors/hamburger_scrolled.png") !important;
-}
-
-.navbar-default .navbar-toggler-icon {
-  background-image: url("vectors/hamburger.png") !important;
-}
-
-
-.navbar-nav a:hover {
-  color: #f55358 !important;
-}
-
-.nav-item {
-  z-index: 2 !important;
-  font-size: 25px !important;
-}
-
-.active a {
-  color: #44DDEE !important;
-}
-
-/* Opening background image style and text */
-.front-page-text {
-  color: #333333;
-}
-
-.view {
+nav ul {
   display: flex;
+}
+
+ul li:first-child {
+  margin-right: auto;
+  font-size: 36px;
+}
+
+nav ul li {
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  font-size: 1em;
+}
+
+nav a {
+  color: #1c1c1c;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: darkgray;
+}
+
+.opening {
+  display: flex;
+  height: 85vh;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color: #F55358;
 }
 
-#intro {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(159, 159, 159, 0.5)),
-    url(vectors/background_old.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.opening div {
+  display: inline-block;
 }
 
-.text-holder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.opening img {
+  width: 30%;
+  height: auto;
+}
+
+.opening .paragraph {
   width: 50%;
-  flex-basis: 250px;
-  font-size: 2rem;
-  background: rgba(0, 0, 0, 0.562);
+  text-align: right;
 }
 
-.text-holder h3 {
-  color: white;
+.opening h1 {
+  font-weight: bold;
+  font-size: 5rem;
 }
 
-.text-holder h1 span {
-  color: #F55358;
+.opening h2 {
+  font-size: 2.5rem;
 }
 
-/* To Do List list group style */
-
-.card-link {
-  color: #333333 !important;
-  text-shadow: 0 0 0 !important
+.email {
+  font-size: 1.5rem;
+  padding-top: 30px;
 }
-.card-header {
-  background-color: lightgrey;
-}
-
-/* Footer style */
-
-.icon {
-  width: 3vh;
-  margin: 1%;
+.email a {
+  background: linear-gradient(to bottom, #0384fc 0%, #0384fc 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: ease 350ms;
+  color: #1c1c1c;
+  font-family: sans-serif;
 }
 
-.text-of-center {
-  color: white !important;
+.email a:hover {
+  background-size: 4px 50px;
+  color: #fefefe;
 }
 
-/* Other pages style */
-#josh {
-  text-shadow: 0px 0px 0px #333333 !important;
-  color: #333333 !important;
-}
-
-/* About Page style */
-.about-holder {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.10)),
-    url(vectors/aboutbackground_old.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.social-media {
+  width: 20vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.social-media a {
+  color: #1c1c1c;
+}
+
+.projects {
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-}
-
-.about-holder .container {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 2em;
+}
+
+.projects .project {
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  font-size: 1rem;
-  background: rgba(0, 0, 0, 0.432);
+  width: 80vw;
+  position: relative;
 }
 
-.about-paragraph {
-  color: white;
-}
-.tech {
-  padding: 5%;
-}
-.tech h1, .tech h2 {
-  color: #333333;
-}
-.webdev {
-  padding: 5%;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 1%;
+.projects .project .text {
+  padding: 1em;
+  border-radius: 1em;
+  position: absolute;
+  background-color: #d8d9d9;
+  color: #434343;
+  width: 20vw;
+  height: auto;
+  left: 5%;
+  box-shadow: 1px 2px 7px rgb(177, 177, 177);
 }
 
-.received-page {
-  height: 100%;
-  background-image: url(https://i.imgur.com/cp0FliG.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.projects .text-editor .text {
+  left: auto;
+  right: 5%;
 }
 
-.received-page a {
-  padding: 5px;
-  background-color: white;
-  border-radius: 5px;
-  font-size: 2vh;
-  letter-spacing: 0.3em;
-  color: green;
+.projects .project img {
+  border-radius: 1em;
+  width: 50vw;
+  height: auto;
 }
 
-.received-page h1 {
-  padding: 10%;
-  color: black;
-  font-size: 10vh;
-  font-family: 'Staatliches', cursive !important;
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1c;
+    color: #fefefe;
+  }
+  nav a {
+    color: #fefefe;
+  }
+
+  nav a:hover {
+    color: lightgray;
+  }
+
+  .email a {
+    color: #fefefe;
+  }
+
+  .social-media a {
+    color: #fefefe;
+  }
+  .projects .project .text {
+    background-color: #272626f3;
+    box-shadow: 1px 2px 7px rgb(34, 34, 34);
+    color: #fefefe;
+  }
 }
