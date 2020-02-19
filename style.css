@@ -129,12 +129,12 @@ nav a:hover {
   padding: 1em;
   border-radius: 1em;
   position: absolute;
-  background-color: #d8d9d9;
-  color: #434343;
+  background-color: #fefefe;
+  color: #1c1c1c;
   width: 20vw;
   height: auto;
   left: 5%;
-  box-shadow: 1px 2px 7px rgb(177, 177, 177);
+  box-shadow: 1px 2px 7px rgb(142, 142, 142);
 }
 
 .projects .text-editor .text {
