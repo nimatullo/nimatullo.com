@@ -1,0 +1,49 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  row-gap: 1em;
+  margin: 1em;
+  max-width: 80vw;
+}
+
+.gridChildContainer {
+  padding: 40px;
+  background-color: #efefef;
+  color: #1c1c1c;
+  border: 2px solid #eeeeee;
+  height: 300px;
+}
+
+.gridChildContainer:hover {
+  border: 2px dashed #9d9d9d;
+}
+
+.gridChildContainer div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.gridChildContainer div header hr {
+  margin: 10px 0;
+}
+
+.intro {
+  margin: 50px 0;
+  font-size: 1.5em;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #44ddee;
+}
+
+::selection {
+  color: white;
+  background: #44ddee;
+}
