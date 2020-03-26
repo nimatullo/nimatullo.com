@@ -10,7 +10,7 @@
 
 .projectContent {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: center;
   border: 1px solid #6f6f6f1c;
   padding: 2em;
@@ -22,10 +22,14 @@
     0 0px 8.3px rgba(254, 0, 0, 0.042), 0 0px 10px rgba(0, 0, 0, 0.07);
 }
 
+.projectList .info {
+  grid-column: span 2 / auto;
+}
+
 .projectContent .actions {
-  display: flex;
-  justify-content: right;
-  min-width: 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  direction: rtl;
 }
 
 .projectContent .actions a {
