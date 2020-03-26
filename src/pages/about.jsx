@@ -17,7 +17,12 @@ const About = () => {
           <p>I am a computer science student from NYC.</p>
           <p>
             The design for this website was highly inspired by{" "}
-            <a style={{textDecoration="underline"}}target="_blank" href="https://www.instagram.com/dhanishgajjar/">
+            <a
+              style={{ textDecoration: "underline" }}
+              id="creditLink"
+              target="_blank"
+              href="https://www.instagram.com/dhanishgajjar/"
+            >
               Dhanish Gajjar.
             </a>
           </p>
