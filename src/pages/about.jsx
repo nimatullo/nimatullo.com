@@ -15,6 +15,12 @@ const About = () => {
         <div className="intro">
           <h2>About</h2>
           <p>I am a computer science student from NYC.</p>
+          <p>
+            The design for this website was highly inspired by{" "}
+            <a target="_blank" href="https://www.instagram.com/dhanishgajjar/">
+              Dhanish Gajjar
+            </a>
+          </p>
         </div>
       </div>
       <SocialMediaNav />
