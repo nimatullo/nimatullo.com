@@ -1,11 +1,12 @@
 import React from "react"
+import { Link } from "gatsby"
 
-const GridChild = ({ title, description }) => {
+const GridChild = ({ link, title, description }) => {
   const handleClick = () => {
     console.log("take ot different page")
   }
   return (
-    <a href={`/${title}`} className="gridChildContainer">
+    <Link to={`/${link}`} className="gridChildContainer hover">
       <div>
         <header>
           <h4>{title}</h4>
@@ -13,7 +14,7 @@ const GridChild = ({ title, description }) => {
         </header>
         <p>{description}</p>
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -16,11 +16,27 @@ const Index = () => {
         </p>
       </div>
       <div className="grid">
-        <GridChild title="Projects" description="Checkout my projects" />
-        <GridChild title="About" description="About Me" />
-        <GridChild title="Reading List" description="Some books I recommend" />
-        <GridChild title="Resume" description="My Resume" />
-        <GridChild title="Uses" description="What I use for development" />
+        <GridChild
+          link="projects"
+          title="Projects"
+          description="Projects I'm proud of"
+        />
+        <GridChild link="about" title="About" description="About Me" />
+        <GridChild
+          link="books"
+          title="Reading List"
+          description="Some books I recommend"
+        />
+        <GridChild
+          link="resume"
+          title="Resume"
+          description="Professional resume"
+        />
+        <GridChild
+          link="uses"
+          title="Uses"
+          description="List of software and hardware that aids I use"
+        />
         <GridChild title="TBD" description="TBD" />
       </div>
       <SocialmediaNav />
