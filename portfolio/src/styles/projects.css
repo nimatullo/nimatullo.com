@@ -1,0 +1,43 @@
+.projectList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projectList > * {
+  margin-bottom: 2em;
+}
+
+.projectContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  border: 1px solid #6f6f6f1c;
+  padding: 2em;
+  width: 100%;
+  background-color: #efefef;
+  border-radius: 6px;
+  min-height: 200px;
+  box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.028),
+    0 0px 8.3px rgba(254, 0, 0, 0.042), 0 0px 10px rgba(0, 0, 0, 0.07);
+}
+
+.projectContent .actions {
+  display: flex;
+  justify-content: right;
+  min-width: 150px;
+}
+
+.projectContent .actions a {
+  border: 1px solid #1c1c1c;
+  padding: 10px;
+  border-radius: 6px;
+  transition: ease 0.3s;
+  text-align: center;
+  margin: 1em;
+}
+
+.projectContent .actions a:hover {
+  background-color: #1c1c1c;
+  color: #fefefe;
+}

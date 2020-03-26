@@ -1,0 +1,18 @@
+footer {
+  margin: 50px 0;
+  min-width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1em;
+  text-align: center;
+}
+
+footer ul li {
+  list-style-type: none;
+}
