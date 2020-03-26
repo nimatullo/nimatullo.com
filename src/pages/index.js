@@ -1,9 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import GridChild from "../components/GridChild"
-import SocialmediaNav from "../components/SocialMediaNav"
-import "../styles/grid.css"
-import "../styles/global.css"
+import React from "react";
+import GridChild from "../components/GridChild";
+import SocialmediaNav from "../components/SocialMediaNav";
+import "../styles/grid.css";
+import "../styles/global.css";
 
 const Index = () => {
   return (
@@ -41,7 +40,7 @@ const Index = () => {
       </div>
       <SocialmediaNav />
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
