@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 const ProjectContainer = ({ project }) => {
   return (
@@ -10,18 +10,18 @@ const ProjectContainer = ({ project }) => {
       </div>
       <div className="actions">
         {project.link && (
-          <Link target="_blank" className="hover" to={project.link}>
+          <a target="_blank" className="hover" href={project.link}>
             Project URL
-          </Link>
+          </a>
         )}
         {project.github && (
-          <Link target="_blank" className="hover" to={project.github}>
+          <a target="_blank" className="hover" href={project.github}>
             Github URL
-          </Link>
+          </a>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectContainer
+export default ProjectContainer;
