@@ -1,12 +1,17 @@
-import React from "react"
-import ProjectContainer from "../components/ProjectContainer"
-import "../styles/projects.css"
-import Nav from "../components/Nav"
-import SocialmediaNav from "../components/SocialMediaNav"
+import React from "react";
+import ProjectContainer from "../components/ProjectContainer";
+import "../styles/projects.css";
+import Nav from "../components/Nav";
+import SocialmediaNav from "../components/SocialMediaNav";
+import Helmet from "react-helmet";
 
 const Projects = () => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Sherzod Nimatullo | Projects</title>
+      </Helmet>
       <Nav />
       <div className="container">
         <div className="intro">
@@ -22,14 +27,14 @@ const Projects = () => {
               title: "Reminderse",
               description:
                 "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
-              link: "https://reminderse.com",
+              link: "https://reminderse.com"
             }}
           />
           <ProjectContainer
             project={{
               title: "Typer",
               description: "JavaFX built Text Editor",
-              github: "https://github.com/mmvvpp123/Typer",
+              github: "https://github.com/mmvvpp123/Typer"
             }}
           />
           <ProjectContainer
@@ -38,14 +43,14 @@ const Projects = () => {
               description:
                 "Machine Learning model using Linear Regression, Random Forest Regression, and Gradient Boosting Regression in order to predict and rank the current NBA season’s Most Valuable Player",
               github: "https://github.com/mmvvpp123/CEWIT-Hackathon-Project",
-              link: "https://mvp-prediction.appspot.com/",
+              link: "https://mvp-prediction.appspot.com/"
             }}
           />
         </div>
       </div>
       <SocialmediaNav />
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

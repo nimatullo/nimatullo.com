@@ -1,11 +1,16 @@
-import React from "react"
-import Nav from "../components/Nav"
-import "../styles/gear.css"
-import SocialMediaNav from "../components/SocialMediaNav"
+import React from "react";
+import Nav from "../components/Nav";
+import "../styles/gear.css";
+import SocialMediaNav from "../components/SocialMediaNav";
+import Helmet from "react-helmet";
 
 const Uses = () => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Sherzod Nimatullo | Uses</title>
+      </Helmet>
       <Nav />
       <div className="container">
         <div className="intro">
@@ -62,7 +67,7 @@ const Uses = () => {
       </div>
       <SocialMediaNav />
     </>
-  )
-}
+  );
+};
 
-export default Uses
+export default Uses;

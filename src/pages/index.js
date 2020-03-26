@@ -3,10 +3,15 @@ import GridChild from "../components/GridChild";
 import SocialmediaNav from "../components/SocialMediaNav";
 import "../styles/grid.css";
 import "../styles/global.css";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
     <div className="container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Sherzod Nimatullo | Home Page</title>
+      </Helmet>
       <div className="intro">
         <h1>Hey I'm Sherzod.👋</h1>
         <p>
