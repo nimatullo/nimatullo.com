@@ -1,0 +1,12 @@
+.gearList ul {
+  font-size: 1.2rem;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.gearList h2 {
+  width: fit-content;
+  margin-bottom: 1em;
+  border: 1px solid #1e1e1e;
+  padding: 10px;
+}
