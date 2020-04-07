@@ -16,11 +16,7 @@ const Resume = () => {
         <p>My resume</p>
       </div>
       <div className="resumeContent">
-        <iframe
-          src="https://drive.google.com/file/d/1A9pWHYKUqq8OBflK99AIxJahZ96jUa-_/preview"
-          width="1000px"
-          height="1100px"
-        ></iframe>
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vRDzcwPM-Y_fKcKVpa8GWa1AxZj0x-PMEzxbhJcP5a9LoWWAKrAnBG1vDbVm_jl6QvVJETLXewsUmuD/pub?embedded=true"></iframe>
       </div>
       <SocialmediaNav />
     </>
