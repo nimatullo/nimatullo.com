@@ -39,7 +39,7 @@ const Index = () => {
         <GridChild
           link="uses"
           title="Uses"
-          description="List of software and hardware that aids I use"
+          description="List of software and hardware I use"
         />
         <GridChild title="TBD" description="TBD" />
       </div>

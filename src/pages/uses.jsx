@@ -52,6 +52,7 @@ const Uses = () => {
             <h3>Keyboard</h3>
             <ul>
               <li>Magic Keyboard 2</li>
+              <li>Durgod Taurus K320 Corona</li>
             </ul>
             <h3>Mouse</h3>
             <ul>
