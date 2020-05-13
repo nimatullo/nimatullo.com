@@ -50,7 +50,7 @@ const Projects = () => {
             project={{
               title: "Ghost Kitchen",
               description:
-                "Full stack food delivery website made using Spring, React, PSQL.",
+                "Full stack food delivery service made using Spring, React, PSQL. (Not a real service)",
               github: "https://github.com/nimatullo/GhostKitchen",
               link: "http://ghostkitchen.site/",
             }}
