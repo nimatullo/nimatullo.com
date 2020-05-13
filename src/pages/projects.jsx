@@ -52,7 +52,7 @@ const Projects = () => {
               description:
                 "Full stack food delivery website made using Spring, React, PSQL.",
               github: "https://github.com/nimatullo/GhostKitchen",
-              link: "https://ghostkitchen.site/",
+              link: "http://ghostkitchen.site/",
             }}
           />
         </div>
