@@ -27,14 +27,14 @@ const Projects = () => {
               title: "Reminderse",
               description:
                 "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
-              link: "https://reminderse.com"
+              link: "https://reminderse.com",
             }}
           />
           <ProjectContainer
             project={{
               title: "Typer",
               description: "JavaFX built Text Editor",
-              github: "https://github.com/mmvvpp123/Typer"
+              github: "https://github.com/nimatullo/Typer",
             }}
           />
           <ProjectContainer
@@ -42,8 +42,17 @@ const Projects = () => {
               title: "Prodicter",
               description:
                 "Machine Learning model using Linear Regression, Random Forest Regression, and Gradient Boosting Regression in order to predict and rank the current NBA season’s Most Valuable Player",
-              github: "https://github.com/mmvvpp123/CEWIT-Hackathon-Project",
-              link: "https://mvp-prediction.appspot.com/"
+              github: "https://github.com/nimatullo/CEWIT-Hackathon-Project",
+              link: "https://mvp-prediction.appspot.com/",
+            }}
+          />
+          <ProjectContainer
+            project={{
+              title: "Ghost Kitchen",
+              description:
+                "Full stack food delivery website made using Spring, React, PSQL.",
+              github: "https://github.com/nimatullo/GhostKitchen",
+              link: "https://ghostkitchen.site/",
             }}
           />
         </div>

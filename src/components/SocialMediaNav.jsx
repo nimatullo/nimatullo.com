@@ -1,6 +1,6 @@
-import React from "react"
-import "../styles/socialmedianav.css"
-import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa"
+import React from "react";
+import "../styles/socialmedianav.css";
+import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 const SocialmediaNav = () => {
   return (
@@ -17,7 +17,7 @@ const SocialmediaNav = () => {
           </a>
         </li>
         <li>
-          <a target="_blank" href="http://github.com/mmvvpp123">
+          <a target="_blank" href="http://github.com/nimatullo">
             <FaGithub size="2em" color="#1c1c1c" />
           </a>
         </li>
@@ -31,7 +31,7 @@ const SocialmediaNav = () => {
         Stay Connected
       </a>
     </footer>
-  )
-}
+  );
+};
 
-export default SocialmediaNav
+export default SocialmediaNav;
