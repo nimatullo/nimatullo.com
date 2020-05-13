@@ -24,17 +24,19 @@ const Projects = () => {
         <div className="projectList">
           <ProjectContainer
             project={{
-              title: "Reminderse",
+              title: "Ghost Kitchen",
               description:
-                "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
-              link: "https://reminderse.com",
+                "Full stack food delivery service made with Spring, React, PSQL. (Not a real service)",
+              github: "https://github.com/nimatullo/GhostKitchen",
+              link: "http://ghostkitchen.site/",
             }}
           />
           <ProjectContainer
             project={{
-              title: "Typer",
-              description: "JavaFX built Text Editor",
-              github: "https://github.com/nimatullo/Typer",
+              title: "Reminderse",
+              description:
+                "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
+              link: "https://reminderse.com",
             }}
           />
           <ProjectContainer
@@ -48,11 +50,9 @@ const Projects = () => {
           />
           <ProjectContainer
             project={{
-              title: "Ghost Kitchen",
-              description:
-                "Full stack food delivery service made with Spring, React, PSQL. (Not a real service)",
-              github: "https://github.com/nimatullo/GhostKitchen",
-              link: "http://ghostkitchen.site/",
+              title: "Typer",
+              description: "JavaFX built Text Editor",
+              github: "https://github.com/nimatullo/Typer",
             }}
           />
         </div>
