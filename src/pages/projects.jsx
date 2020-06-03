@@ -36,6 +36,7 @@ const Projects = () => {
               title: "Reminderse",
               description:
                 "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
+              github: "https://github.com/nimatullo/Reminderse-API",
               link: "https://reminderse.com",
             }}
           />
