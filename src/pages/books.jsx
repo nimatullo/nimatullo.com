@@ -33,7 +33,7 @@ const Books = () => {
             const book = {
               title: bookInfo.title,
               author: bookInfo.authors[0],
-              img: bookInfo.imageLinks.smallThumbnail
+              img: bookInfo.imageLinks.smallThumbnail.replace('http://', 'https://')
             };
             setBooksList(booksList => [...booksList, book]);
           })
