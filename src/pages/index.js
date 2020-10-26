@@ -15,7 +15,7 @@ const Index = () => {
       <div className="intro">
         <h1>Hey I'm Sherzod.👋</h1>
         <p>
-          I'm a sophomore computer science student with a passion for software
+          I'm a junior computer science student with a passion for software
           development.
         </p>
       </div>
