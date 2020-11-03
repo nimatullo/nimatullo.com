@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/socialmedianav.css";
-import { FaGithub, FaTwitter, FaInstagram, FaEnvelope, BsMusicNote } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaInstagram, FaEnvelope, FaMusic } from "react-icons/fa";
 
 const SocialmediaNav = () => {
   return (
@@ -23,7 +23,7 @@ const SocialmediaNav = () => {
         </li>
         <li>
           <a href="_blank" href="https://music.apple.com/profile/mmvvpp123">
-            <BsMusicNote size="2em" color="#1c1c1c"/>
+            <FaMusic size="2em" color="#1c1c1c"/>
           </a>
         </li>
         <li>
