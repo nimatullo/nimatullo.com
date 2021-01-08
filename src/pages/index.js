@@ -41,7 +41,7 @@ const Index = () => {
           title="Uses"
           description="List of software and hardware I use"
         />
-        <GridChild title="TBD" description="TBD" />
+        <GridChildExternal title="Puffer Labs" link="https://www.notion.so/Puffer-Labs-Guidelines-218cbc91bbd84597b5e660f0dcadd5fb" description="Puffer Labs documentation page" />
       </div>
       <SocialmediaNav />
     </div>

@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const GridChild = ({ link, title, description }) => {
+const GridChildExternal = ({ link, title, description }) => {
   return (
-    <Link to={`/${link}`} className="gridChildContainer hover">
+    <Link to={link} className="gridChildContainer hover">
       <div>
         <header>
           <h4>{title}</h4>
