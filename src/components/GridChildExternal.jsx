@@ -15,4 +15,4 @@ const GridChildExternal = ({ link, title, description }) => {
   )
 }
 
-export default GridChild
+export default GridChildExternal
