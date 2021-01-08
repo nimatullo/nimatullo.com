@@ -1,5 +1,6 @@
 import React from "react";
 import GridChild from "../components/GridChild";
+import GridChildExternal from "../components/GridChildExternal";
 import SocialmediaNav from "../components/SocialMediaNav";
 import "../styles/grid.css";
 import "../styles/global.css";
