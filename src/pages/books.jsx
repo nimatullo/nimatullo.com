@@ -10,15 +10,14 @@ const Books = () => {
   const [isLoading, setLoading] = useState(true);
   const [booksList, setBooksList] = useState([]);
   const ISBN_LIST = [
-    9781250301697,
-    9780812983586,
-    9781591841661,
-    9780767908184,
-    9780143107552,
-    9780062457738,
-    9780142437308,
-    9780062316103,
-    9781508211808
+    9781501135927, // Shoe Dog
+    9781250301697, // Silent Patient
+    9780812983586, // Kavalier and Clay
+    9781591841661, // The Dip
+    9780767908184, // History of Everthing
+    9780062457738, // Subtle Art
+    9780142437308, // Power and the Glory
+    9780062316103, // Sapiens
   ];
   useEffect(() => {
     ISBN_LIST.map(isbn => {
