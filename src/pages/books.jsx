@@ -8,7 +8,8 @@ import Helmet from "react-helmet";
 
 const Books = () => {
   const [isLoading, setLoading] = useState(true);
-  const isbnList = [
+  const [booksList, setBooksList] = useState([]);
+  const ISBN_LIST = [
     9781250301697,
     9780812983586,
     9781591841661,
@@ -16,31 +17,29 @@ const Books = () => {
     9780143107552,
     9780062457738,
     9780142437308,
-    9780062316103
+    9780062316103,
+    9781508211808
   ];
-  const [booksList, setBooksList] = useState([]);
   useEffect(() => {
-    setTimeout(() => {
-      isbnList.map(isbn => {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, {
-          method: "GET"
+    ISBN_LIST.map(isbn => {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, {
+        method: "GET"
+      })
+        .then(res => {
+          return res.json();
         })
-          .then(res => {
-            return res.json();
-          })
-          .then(data => data.items[0].volumeInfo)
-          .then(bookInfo => {
-            const book = {
-              title: bookInfo.title,
-              author: bookInfo.authors[0],
-              img: bookInfo.imageLinks.smallThumbnail.replace('http://', 'https://')
-            };
-            setBooksList(booksList => [...booksList, book]);
-          })
-          .catch(err => console.log(err))
-          .finally(setLoading(false));
-      });
-    }, 1000);
+        .then(data => data.items[0].volumeInfo)
+        .then(bookInfo => {
+          const book = {
+            title: bookInfo.title,
+            author: bookInfo.authors[0],
+            img: bookInfo.imageLinks.smallThumbnail.replace('http://', 'https://')
+          };
+          setBooksList(booksList => [...booksList, book]);
+        })
+        .catch(err => console.log(err))
+        .finally(setLoading(false));
+    });
   }, []);
   const content = () => {
     if (isLoading) {
