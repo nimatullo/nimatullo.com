@@ -12,9 +12,9 @@ const About = () => {
       </Helmet>
       <Nav />
       <div className="container">
-        <div className="intro">
+        <div className="intro center">
           <h2>About</h2>
-          <p>I am a computer science student from NYC.</p>
+          <p>I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music.</p>
           <p>
             The design for this website was highly inspired by{" "}
             <a

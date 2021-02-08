@@ -44,6 +44,10 @@
   font-size: 1.5em;
 }
 
+.intro img {
+  width: 70%;
+}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: white;

@@ -51,9 +51,9 @@ const Projects = () => {
           />
           <ProjectContainer
             project={{
-              title: "Typer",
-              description: "JavaFX built Text Editor",
-              github: "https://github.com/nimatullo/Typer",
+              title: "Puffer Labs",
+              description: "Start up I started with a few friends. Can't reveal too much 🤐",
+              github: "https://github.com/Puffer-Labs/",
             }}
           />
         </div>

@@ -12,7 +12,7 @@ const SocialmediaNav = () => {
           </a>
         </li>
         <li>
-          <a target="_blank" href="http://twitter.com">
+          <a target="_blank" href="http://twitter.com/mmvvpp123">
             <FaTwitter size="2em" color="#1c1c1c" />
           </a>
         </li>
@@ -27,7 +27,7 @@ const SocialmediaNav = () => {
           </a>
         </li>
         <li>
-          <a target="_blank" href="mailto:sherzodnimatullo@turtle.nyc">
+          <a target="_blank" href="mailto:sherzodnimatullo@gmail.com">
             <FaEnvelope size="2em" color="#1c1c1c" />
           </a>
         </li>
