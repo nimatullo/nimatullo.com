@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import SocialMediaNav from "../components/SocialMediaNav";
 import Helmet from "react-helmet";
+import PageIntro from "../components/PageIntro";
 
 const About = () => {
   return (
@@ -12,21 +13,21 @@ const About = () => {
       </Helmet>
       <Nav />
       <div className="container">
-        <div className="intro center">
-          <h2>About</h2>
-          <p>I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music.</p>
-          <p>
-            The design for this website was highly inspired by{" "}
-            <a
-              style={{ textDecoration: "underline" }}
-              id="creditLink"
-              target="_blank"
-              href="https://www.instagram.com/dhanishgajjar/"
-            >
-              Dhanish Gajjar.
-            </a>
-          </p>
-        </div>
+        <PageIntro
+          header="About"
+          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
+        />
+        <small>
+          The design for this website was highly inspired by{" "}
+          <a
+            style={{ textDecoration: "underline" }}
+            id="creditLink"
+            target="_blank"
+            href="https://www.instagram.com/dhanishgajjar/"
+          >
+            Dhanish Gajjar.
+          </a>
+        </small>
       </div>
       <SocialMediaNav />
     </>
