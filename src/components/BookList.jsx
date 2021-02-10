@@ -24,7 +24,9 @@ const BookList = () => {
         .then((res) => {
           return res.json();
         })
-        .then((data) => data.items[0].volumeInfo)
+        .then((data) => {
+          return data.items[0].volumeInfo;
+        })
         .then((bookInfo) => {
           const book = {
             index: listId++,
@@ -43,7 +45,7 @@ const BookList = () => {
   return (
     <div className="bookList">
       {booksList.map((book) => (
-        <Book book={book} />
+        <Book key={book.index} book={book} />
       ))}
     </div>
   );

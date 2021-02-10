@@ -17,6 +17,7 @@ const Resume = () => {
       </div>
       <div className="resumeContent">
         <iframe
+          title="drive-iframe"
           src="https://drive.google.com/file/d/1N3pq3kVY4IKXj15MyDL5-bw1tl_5pxux/preview"
           width="1000px"
           height="1100px"

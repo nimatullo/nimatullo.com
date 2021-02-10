@@ -4,6 +4,7 @@ import "../styles/projects.css";
 import Nav from "../components/Nav";
 import SocialmediaNav from "../components/SocialMediaNav";
 import Helmet from "react-helmet";
+import PageIntro from "../components/PageIntro";
 
 const Projects = () => {
   return (
@@ -14,30 +15,27 @@ const Projects = () => {
       </Helmet>
       <Nav />
       <div className="container">
-        <div className="intro">
-          <h2>Projects</h2>
-          <p>
-            Here are a list of some projects that I'm proud of. Most of these
-            are open source so feel free to modify and extend as you please!
-          </p>
-        </div>
+        <PageIntro
+          header="Projects"
+          text="Here are a list of some projects that I'm proud of. Most of these are open source so feel free to modify and extend as you please!"
+        />
         <div className="projectList">
-          <ProjectContainer
-            project={{
-              title: "Ghost Kitchen",
-              description:
-                "Full stack food delivery service made with Spring, React, PSQL. (Not a real service) [Project URL is not online because hosting got expensive]",
-              github: "https://github.com/nimatullo/GhostKitchen",
-              link: "http://ghostkitchen.site/",
-            }}
-          />
           <ProjectContainer
             project={{
               title: "Reminderse",
               description:
                 "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
               github: "https://github.com/nimatullo/Reminderse-API",
-              link: "https://reminderse.com",
+              link: "https://www.reminderse.com",
+            }}
+          />
+          <ProjectContainer
+            project={{
+              title: "Ghost Kitchen",
+              description:
+                "Full stack food delivery sample service made with Spring, React, PSQL.",
+              github: "https://github.com/nimatullo/GhostKitchen",
+              link: "https://youtu.be/wSX2Ocldlho",
             }}
           />
           <ProjectContainer
@@ -46,13 +44,15 @@ const Projects = () => {
               description:
                 "Machine Learning model using Linear Regression, Random Forest Regression, and Gradient Boosting Regression in order to predict and rank the current NBA season’s Most Valuable Player",
               github: "https://github.com/nimatullo/CEWIT-Hackathon-Project",
-              link: "https://mvp-prediction.appspot.com/",
+              link:
+                "https://devpost.com/software/prodict-machine-learning-mvp-prediction",
             }}
           />
           <ProjectContainer
             project={{
               title: "Puffer Labs",
-              description: "Start up I started with a few friends. Can't reveal too much 🤐",
+              description:
+                "Start up I started with a few friends. Can't reveal too much.🤐",
               github: "https://github.com/Puffer-Labs/",
             }}
           />

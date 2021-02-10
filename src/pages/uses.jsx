@@ -3,6 +3,8 @@ import Nav from "../components/Nav";
 import "../styles/gear.css";
 import SocialMediaNav from "../components/SocialMediaNav";
 import Helmet from "react-helmet";
+import PageIntro from "../components/PageIntro";
+import TitledList from "../components/TitledList";
 
 const Uses = () => {
   return (
@@ -13,28 +15,18 @@ const Uses = () => {
       </Helmet>
       <Nav />
       <div className="container">
-        <div className="intro">
-          <h2>Uses</h2>
-          <p>Software that I use for development.</p>
-        </div>
+        <PageIntro header="Uses" text="Software I use for development." />
         <div className="gearList">
           <div className="software">
-            <h4>Editors</h4>
-            <ul>
-              <li>Visual Studio Code</li>
-              <li>IntelliJ</li>
-              <li>Vim</li>
-            </ul>
-            <h4>Design</h4>
-            <ul>
-              <li>Sketch</li>
-              <li>Photoshop</li>
-            </ul>
-            <h4>Utils</h4>
-            <ul>
-              <li>iTerm2 w/ Oh My Zsh</li>
-              <li>Postman</li>
-            </ul>
+            <TitledList
+              title="Editors"
+              entries={["Visual Studio Code", "IntelliJ", "Vim"]}
+            />
+            <TitledList title="Design" entries={["Sketch", "Photoshop"]} />
+            <TitledList
+              title="Utils"
+              entries={["iTerm2 w/ Oh My Zsh", "Postman"]}
+            />
           </div>
         </div>
       </div>
