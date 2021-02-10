@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 
 const ProjectContainer = ({ project }) => {
   return (
@@ -10,12 +9,22 @@ const ProjectContainer = ({ project }) => {
       </div>
       <div className="actions">
         {project.link && (
-          <a target="_blank" className="hover" href={project.link}>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="hover"
+            href={project.link}
+          >
             Project URL
           </a>
         )}
         {project.github && (
-          <a target="_blank" className="hover" href={project.github}>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="hover"
+            href={project.github}
+          >
             Github URL
           </a>
         )}

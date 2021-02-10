@@ -23,6 +23,7 @@ const About = () => {
             style={{ textDecoration: "underline" }}
             id="creditLink"
             target="_blank"
+            rel="noreferrer"
             href="https://www.instagram.com/dhanishgajjar/"
           >
             Dhanish Gajjar.
