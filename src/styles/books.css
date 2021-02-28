@@ -48,3 +48,9 @@
     opacity: 1;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .book {
+    background-color: #262525;
+  }
+}

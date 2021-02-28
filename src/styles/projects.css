@@ -46,3 +46,13 @@
   background-color: #1c1c1c;
   color: #fefefe;
 }
+
+@media (prefers-color-scheme: dark) {
+  .projectContent {
+    background-color: #262525;
+    border-color: #454343;
+  }
+  .projectContent .actions a {
+    border-color: #454343;
+  }
+}

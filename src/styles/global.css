@@ -60,3 +60,36 @@ nav ul li {
   align-items: center;
   height: 50vh;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: #fefefe;
+  }
+
+  nav {
+    border-bottom-color: #fefefe;
+  }
+
+  .active {
+    background-color: #fefefe;
+    color: #1e1e1e;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: #fefefe;
+  }
+
+  .gridChildContainer {
+    background-color: #262525;
+  }
+
+  footer,
+  footer a svg {
+    color: #fefefe !important;
+  }
+}

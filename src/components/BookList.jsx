@@ -38,8 +38,7 @@ const BookList = () => {
             ),
           };
           setBooksList((booksList) => [...booksList, book]);
-        })
-        .catch((err) => console.log(err));
+        });
     });
   }, []);
   return (

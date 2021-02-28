@@ -15,7 +15,7 @@ const About = () => {
       <div className="container">
         <PageIntro
           header="About"
-          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
+          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music. My LinkedIn is satire."
         />
         <small>
           The design for this website was highly inspired by{" "}
