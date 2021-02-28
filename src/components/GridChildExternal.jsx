@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 
 const GridChildExternal = ({ title, description }) => {
+  const [memeLink, setMemeLink] = useState(0);
   const listOfMemes = [
     "https://i.imgur.com/4BMb9RY.png",
     "https://i.imgur.com/L75Dcvr.png",
@@ -16,12 +17,12 @@ const GridChildExternal = ({ title, description }) => {
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Google-Joke-1024x956.jpg",
   ];
 
+  useEffect(() => {
+    setMemeLink(listOfMemes[Math.floor(Math.random() * listOfMemes.length)]);
+  }, []);
+
   return (
-    <Link
-      target="_blank"
-      to={listOfMemes[Math.floor(Math.random() * listOfMemes.length - 1)]}
-      className="gridChildContainer hover"
-    >
+    <Link target="_blank" to={memeLink} className="gridChildContainer hover">
       <div>
         <header>
           <h4>{title}</h4>
