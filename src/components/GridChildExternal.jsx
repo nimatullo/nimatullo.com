@@ -18,7 +18,7 @@ const GridChildExternal = ({ title, description }) => {
   ];
 
   useEffect(() => {
-    setMemeLink(listOfMemes[Math.floor(Math.random() * listOfMemes.lengtH)]);
+    setMemeLink(listOfMemes[Math.floor(Math.random() * listOfMemes.length)]);
   }, []);
 
   return (
