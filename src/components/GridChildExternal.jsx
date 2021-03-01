@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
 
 const GridChildExternal = ({ title, description }) => {
   const [memeLink, setMemeLink] = useState(0);
@@ -29,6 +28,7 @@ const GridChildExternal = ({ title, description }) => {
 
   return (
     <a
+      rel="noopener noreferrer"
       onClick={() => {
         memeIndex === listOfMemes.length - 1
           ? setIndex(0)
