@@ -12,9 +12,9 @@ const Grid = () => {
       />
       <GridChild link="about" title="About" description="About Me" />
       <GridChild
-        link="books"
-        title="Reading List"
-        description="Some books I recommend"
+        link="culture"
+        title="Culture"
+        description="List of books and music I listen to and recommend"
       />
       <GridChild
         link="resume"

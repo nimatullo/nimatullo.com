@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-const Nav = ({ style }) => {
+const Nav = () => {
   return (
     <nav>
       <ul>
@@ -21,8 +21,8 @@ const Nav = ({ style }) => {
           </Link>
         </li>
         <li>
-          <Link activeClassName="active" to="/books">
-            Books
+          <Link activeClassName="active" to="/culture">
+            Culture
           </Link>
         </li>
         <li>
@@ -32,7 +32,7 @@ const Nav = ({ style }) => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
