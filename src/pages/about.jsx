@@ -17,6 +17,11 @@ const About = () => {
           header="About"
           text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music. My LinkedIn is satire."
         />
+        <p>
+          <a id="mark-link" target="_blank" href="https://markmoawad.com">
+            YOU KNOW THE VIBES
+          </a>
+        </p>
         <small>
           The design for this website was highly inspired by{" "}
           <a

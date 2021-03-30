@@ -48,6 +48,15 @@
   width: 70%;
 }
 
+#mark-link {
+  color: #fefefe;
+}
+
+#mark-link:hover {
+  text-decoration: underline;
+  color: #1c1c1c;
+}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: white;

@@ -76,6 +76,14 @@ nav ul li {
     color: #1e1e1e;
   }
 
+  #mark-link {
+    color: #1e1e1e;
+  }
+
+  #mark-link:hover {
+    color: #fefefe;
+  }
+
   h1,
   h2,
   h3,
