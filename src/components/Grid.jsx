@@ -14,7 +14,7 @@ const Grid = () => {
       <GridChild
         link="culture"
         title="Culture"
-        description="List of books and music I listen to and recommend"
+        description="List of books and music I listen to"
       />
       <GridChild
         link="resume"
