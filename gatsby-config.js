@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Sherzod Nimatullo`,
-    siteUrl: `https://mmvvpp123.tk`,
+    siteUrl: `https://nimatullo.com`,
     author: `Sherzod Nimatullo`
   },
   plugins: [
