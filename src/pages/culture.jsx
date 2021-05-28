@@ -5,7 +5,7 @@ import SocialMediaNav from "../components/SocialMediaNav";
 import Helmet from "react-helmet";
 import PageIntro from "../components/PageIntro";
 import BookList from "../components/BookList";
-import MusicList from "../components/MusicList";
+import Playlist from "../components/Playlists";
 
 const Books = () => {
   return (
@@ -16,10 +16,10 @@ const Books = () => {
       </Helmet>
       <Nav />
       <div className="container">
-        <PageIntro header={"Music"} text="My favorite albums" />
-        <MusicList />
         <PageIntro header={"Books"} text={"List of books I recommend"} />
         <BookList />
+        <PageIntro header={"Music"} text="My playlists" />
+        <Playlist />
       </div>
       <SocialMediaNav />
     </>

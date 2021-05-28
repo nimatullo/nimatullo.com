@@ -1,0 +1,23 @@
+.playlist-container {
+  margin: 1em 0;
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.playlist-title:hover {
+  cursor: pointer;
+}
+
+.playlist {
+  background-color: #efefef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+iframe {
+  border: 0;
+}
