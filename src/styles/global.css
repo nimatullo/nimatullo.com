@@ -1,8 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;900&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Overpass", monospace;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: "Inconsolata", monospace;
 }
 
@@ -99,5 +107,12 @@ nav ul li {
   footer,
   footer a svg {
     color: #fefefe !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 1em;
   }
 }

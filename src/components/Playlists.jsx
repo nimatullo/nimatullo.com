@@ -17,7 +17,7 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0"
       />
       <PlaylistEntry
-        title="Soft"
+        title="Kaleidoscopic"
         source="https://embed.music.apple.com/us/playlist/soft-porn/pl.u-xlyNqrlteKKZpv"
       />
     </>
