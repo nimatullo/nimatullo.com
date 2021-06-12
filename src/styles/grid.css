@@ -60,10 +60,10 @@
 ::-moz-selection {
   /* Code for Firefox */
   color: white;
-  background: #44ddee;
+  background: #434343;
 }
 
 ::selection {
   color: white;
-  background: #44ddee;
+  background: #434343;
 }
