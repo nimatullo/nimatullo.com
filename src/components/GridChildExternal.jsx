@@ -19,6 +19,8 @@ const GridChildExternal = ({ title, description }) => {
     "https://i.imgur.com/hQBbiSt.png",
     "https://i.imgur.com/QpMRSrx.png",
     "https://i.imgur.com/jLXveVw.jpg",
+    "https://i.imgur.com/Oc6jnzP.png",
+    "https://i.imgur.com/M6ud0QY.png",
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Are-you-a-robot-Meme-1024x925.jpg",
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Internet-Explorer-Joke-915x1024.jpg",
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Mark-Zuckerberg-Meme-878x1024.jpg",

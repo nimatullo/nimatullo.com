@@ -12,7 +12,7 @@ const Books = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Sherzod Nimatullo | Books</title>
+        <title>Sherzod Nimatullo | Culture</title>
       </Helmet>
       <Nav />
       <div className="container">
