@@ -15,10 +15,15 @@ const About = () => {
       <div className="container">
         <PageIntro
           header="About"
-          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music. My LinkedIn is satire."
+          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
         />
         <p>
-          <a id="mark-link" target="_blank" href="https://markmoawad.com">
+          <a
+            id="mark-link"
+            target="_blank"
+            rel="noreferrer"
+            href="https://markmoawad.com"
+          >
             YOU KNOW THE VIBES
           </a>
         </p>

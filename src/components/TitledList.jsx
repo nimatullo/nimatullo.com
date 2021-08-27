@@ -5,8 +5,8 @@ const TitledList = ({ title, entries }) => {
     <>
       <h4>{title}</h4>
       <ul>
-        {entries.map((entry) => (
-          <li>{entry}</li>
+        {entries.map((entry, index) => (
+          <li key={index}>{entry}</li>
         ))}
       </ul>
     </>
