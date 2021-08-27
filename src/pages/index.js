@@ -16,7 +16,7 @@ const Index = () => {
       <PageIntro
         header="Hey I'm Sherzod.👋"
         text={
-          "I'm a junior computer science student with a passion for software development."
+          "I'm a senior computer science student with a passion for software development."
         }
       />
       <Grid />
