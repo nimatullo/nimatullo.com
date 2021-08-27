@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d712b5f3-8c0c-448c-ae89-827bd5667a9c/deploy-status)](https://app.netlify.com/sites/mmvvpp123/deploys)
 ## nimatullo dot com
 
-![fall of icarus](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg/1920px-Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg?1630072286318)
+![fall of icarus](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg/1920px-Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg?1630072286318)*Landscape with the Fall of Icarus*
 
 This is my ever changing portfolio website. I've gotten bored of the design and redone it from scratch many times in the past. The current design I've probably had for the longest time.
 
