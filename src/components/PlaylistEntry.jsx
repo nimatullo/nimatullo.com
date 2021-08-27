@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../styles/playlists.css";
-import { FaPlus } from "react-icons";
 
 const PlaylistEntry = (props) => {
   const [isVisible, setVisible] = useState(false);

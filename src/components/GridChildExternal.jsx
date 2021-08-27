@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const GridChildExternal = ({ title, description }) => {
   const [memeLink, setMemeLink] = useState(0);
   const [memeIndex, setIndex] = useState(0);
   const listOfMemes = [
-      "https://preview.redd.it/c19x85xw7nl61.png?width=640&height=748&crop=smart&auto=webp&s=aef8ea8879e38bf98b721a3ff8bb8305dc8ff2af",
+    "https://preview.redd.it/c19x85xw7nl61.png?width=640&height=748&crop=smart&auto=webp&s=aef8ea8879e38bf98b721a3ff8bb8305dc8ff2af",
     "https://i.imgur.com/ijhBu3H.png",
     "https://i.imgur.com/RYmZSao.png",
     "https://i.imgur.com/FoamaYm.png",
