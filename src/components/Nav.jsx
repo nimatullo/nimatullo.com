@@ -7,27 +7,27 @@ const Nav = () => {
       <ul>
         <li>
           <Link activeClassName="active" to="/">
-            Home
+            🏡 Home
           </Link>
         </li>
         <li>
           <Link activeClassName="active" to="/projects">
-            Projects
+            👨‍💻 Projects
           </Link>
         </li>
         <li>
           <Link activeClassName="active" to="/uses">
-            Uses
+            ⌨️ Uses
           </Link>
         </li>
         <li>
           <Link activeClassName="active" to="/culture">
-            Culture
+            📚 Culture
           </Link>
         </li>
         <li>
           <Link activeClassName="active" to="/about">
-            About
+            🚶‍♂️ About
           </Link>
         </li>
       </ul>
