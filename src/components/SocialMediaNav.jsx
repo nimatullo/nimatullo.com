@@ -1,12 +1,6 @@
 import React from "react";
 import "../styles/socialmedianav.css";
-import {
-  FaGithub,
-  FaTwitter,
-  FaInstagram,
-  FaEnvelope,
-  FaMusic,
-} from "react-icons/fa";
+import { Instagram, Twitter, GitHub, Music, Mail } from "react-feather";
 
 const SocialmediaNav = () => {
   return (
@@ -18,7 +12,7 @@ const SocialmediaNav = () => {
             rel="noreferrer"
             href="https://instagram.com/sherzodnimatullo"
           >
-            <FaInstagram size="2em" color="#1c1c1c" />
+            <Instagram size="2em" color="#1c1c1c" />
           </a>
         </li>
         <li>
@@ -27,7 +21,7 @@ const SocialmediaNav = () => {
             rel="noreferrer"
             href="http://twitter.com/mmvvpp123"
           >
-            <FaTwitter size="2em" color="#1c1c1c" />
+            <Twitter size="2em" color="#1c1c1c" />
           </a>
         </li>
         <li>
@@ -36,7 +30,7 @@ const SocialmediaNav = () => {
             rel="noreferrer"
             href="http://github.com/nimatullo"
           >
-            <FaGithub size="2em" color="#1c1c1c" />
+            <GitHub size="2em" color="#1c1c1c" />
           </a>
         </li>
         <li>
@@ -45,7 +39,7 @@ const SocialmediaNav = () => {
             rel="noreferrer"
             href="https://music.apple.com/profile/mmvvpp123"
           >
-            <FaMusic size="2em" color="#1c1c1c" />
+            <Music size="2em" color="#1c1c1c" />
           </a>
         </li>
         <li>
@@ -54,7 +48,7 @@ const SocialmediaNav = () => {
             rel="noreferrer"
             href="mailto:sherzodnimatullo@gmail.com"
           >
-            <FaEnvelope size="2em" color="#1c1c1c" />
+            <Mail size="2em" color="#1c1c1c" />
           </a>
         </li>
       </ul>
