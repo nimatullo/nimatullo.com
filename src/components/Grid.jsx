@@ -7,18 +7,18 @@ const Grid = () => {
     <div className="grid">
       <GridChild
         link="projects"
-        title="👨‍💻 Projects"
+        title="‍🚀 Projects"
         description="Projects I'm proud of"
       />
       <GridChild link="about" title="🚶‍♂️ About" description="About Me" />
       <GridChild
         link="culture"
-        title="📚 Culture"
+        title="🎨 Culture"
         description="List of books and music I listen to"
       />
       <GridChild
         link="resume"
-        title="📄 Resume"
+        title="👔 Resume"
         description="Professional resume"
       />
       <GridChild

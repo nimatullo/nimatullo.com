@@ -5,6 +5,7 @@ import "../styles/global.css";
 import { Helmet } from "react-helmet";
 import Grid from "../components/Grid";
 import PageIntro from "../components/PageIntro";
+import favicon from "../images/favicon.png";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Sherzod Nimatullo | Home Page</title>
+        <link rel="icon" href={favicon} />
       </Helmet>
       <PageIntro
         header="Hey I'm Sherzod.👋"
