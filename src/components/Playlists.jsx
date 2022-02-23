@@ -21,8 +21,12 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/soft-porn/pl.u-xlyNqrlteKKZpv"
       />
       <PlaylistEntry
-        title="fall 21"
-        source="https://embed.music.apple.com/us/playlist/fall-21/pl.u-8aAVXEeIr77EaJ"
+        title="make clean debug"
+        source="https://embed.music.apple.com/us/playlist/make-clean-debug/pl.u-8aAVXEeIr77EaJ"
+      />
+      <PlaylistEntry
+        title="of all things"
+        source="https://embed.music.apple.com/us/playlist/of-all-things/pl.u-WabZ6ojCYppzvN"
       />
     </>
   );
