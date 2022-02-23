@@ -20,7 +20,7 @@
   border-radius: 6px;
   min-height: 200px;
   box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.028),
-    0 0px 8.3px rgba(254, 0, 0, 0.042), 0 0px 10px rgba(0, 0, 0, 0.07);
+    0 0px 8.3px rgba(251, 251, 251, 0.042), 0 0px 10px rgba(0, 0, 0, 0.07);
 }
 
 .projectList .info {
