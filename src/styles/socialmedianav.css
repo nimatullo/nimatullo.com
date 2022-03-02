@@ -16,3 +16,7 @@ footer ul {
 footer ul li {
   list-style-type: none;
 }
+
+footer ul li a svg:hover {
+  stroke: #585858;
+}
