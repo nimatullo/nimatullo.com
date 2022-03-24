@@ -35,7 +35,7 @@ const SocialmediaNav = () => {
         </li>
         <li>
           <a
-            href="_blank"
+            target="_blank"
             rel="noreferrer"
             href="https://music.apple.com/profile/mmvvpp123"
           >

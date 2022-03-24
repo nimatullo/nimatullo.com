@@ -21,8 +21,11 @@ const Resume = () => {
       </div>
       <div className="resumeContent">
         <iframe
+          style={{
+            border: "1px solid #1f1f1f",
+          }}
           title="drive-iframe"
-          src="https://drive.google.com/file/d/152HlS9JmUuvlgxj5ZYqIBb1d3_pFLNYN/preview"
+          src="https://drive.google.com/file/d/1juKsYxZWSQTReM11tkmUWMu13fVtvZzK/preview"
           width="1000px"
           height="1100px"
         />

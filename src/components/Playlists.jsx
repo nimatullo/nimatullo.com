@@ -28,6 +28,10 @@ const Playlist = () => {
         title="of all things"
         source="https://embed.music.apple.com/us/playlist/of-all-things/pl.u-WabZ6ojCYppzvN"
       />
+      <PlaylistEntry
+        title="spring 22"
+        source="https://embed.music.apple.com/us/playlist/spring-22/pl.u-NpXm9oaF7jjJpy"
+      />
     </>
   );
 };
