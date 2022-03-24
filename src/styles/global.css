@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   font-family: "Overpass", monospace;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 h1,
@@ -48,10 +48,12 @@ nav ul {
 
 nav ul li {
   border: 1px solid transparent;
+  padding: 0 0.5em;
 }
 
 nav ul li:hover {
-  border: 1px dashed #262626;
+  background-color: #1e1e1e;
+  color: #fefefe;
 }
 
 .active {
