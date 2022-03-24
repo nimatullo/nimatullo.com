@@ -13,12 +13,12 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/consensual-seduction/pl.u-jV890pJu3ooPqB"
       />
       <PlaylistEntry
-        title="new friends"
-        source="https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0"
-      />
-      <PlaylistEntry
         title="Kaleidoscopic"
         source="https://embed.music.apple.com/us/playlist/soft-porn/pl.u-xlyNqrlteKKZpv"
+      />
+      <PlaylistEntry
+          title="new friends"
+          source="https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0"
       />
       <PlaylistEntry
         title="make clean debug"
