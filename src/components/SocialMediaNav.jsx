@@ -3,6 +3,14 @@ import "../styles/socialmedianav.css";
 import { Instagram, Twitter, GitHub, Music, Mail } from "react-feather";
 
 const SocialmediaNav = () => {
+  const [commit, setCommit] = React.useState("");
+
+  React.useEffect(() => {
+    const ghApiUrl = "https://api.github.com/repos/nimatullo/nimatullo.com/commits";
+    fetch(ghApiUrl)
+      .then((res) => res.json())
+      .then((json) => setCommit(json[0].sha));
+  }, []);
   return (
     <footer>
       <ul>
@@ -55,6 +63,11 @@ const SocialmediaNav = () => {
       <a target="_blank" rel="noreferrer" href="https://josh8.com">
         Stay Connected
       </a>
+      <div className="current-build">
+        <a target="_blank" rel="noreferrer" href={`https://github.com/nimatullo/nimatullo.com/commit/${commit}`}>
+          {commit.substring(0, 7)}
+        </a>
+      </div>
     </footer>
   );
 };

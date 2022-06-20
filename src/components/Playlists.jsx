@@ -17,8 +17,8 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/soft-porn/pl.u-xlyNqrlteKKZpv"
       />
       <PlaylistEntry
-          title="new friends"
-          source="https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0"
+        title="new friends"
+        source="https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0"
       />
       <PlaylistEntry
         title="make clean debug"
@@ -29,8 +29,12 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/of-all-things/pl.u-WabZ6ojCYppzvN"
       />
       <PlaylistEntry
-        title="spring 22"
-        source="https://embed.music.apple.com/us/playlist/spring-22/pl.u-NpXm9oaF7jjJpy"
+        title="quill"
+        source="https://embed.music.apple.com/us/playlist/quill/pl.u-NpXm9oaF7jjJpy"
+      />
+      <PlaylistEntry
+        title="summer 21"
+        source="https://embed.music.apple.com/us/playlist/summer-22/pl.u-GgA5eoRIpaav82"
       />
     </>
   );

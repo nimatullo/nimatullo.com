@@ -8,6 +8,10 @@
   transition: all 0.1s ease-in-out;
 }
 
+html {
+  position: relative;
+}
+
 h1,
 h2,
 h3,
@@ -48,14 +52,9 @@ nav ul {
 
 nav ul li {
   border: 1px solid transparent;
-  padding: 0 0.5em;
 }
 
-nav ul li:hover {
-  background-color: #1e1e1e;
-  color: #fefefe;
-}
-
+nav ul li a:hover,
 .active {
   background-color: #1e1e1e;
   color: #fefefe;
@@ -86,10 +85,7 @@ nav ul li:hover {
     border-bottom-color: #fefefe;
   }
 
-  nav ul li:hover {
-    border-color: #fefefe;
-  }
-
+  nav ul li a:hover,
   .active {
     background-color: #fefefe;
     color: #1e1e1e;
@@ -116,7 +112,8 @@ nav ul li:hover {
   }
 
   /* Set footer and footer svgs to white and stroke color to white */
-  footer, footer ul li a svg {
+  footer,
+  footer ul li a svg {
     color: #fefefe;
     stroke: #fefefe;
   }

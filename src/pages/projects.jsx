@@ -35,6 +35,14 @@ const Projects = () => {
           />
           <ProjectContainer
             project={{
+              title: "Parachute",
+              description:
+                "Platform independent AirDrop alternative.",
+              github: "https://github.com/nimatullo/parachute/",
+            }}
+          />
+          <ProjectContainer
+            project={{
               title: "Ghost Kitchen",
               description:
                 "Full stack food delivery sample service made with Spring, React, PSQL.",
@@ -50,14 +58,6 @@ const Projects = () => {
               github: "https://github.com/nimatullo/CEWIT-Hackathon-Project",
               link:
                 "https://devpost.com/software/prodict-machine-learning-mvp-prediction",
-            }}
-          />
-          <ProjectContainer
-            project={{
-              title: "Puffer Labs",
-              description:
-                "Start up I started with a few friends. Can't reveal too much.🤐",
-              github: "https://github.com/Puffer-Labs/",
             }}
           />
         </div>
