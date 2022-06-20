@@ -29,7 +29,7 @@ const Uses = () => {
             <TitledList title="Design" entries={["Sketch", "Photoshop"]} />
             <TitledList
               title="Utils"
-              entries={["iTerm2 w/ Oh My Zsh", "Postma", "TablePlus"]}
+              entries={["iTerm2 w/ Oh My Zsh", "Postman", "TablePlus"]}
             />
             <TitledList title="Notetaking" entries={["Notion", "FSNotes"]} />
           </div>

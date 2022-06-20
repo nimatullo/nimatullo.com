@@ -20,3 +20,19 @@ footer ul li {
 footer ul li a svg:hover {
   stroke: #585858;
 }
+
+.current-build {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: #858484;
+  font-size: 12px;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 1em;
+}
+
+
+.current-build a:hover {
+  text-decoration: underline;
+}
