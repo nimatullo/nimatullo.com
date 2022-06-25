@@ -15,7 +15,7 @@ const ProjectContainer = ({ project }) => {
             className="hover"
             href={project.link}
           >
-            Project URL
+            Demo
           </a>
         )}
         {project.github && (
@@ -25,7 +25,7 @@ const ProjectContainer = ({ project }) => {
             className="hover"
             href={project.github}
           >
-            Github URL
+            Github
           </a>
         )}
       </div>
