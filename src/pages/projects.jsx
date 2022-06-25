@@ -39,6 +39,7 @@ const Projects = () => {
               description:
                 "Platform independent AirDrop alternative.",
               github: "https://github.com/nimatullo/parachute/",
+              link: "https://parachute-share.herokuapp.com"
             }}
           />
           <ProjectContainer
