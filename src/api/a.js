@@ -11,7 +11,7 @@ async function parseUrl(url) {
     .then((res) => res.text())
     .then((body) => {
       const doc = new DomParser().parseFromString(body);
-      return doc.querySelectorAll("title")[0].textContent;
+      return doc.getElementsByTagName("title")[0].textContent;
     });
 }
 
@@ -23,7 +23,14 @@ export default async function handler(req, res) {
       message: "Invalid URL",
     });
   } else {
-    const linksjson = fs.readFileSync("links.json", "utf8");
+    // Read links.json from project root
+    let linksjson;
+    try {
+      linksjson = fs.readFileSync("links.json", "utf8");
+    } catch (err) {
+      linksjson = fs.writeFileSync("links.json", "");
+    }
+
     let links;
 
     if (linksjson) {
