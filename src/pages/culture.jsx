@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import PageIntro from "../components/PageIntro";
 import BookList from "../components/BookList";
 import Playlist from "../components/Playlists";
+import Hoarder from "../components/Hoarder";
 
 const Books = () => {
   return (
@@ -20,6 +21,8 @@ const Books = () => {
       </Helmet>
       <Nav />
       <div className="container">
+        <PageIntro header={"Links"} text={"Link hoarding"} />
+        <Hoarder />
         <PageIntro header={"Books"} text={"List of books I recommend"} />
         <BookList />
         <PageIntro header={"Music"} text="My playlists" />
