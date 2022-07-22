@@ -13,7 +13,9 @@ const Hoarder = () => {
     <ul>
       {links.map((link) => (
         <li>
-          <a href={link.url}>{link.title}</a>
+          <a class="link" href={link.url}>
+            {link.title}
+          </a>
         </li>
       ))}
     </ul>

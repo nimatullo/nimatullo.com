@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { JSDOM } = require("jsdom");
+const DomParser = require("dom-parser");
 
 function isUrl(url) {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
@@ -10,10 +10,8 @@ async function parseUrl(url) {
   return fetch(`https://api.allorigins.win/get?url=${url}`)
     .then((res) => res.text())
     .then((body) => {
-      const dom = new JSDOM(body);
-      const document = dom.window.document;
-      const title = document.querySelector("title").textContent;
-      return title;
+      const doc = new DomParser().parseFromString(body);
+      return doc.querySelectorAll("title")[0].textContent;
     });
 }
 
