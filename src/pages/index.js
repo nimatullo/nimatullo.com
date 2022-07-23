@@ -7,7 +7,19 @@ import Grid from "../components/Grid";
 import PageIntro from "../components/PageIntro";
 import favicon from "../images/favicon.png";
 
+import { getLinks } from "../services/firestore";
+
 const Index = () => {
+  React.useEffect(() => {
+    fetchLinks();
+  }, []);
+
+  const fetchLinks = async () => {
+    const links = await getLinks();
+    console.log(links);
+    return links;
+  };
+
   return (
     <div className="container">
       <Helmet>

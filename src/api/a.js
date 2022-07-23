@@ -1,41 +1,38 @@
-const fs = require("fs");
-const DomParser = require("dom-parser");
+const { addLink } = require("../services/firestore");
+const { parseHTML } = require("linkedom");
 
 function isUrl(url) {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
   return regex.test(url);
 }
 
-async function parseUrl(url) {
+async function getTitle(url) {
   return fetch(`https://api.allorigins.win/get?url=${url}`)
     .then((res) => res.text())
     .then((body) => {
-      const doc = new DomParser().parseFromString(body);
-      return doc.querySelectorAll("title")[0].textContent;
-    });
+      const html = parseHTML(body);
+      const title = html.document.querySelector("title").textContent;
+      if (title) {
+        return title;
+      } else {
+        return "Cool little link";
+      }
+    })
+    .catch((err) => console.log(err));
 }
 
+// URL Format: https://nimatullo.com/api/a?u=https://www.google.com
 export default async function handler(req, res) {
-  const { url } = req.query;
+  const url = req.query.u;
 
   if (!url || !isUrl(url)) {
     res.status(400).send({
       message: "Invalid URL",
     });
   } else {
-    const linksjson = fs.readFileSync("links.json", "utf8");
-    let links;
+    const title = await getTitle(url);
 
-    if (linksjson) {
-      links = JSON.parse(linksjson);
-    } else {
-      links = [];
-    }
-
-    const title = await parseUrl(url);
-    links.push({ url, title });
-
-    fs.writeFileSync("links.json", JSON.stringify(links));
+    await addLink(url, title);
 
     res.status(200).send({
       message: `${url} added to the list`,
