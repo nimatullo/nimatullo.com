@@ -36,7 +36,7 @@ export default async function handler(req, res) {
   }
 
   if (!url || !isUrl(url)) {
-    res.status(400).send({
+    res.status(400).json({
       message: "Invalid URL",
     });
   } else {
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
 
     await addLink(url, title);
 
-    res.status(200).send({
+    res.status(200).json({
       message: `${url} added to the list`,
     });
   }
