@@ -1,5 +1,5 @@
-const fs = require("fs");
 const DomParser = require("dom-parser");
+const { addLink } = require("../services/firestore");
 
 function isUrl(url) {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
@@ -23,26 +23,9 @@ export default async function handler(req, res) {
       message: "Invalid URL",
     });
   } else {
-    // Read links.json from project root
-    let linksjson;
-    try {
-      linksjson = fs.readFileSync("links.json", "utf8");
-    } catch (err) {
-      linksjson = fs.writeFileSync("links.json", "");
-    }
-
-    let links;
-
-    if (linksjson) {
-      links = JSON.parse(linksjson);
-    } else {
-      links = [];
-    }
-
     const title = await parseUrl(url);
-    links.push({ url, title });
 
-    fs.writeFileSync("links.json", JSON.stringify(links));
+    await addLink(url, title);
 
     res.status(200).send({
       message: `${url} added to the list`,
