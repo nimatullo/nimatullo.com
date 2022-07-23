@@ -1,6 +1,5 @@
 const { addLink } = require("../services/firestore");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+const { parseHTML } = require("linkedom");
 
 function isUrl(url) {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
@@ -11,8 +10,8 @@ async function getTitle(url) {
   return fetch(`https://api.allorigins.win/get?url=${url}`)
     .then((res) => res.text())
     .then((body) => {
-      const dom = new JSDOM(body);
-      const title = dom.window.document.querySelector("title").textContent;
+      const html = parseHTML(body);
+      const title = html.document.querySelector("title").textContent;
       if (title) {
         return title;
       } else {
