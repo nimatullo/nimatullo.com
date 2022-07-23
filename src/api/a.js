@@ -35,6 +35,8 @@ export default async function handler(req, res) {
     return;
   }
 
+  console.log("URL", url);
+
   if (!url || !isUrl(url)) {
     res.status(400).json({
       message: "Invalid URL",
