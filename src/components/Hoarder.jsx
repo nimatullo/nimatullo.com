@@ -1,13 +1,16 @@
 import React from "react";
+import { getLinks } from "../services/firestore";
 
 const Hoarder = () => {
   const [links, setLinks] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/api/get")
-      .then((res) => res.json())
-      .then((data) => setLinks(data));
+    fetchLinks();
   }, []);
+
+  const fetchLinks = async () => {
+    setLinks(await getLinks());
+  };
 
   return (
     <ul>
