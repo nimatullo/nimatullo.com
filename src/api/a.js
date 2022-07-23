@@ -1,6 +1,5 @@
 const { addLink } = require("../services/firestore");
 const { parseHTML } = require("linkedom");
-import fetch from "node-fetch";
 
 function isUrl(url) {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
