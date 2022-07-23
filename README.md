@@ -15,5 +15,6 @@ The `v1` folder contains the first version of my porfolio. I've kept it in this 
 - [About me](https://nimatullo/about)
 - [Software I use for development](https://nimatullo.com/uses)
 - [Books I've read and music I listen to](https://nimatullo.com/culture)
+  - [Also link hoarding](https://nimatullo.com/culture)
 - [Collection of bad programming memes](https://nimatullo.com)
 - [Resume](https://nimatullo.com/resume)
