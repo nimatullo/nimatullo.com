@@ -12,10 +12,15 @@ async function getTitle(url) {
     .then((res) => res.text())
     .then((body) => {
       const html = parseHTML(body);
-      const title = html.document.querySelector("title").textContent;
-      if (title) {
-        return title;
-      } else {
+      try {
+        const title = html.document.querySelector("title").textContent;
+        if (title) {
+          return title;
+        } else {
+          return "Cool little link";
+        }
+      } catch (e) {
+        console.log(e);
         return "Cool little link";
       }
     })
