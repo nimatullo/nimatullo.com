@@ -18,7 +18,8 @@ async function getTitle(url) {
       } else {
         return "Cool little link";
       }
-    });
+    })
+    .catch((err) => console.log(err));
 }
 
 // URL Format: https://nimatullo.com/api/a?u=https://www.google.com
