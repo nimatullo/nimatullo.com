@@ -43,8 +43,12 @@ export default async function handler(req, res) {
   } else {
     const title = getTitleAtUrl(url, (title) => {
       addLink(url, title);
+      const response = {
+        url,
+        title,
+      };
       res.status(200).json({
-        message: `${(title, url)} has been added to the database`,
+        message: `${JSON.stringify(response)} added to database`,
       });
     });
   }
