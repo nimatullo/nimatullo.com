@@ -41,8 +41,8 @@ export default async function handler(req, res) {
       message: "Invalid URL",
     });
   } else {
-    const title = getTitleAtUrl(url, (title) => {
-      addLink(url, title);
+    getTitleAtUrl(url, async (title) => {
+      await addLink(url, title);
       const response = {
         url,
         title,
