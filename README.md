@@ -9,7 +9,7 @@ It's built using Gatsby and its deployed on Netlify. I'm aware Gatsby probably i
 
 The `v1` folder contains the first version of my porfolio. I've kept it in this repo as a meme. 
 
-## Currently the website consits of
+## Currently the website consists of
 
 - [List of my projects](https://nimatullo.com/projects)
 - [About me](https://nimatullo/about)
