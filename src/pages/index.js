@@ -14,11 +14,7 @@ const Index = () => {
     fetchLinks();
   }, []);
 
-  const fetchLinks = async () => {
-    const links = await getLinks();
-    console.log(links);
-    return links;
-  };
+  const fetchLinks = async () => await getLinks();
 
   return (
     <div className="container">
