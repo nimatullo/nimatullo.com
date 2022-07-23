@@ -1,20 +1,16 @@
-require("dotenv").config({
-  path: `.env`,
-});
-
 module.exports = {
   siteMetadata: {
     title: `Sherzod Nimatullo`,
     siteUrl: `https://nimatullo.com`,
-    author: `Sherzod Nimatullo`,
+    author: `Sherzod Nimatullo`
   },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages",
-      },
+        name: "pages"
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -25,11 +21,11 @@ module.exports = {
         background_color: `#efefef`,
         theme_color: `#efefef`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/favicon.png` // This path is relative to the root of the site.
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-react-helmet`,
-  ],
+    `gatsby-plugin-react-helmet`
+  ]
 };
