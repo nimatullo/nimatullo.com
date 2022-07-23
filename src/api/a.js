@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     const title = getTitleAtUrl(url, (title) => {
       addLink(url, title);
       res.status(200).json({
-        message: `${url} added to the list`,
+        message: `${(title, url)} has been added to the database`,
       });
     });
   }
