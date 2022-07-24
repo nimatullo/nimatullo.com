@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Nav from "../components/Nav";
+import "../styles/books.css";
 
 const AddLink = () => {
   const [link, setLink] = useState("");
