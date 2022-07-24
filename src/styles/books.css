@@ -28,6 +28,43 @@
   height: 250px;
 }
 
+.add-link-container {
+  width: 100%;
+  max-width: 992px;
+  height: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.add-link-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-link-content input {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border: 1px solid #1e1e1e;
+  width: 200px;
+}
+
+.add-link-content button {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border: 1px solid #1e1e1e;
+  color: #fefefe;
+  background-color: #1e1e1e;
+  width: 200px;
+}
+
+.add-link-content button:hover {
+  background-color: #fefefe;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+
 @-webkit-keyframes animatebottom {
   from {
     bottom: -100px;

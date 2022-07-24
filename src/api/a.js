@@ -2,7 +2,7 @@ const { addLink } = require("../services/firestore");
 const getTitleAtUrl = require("get-title-at-url");
 
 function isUrl(url) {
-  const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+  const regex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
   return regex.test(url);
 }
 
@@ -12,7 +12,9 @@ export default async function handler(req, res) {
   const p = req.query.p;
 
   if (!p || p !== process.env.GATSBY_PASSWORD) {
-    res.status(401).send("Unauthorized");
+    res.status(401).json({
+      message: "Invalid password",
+    });
     return;
   }
 
