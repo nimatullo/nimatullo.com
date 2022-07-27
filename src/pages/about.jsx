@@ -5,7 +5,25 @@ import Helmet from "react-helmet";
 import PageIntro from "../components/PageIntro";
 
 const About = () => {
+  const [wydResponseTitle, setWydResponseTitle] = React.useState(
+    "The unknown..."
+  );
+  const [wydResponseUrl, setWydResponseUrl] = React.useState(
+    "https://nimatullo.com"
+  );
 
+  React.useEffect(() => {
+    fetchWyd();
+  }, []);
+
+  const fetchWyd = async () => {
+    fetch("https://p-wyd.herokuapp.com/activity")
+      .then((res) => res.json())
+      .then((data) => {
+        setWydResponseTitle(data.current.name);
+        setWydResponseUrl(data.current.website);
+      });
+  };
 
   return (
     <>
@@ -23,6 +41,12 @@ const About = () => {
           header="About"
           text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
         />
+        <p>
+          I am currently browsing:{" "}
+          <a className="link-fat" href={wydResponseUrl}>
+            {wydResponseTitle}
+          </a>
+        </p>
         <p>
           <a
             id="mark-link"
