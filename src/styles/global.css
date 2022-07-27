@@ -123,6 +123,16 @@ a.link:hover {
   text-decoration: underline;
 }
 
+a.link-fat {
+  background-color: #1e1e1e;
+  color: #fefefe;
+}
+
+a.link-fat:hover {
+  background-color: #fefefe;
+  color: #1e1e1e;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
