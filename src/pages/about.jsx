@@ -19,10 +19,15 @@ const About = () => {
   const fetchWyd = async () => {
     fetch("https://p-wyd.herokuapp.com/activity")
       .then((res) => res.json())
-      .then((data) => {
-        setWydResponseTitle(data.current.name);
-        setWydResponseUrl(data.current.website);
-      });
+      .then((data) => data.current)
+      .then(current => {
+        if (current.name && current.website) {
+          setWydResponseTitle(`browsing ${current.name}`);
+          setWydResponseUrl(current.website);
+        } else {
+          setWydResponseTitle("Sleep...😴")
+        }
+      })
   };
 
   return (
@@ -42,12 +47,12 @@ const About = () => {
           text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
         />
         <p>
-          I am currently browsing:{" "}
+          I am currently:{" "}
           <a className="link-fat" href={wydResponseUrl}>
             {wydResponseTitle}
           </a>
         </p>
-        <p>
+        <small>
           <a
             id="mark-link"
             target="_blank"
@@ -55,18 +60,6 @@ const About = () => {
             href="https://markmoawad.com"
           >
             YOU KNOW THE VIBES
-          </a>
-        </p>
-        <small>
-          The design for this website was highly inspired by{" "}
-          <a
-            style={{ textDecoration: "underline" }}
-            id="creditLink"
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.instagram.com/dhanishgajjar/"
-          >
-            Dhanish Gajjar.
           </a>
         </small>
       </div>

@@ -8,6 +8,7 @@ import PageIntro from "../components/PageIntro";
 import favicon from "../images/favicon.png";
 
 const Index = () => {
+
   return (
     <div className="container">
       <Helmet>
