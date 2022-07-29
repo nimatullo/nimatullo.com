@@ -17,17 +17,12 @@ const About = () => {
   }, []);
 
   const fetchWyd = async () => {
-    fetch("https://p-wyd.herokuapp.com/activity")
-      .then((res) => res.json())
-      .then((data) => data.current)
-      .then(current => {
-        if (current.name && current.website) {
-          setWydResponseTitle(`browsing ${current.name}`);
-          setWydResponseUrl(current.website);
-        } else {
-          setWydResponseTitle("Sleep...😴")
-        }
-      })
+    const eventSource = new EventSource("https://p-wyd.herokuapp.com/stream");
+    eventSource.addEventListener("message", (event) => {
+      const data = JSON.parse(event.data);
+      setWydResponseTitle(data.name);
+      setWydResponseUrl(data.website);
+    });
   };
 
   return (
