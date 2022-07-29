@@ -15,6 +15,7 @@ const BookList = () => {
     9780062457738, // Subtle Art
     9780142437308, // Power and the Glory
     9780062316103, // Sapiens
+    9781451648539, // Steve Jobs
   ];
   useEffect(() => {
     ISBN_LIST.map((isbn) => {
