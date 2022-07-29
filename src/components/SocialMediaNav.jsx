@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/socialmedianav.css";
-import { Instagram, Twitter, GitHub, Music, Mail } from "react-feather";
+import { Instagram, Twitter, GitHub, Music, Film, Mail } from "react-feather";
 
 const SocialmediaNav = () => {
   const [commit, setCommit] = React.useState("");
@@ -19,6 +19,7 @@ const SocialmediaNav = () => {
             target="_blank"
             rel="noreferrer"
             href="https://instagram.com/sherzodnimatullo"
+            title="Instagram"
           >
             <Instagram size="2em" color="#1c1c1c" />
           </a>
@@ -28,6 +29,7 @@ const SocialmediaNav = () => {
             target="_blank"
             rel="noreferrer"
             href="http://twitter.com/mmvvpp123"
+            title="Twitter"
           >
             <Twitter size="2em" color="#1c1c1c" />
           </a>
@@ -37,6 +39,7 @@ const SocialmediaNav = () => {
             target="_blank"
             rel="noreferrer"
             href="http://github.com/nimatullo"
+            title="Github"
           >
             <GitHub size="2em" color="#1c1c1c" />
           </a>
@@ -46,15 +49,27 @@ const SocialmediaNav = () => {
             target="_blank"
             rel="noreferrer"
             href="https://music.apple.com/profile/nimatullo"
+            title="Apple Music"
           >
             <Music size="2em" color="#1c1c1c" />
+          </a>
+        </li>
+        <li>
+          <a 
+            target="_blank"
+            rel="noreferrer"
+            href="https://letterboxd.com/nimatullo/"
+            title="Letterboxd"
+          >
+            <Film size="2em" color="#1c1c1c" />
           </a>
         </li>
         <li>
           <a
             target="_blank"
             rel="noreferrer"
-            href="mailto:sherzodnimatullo@gmail.com"
+            href="mailto:sherzod@nimatullo.com"
+            title="Email"
           >
             <Mail size="2em" color="#1c1c1c" />
           </a>
