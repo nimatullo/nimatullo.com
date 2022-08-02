@@ -36,10 +36,18 @@ const Projects = () => {
           <ProjectContainer
             project={{
               title: "Parachute",
-              description:
-                "Platform independent AirDrop alternative.",
+              description: "Platform independent AirDrop alternative.",
               github: "https://github.com/nimatullo/parachute/",
-              link: "https://parachute-share.herokuapp.com"
+              link: "https://parachute-share.herokuapp.com",
+            }}
+          />
+          <ProjectContainer
+            project={{
+              title: "wyd",
+              description:
+                "realtime website status for the about page on nimatullo.com",
+              github: "https://github.com/nimatullo/wyd",
+              link: "https://nimatullo.com/about",
             }}
           />
           <ProjectContainer
