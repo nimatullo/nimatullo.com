@@ -5,12 +5,6 @@
   border: 1px solid #6f6f6f1c;
 }
 
-.playlist-container:hover {
-  box-shadow: 0 0px 2.2px rgb(0 0 0 / 3%), 0 0px 8.3px rgb(254 0 0 / 4%),
-    0 0px 10px rgb(0 0 0 / 7%);
-  transition: ease 0.2s;
-}
-
 .playlist-title {
   display: grid;
   grid-template-columns: 5fr 1fr;

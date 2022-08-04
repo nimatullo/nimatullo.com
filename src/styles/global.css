@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   font-family: "Overpass", monospace;
-  transition: all 0.1s ease-in-out;
+  /* transition: all 0.1s ease-in-out; */
 }
 
 html {
@@ -59,6 +59,7 @@ nav ul li a:hover,
   background-color: #1e1e1e;
   color: #fefefe;
   padding: 5px;
+  transition: all 0.2s ease-in-out; 
 }
 
 .container {
@@ -102,6 +103,12 @@ nav ul li a:hover,
     color: #1e1e1e;
   }
 
+  .link-fat, .hoarder-listitem a:hover {
+    background-color: #fefefe;
+    color: #1e1e1e;
+  }
+
+
   #mark-link {
     color: #1e1e1e;
   }
@@ -135,13 +142,12 @@ a.link:hover {
 }
 
 a.link-fat {
-  background-color: #1e1e1e;
-  color: #fefefe;
+  text-decoration: underline;
 }
 
 a.link-fat:hover {
-  background-color: #fefefe;
-  color: #1e1e1e;
+  color: #fefefe;
+  background-color: #1e1e1e;
 }
 
 @media only screen and (max-width: 600px) {
