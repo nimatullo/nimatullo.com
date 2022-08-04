@@ -13,7 +13,6 @@
   border: 2px solid #eeeeee;
   min-height: 200px;
   transition: ease 0.2s;
-  border-radius: 6px;
   border: 1px solid #6f6f6f1c;
 }
 
@@ -37,6 +36,8 @@
 
 .gridChildContainer div p {
   position: relative;
+  color: #6d6d6d;
+  font-size: smaller;
 }
 
 .gridChildContainer div header hr {

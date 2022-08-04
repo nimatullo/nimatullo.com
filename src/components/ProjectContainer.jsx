@@ -1,4 +1,5 @@
 import React from "react";
+import { Code, ExternalLink } from "react-feather";
 
 const ProjectContainer = ({ project }) => {
   return (
@@ -14,8 +15,9 @@ const ProjectContainer = ({ project }) => {
             rel="noreferrer"
             className="hover"
             href={project.link}
+            title="External Link"
           >
-            Demo
+            <ExternalLink size="1em" color="#1c1c1c" />
           </a>
         )}
         {project.github && (
@@ -24,8 +26,9 @@ const ProjectContainer = ({ project }) => {
             rel="noreferrer"
             className="hover"
             href={project.github}
+            title="Source code"
           >
-            Github
+            <Code size="1em" color="#1c1c1c"/>
           </a>
         )}
       </div>

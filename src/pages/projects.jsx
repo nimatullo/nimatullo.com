@@ -45,7 +45,7 @@ const Projects = () => {
             project={{
               title: "wyd",
               description:
-                "realtime website status for the about page on nimatullo.com",
+                "Realtime website status for the about page on nimatullo.com",
               github: "https://github.com/nimatullo/wyd",
               link: "https://nimatullo.com/about",
             }}

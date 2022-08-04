@@ -8,13 +8,13 @@ const Grid = () => {
       <GridChild
         link="projects"
         title="‍🚀 Projects"
-        description="Projects I'm proud of"
+        description="Projects I've done so far, all open source"
       />
-      <GridChild link="about" title="🚶‍♂️ About" description="About Me" />
+      <GridChild link="about" title="🚶‍♂️ About" description="A little about me, what I'm doing and the current website I'm on" />
       <GridChild
         link="culture"
         title="🎨 Culture"
-        description="List of books and music I listen to"
+        description="Some of my favorite books, my playlists and articles/blogs everyone should read"
       />
       <GridChild
         link="resume"
@@ -24,9 +24,9 @@ const Grid = () => {
       <GridChild
         link="uses"
         title="⌨️ Uses"
-        description="List of software and hardware I use"
+        description="Some of the software that I use that makes me productive"
       />
-      <GridChildExternal title="🤡 Meme" description="Bad programmer memes" />
+      <GridChildExternal title="🤡 Memes" description="Rotating carousel of bad programmer memes" />
     </div>
   );
 };

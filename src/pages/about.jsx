@@ -42,7 +42,7 @@ const About = () => {
           text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
         />
         <p>
-          I am currently:{" "}
+          I am currently on:{" "}
           <a className="link-fat" href={wydResponseUrl}>
             {wydResponseTitle}
           </a>

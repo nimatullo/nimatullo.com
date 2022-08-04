@@ -17,13 +17,16 @@
   padding: 2em;
   width: 100%;
   background-color: #efefef;
-  border-radius: 6px;
   min-height: 200px;
   border: 1px solid #6f6f6f1c;
 }
 
 .projectList .info {
   grid-column: span 2 / auto;
+}
+
+.projectList .info h2 {
+  margin-bottom: 10px;
 }
 
 .projectContent .actions {
@@ -35,15 +38,20 @@
 .projectContent .actions a {
   border: 1px solid #1c1c1c;
   padding: 10px;
-  border-radius: 6px;
   transition: ease 0.3s;
   text-align: center;
   margin: 1em;
+  display: grid;
+  place-items: center;
 }
 
 .projectContent .actions a:hover {
   background-color: #1c1c1c;
   color: #fefefe;
+}
+
+.projectContent .actions a:hover svg {
+  stroke: #fefefe;
 }
 
 @media (prefers-color-scheme: dark) {

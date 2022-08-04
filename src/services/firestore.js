@@ -18,6 +18,13 @@ const db = getFirestore(app);
 
 export async function getLinks() {
   const querySnapshot = await getDocs(collection(db, "links"));
+
+  if (!querySnapshot.docs.length) {
+    throw new Error("Firebase connection failed");
+  }
+
+  console.log(querySnapshot.docs);
+
   return querySnapshot.docs.map((doc) => doc.data());
 }
 
