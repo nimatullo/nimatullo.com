@@ -66,4 +66,12 @@
     color: #1c1c1c;
     background-color: #fefefe;
   }
+
+  .projectContent .actions a:hover svg {
+    stroke: #1c1c1c;
+  }
+
+  .projectContent .actions svg {
+    stroke: #fefefe;
+  }
 }

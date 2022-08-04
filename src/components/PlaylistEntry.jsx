@@ -4,7 +4,7 @@ import "../styles/playlists.css";
 const PlaylistEntry = (props) => {
   const [isVisible, setVisible] = useState(false);
   return (
-    <div className="playlist-container">
+    <div className="playlist-container hover">
       <div
         className="playlist-title"
         onClick={() => {
