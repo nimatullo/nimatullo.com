@@ -77,6 +77,13 @@ nav ul li a:hover,
 
 .hoarder-listitem {
   padding: 2px 0;
+  list-style: none;
+  text-decoration: underline;
+}
+
+.hoarder-listitem a:hover {
+  background-color: #1e1e1e;
+  color: #fefefe;
 }
 
 @media (prefers-color-scheme: dark) {

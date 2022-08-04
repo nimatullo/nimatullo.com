@@ -8,7 +8,18 @@ const Hoarder = () => {
     fetchLinks();
   }, []);
 
-  const fetchLinks = async () => setLinks(await getLinks());
+  const fetchLinks = async () => {
+    getLinks()
+      .then(data => setLinks(data))
+      .catch(_ => {
+        setLinks([
+          {
+            title: "Dummy website",
+            url: "https://reminderse.com"
+          }
+        ])
+      })
+  };
 
   return (
     <ul>

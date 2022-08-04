@@ -17,7 +17,7 @@ const Index = () => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <PageIntro
-        header="Hey I'm Sherzod.👋"
+        header="Hey, I'm Sherzod.👋"
         text={
           "I'm a senior computer science student with a passion for software development."
         }
