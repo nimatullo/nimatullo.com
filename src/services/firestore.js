@@ -23,14 +23,12 @@ export async function getLinks() {
     throw new Error("Firebase connection failed");
   }
 
-  console.log(querySnapshot.docs);
-
   return querySnapshot.docs.map((doc) => doc.data());
 }
 
 export async function addLink(url, title) {
   try {
-    const docRef = await addDoc(collection(db, "links"), {
+    await addDoc(collection(db, "links"), {
       url,
       title,
     });
