@@ -23,6 +23,11 @@ const Nav = () => {
             </Link>
           </li>
           <li>
+            <Link activeClassName="active" to="/resume">
+              🖊️ Resume
+            </Link>
+          </li>
+          <li>
             <Link activeClassName="active" to="/uses">
               ⌨️ Uses
             </Link>

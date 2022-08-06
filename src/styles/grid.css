@@ -22,7 +22,7 @@
 }
 
 .hover:hover p {
-  color: #e0e0e0;
+  color: #b1b1b1;
 }
 
 .gridChildContainer div {
@@ -82,7 +82,7 @@
   }
 
   .hover:hover div header h4, .hover:hover div p {
-    color: #1c1c1c;
+    color: #b1b1b1;
   }
 
   .hover:hover .playlist-title h3 {

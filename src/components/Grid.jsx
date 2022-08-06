@@ -18,7 +18,7 @@ const Grid = () => {
       />
       <GridChild
         link="resume"
-        title="👔 Resume"
+        title="🖊️ Resume"
         description="Professional resume"
       />
       <GridChild

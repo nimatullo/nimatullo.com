@@ -2,9 +2,11 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Book from "./Book";
+import Loader from "./Loader";
 
 const BookList = () => {
   const [booksList, setBooksList] = useState([]);
+  const [loading, setLoading] = useState(false);
   let listId = 1;
   const ISBN_LIST = [
     9781501135927, // Shoe Dog
@@ -18,6 +20,7 @@ const BookList = () => {
     9781451648539, // Steve Jobs
   ];
   useEffect(() => {
+    setLoading(true);
     ISBN_LIST.map((isbn) => {
       fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`, {
         method: "GET",
@@ -40,9 +43,12 @@ const BookList = () => {
           };
           setBooksList((booksList) => [...booksList, book]);
         });
+      setLoading(false);
     });
   }, []);
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="bookList">
       {booksList.map((book) => (
         <Book key={book.index} book={book} />

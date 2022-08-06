@@ -13,7 +13,7 @@ const Index = () => {
     <div className="container">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Sherzod Nimatullo | Home Page</title>
+        <title>Home Page / Sherzod Nimatullo</title>
         <link rel="icon" href={favicon} />
       </Helmet>
       <PageIntro
