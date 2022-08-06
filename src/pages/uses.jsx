@@ -11,7 +11,7 @@ const Uses = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Sherzod Nimatullo | Uses</title>
+        <title>Uses / Sherzod Nimatullo</title>
         <link
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⌨️</text></svg>"
@@ -29,7 +29,7 @@ const Uses = () => {
             <TitledList title="Design" entries={["Sketch", "Photoshop"]} />
             <TitledList
               title="Utils"
-              entries={["iTerm2 w/ Oh My Zsh", "Postman", "TablePlus"]}
+              entries={["iTerm2 w/ Oh My Zsh", "Postman", "TablePlus", "Orion Browser"]}
             />
             <TitledList title="Notetaking" entries={["Notion", "FSNotes"]} />
           </div>

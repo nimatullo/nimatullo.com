@@ -87,7 +87,28 @@ nav ul li a:hover,
   color: #fefefe;
 }
 
+.loader {
+  border: 16px solid #dedede;
+  border-top: 16px solid #1e1e1e;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media (prefers-color-scheme: dark) {
+  
+  .loader {
+    border-color: #262525;
+    border-top-color: #dedede;
+  }
+
+
   body {
     background-color: #1e1e1e;
     color: #fefefe;
