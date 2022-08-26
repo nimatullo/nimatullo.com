@@ -33,7 +33,7 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/quill/pl.u-NpXm9oaF7jjJpy"
       />
       <PlaylistEntry
-        title="summer 21"
+        title="39.641076º, 66.927943º"
         source="https://embed.music.apple.com/us/playlist/summer-22/pl.u-GgA5eoRIpaav82"
       />
     </>
