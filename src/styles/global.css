@@ -59,7 +59,7 @@ nav ul li a:hover,
   background-color: #1e1e1e;
   color: #fefefe;
   padding: 5px;
-  transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 
 .container {
@@ -97,17 +97,19 @@ nav ul li a:hover,
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  
   .loader {
     border-color: #262525;
     border-top-color: #dedede;
   }
-
 
   body {
     background-color: #1e1e1e;
@@ -124,11 +126,11 @@ nav ul li a:hover,
     color: #1e1e1e;
   }
 
-  .link-fat, .hoarder-listitem a:hover {
+  .link-fat,
+  .hoarder-listitem a:hover {
     background-color: #fefefe;
     color: #1e1e1e;
   }
-
 
   #mark-link {
     color: #1e1e1e;

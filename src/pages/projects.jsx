@@ -23,6 +23,19 @@ const Projects = () => {
           header="Projects"
           text="Here are a list of some projects that I'm proud of. Most of these are open source so feel free to modify and extend as you please!"
         />
+        <small className="tip">
+          Due to Heroku's decision to{" "}
+          <a
+            className="link-fat"
+            href="https://blog.heroku.com/next-chapter"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            no longer support free dynos
+          </a>
+          , some of these projects may be down until I have migrated them to
+          another server.
+        </small>
         <div className="projectList">
           <ProjectContainer
             project={{
@@ -38,7 +51,7 @@ const Projects = () => {
               title: "Parachute",
               description: "Platform independent AirDrop alternative.",
               github: "https://github.com/nimatullo/parachute/",
-              link: "https://parachute-share.herokuapp.com",
+              link: "https://parachute.nimatullo.com",
             }}
           />
           <ProjectContainer
