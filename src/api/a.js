@@ -24,6 +24,9 @@ export default async function handler(req, res) {
     });
   } else {
     getTitleAtUrl(url, async (title) => {
+      if (!title) {
+        title = "Title fetch failed";
+      }
       const addLinkResponse = await addLink(url, title);
       if (addLinkResponse.success) {
         res.status(200).json({
