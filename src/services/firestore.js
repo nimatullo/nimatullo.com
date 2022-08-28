@@ -32,7 +32,15 @@ export async function addLink(url, title) {
       url,
       title,
     });
+    return {
+      success: true,
+      message: `${JSON.stringify({ url, title })} added to database`,
+    };
   } catch (e) {
     console.error("Error adding document: ", e);
+    return {
+      success: false,
+      message: `Error adding document: ${e}`,
+    };
   }
 }

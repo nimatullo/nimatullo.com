@@ -17,14 +17,18 @@ const About = () => {
   }, []);
 
   const fetchWyd = async () => {
-    const eventSource = new EventSource("https://p-wyd.herokuapp.com/stream");
+    const wydApiUrl = "https://wyd.nimatullo.com/stream";
+    const eventSource = new EventSource(wydApiUrl);
     eventSource.addEventListener("message", (event) => {
       const data = JSON.parse(event.data);
       setWydResponseTitle(data.name);
       setWydResponseUrl(data.website);
     });
 
-    setTimeout(() => {console.log("Stream closed!"); eventSource.close()}, 30000); // Close connection after 30 seconds. Sorry, server time is expensive 😖
+    setTimeout(() => {
+      console.log("Stream closed!");
+      eventSource.close();
+    }, 30000); // Close connection after 30 seconds. Sorry, server time is expensive 😖
   };
 
   return (

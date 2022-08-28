@@ -24,14 +24,16 @@ export default async function handler(req, res) {
     });
   } else {
     getTitleAtUrl(url, async (title) => {
-      await addLink(url, title);
-      const response = {
-        url,
-        title,
-      };
-      res.status(200).json({
-        message: `${JSON.stringify(response)} added to database`,
-      });
+      const addLinkResponse = await addLink(url, title);
+      if (addLinkResponse.success) {
+        res.status(200).json({
+          message: addLinkResponse.message,
+        });
+      } else {
+        res.status(500).json({
+          message: addLinkResponse.message,
+        });
+      }
     });
   }
 }
