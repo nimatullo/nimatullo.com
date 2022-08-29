@@ -28,6 +28,11 @@ export async function getLinks() {
 
 export async function addLink(url, title) {
   try {
+    console.log({
+      url,
+      title,
+      db,
+    });
     await addDoc(collection(db, "links"), {
       url,
       title,
