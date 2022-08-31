@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import SocialmediaNav from "../components/SocialMediaNav";
+import resume from "../resume.pdf";
 
 const Resume = () => {
   return (
@@ -25,7 +26,7 @@ const Resume = () => {
             border: "1px solid #1f1f1f",
           }}
           title="drive-iframe"
-          src="https://drive.google.com/file/d/1juKsYxZWSQTReM11tkmUWMu13fVtvZzK/preview"
+          src={resume}
           width="1000px"
           height="1100px"
         />
