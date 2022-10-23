@@ -36,6 +36,10 @@ const Playlist = () => {
         title="39.641076º, 66.927943º"
         source="https://embed.music.apple.com/us/playlist/summer-22/pl.u-GgA5eoRIpaav82"
       />
+      <PlaylistEntry
+        title="fall 22"
+        source="https://embed.music.apple.com/us/playlist/fall-22/pl.u-NpXm98Vs7jjJpy"
+      />
     </>
   );
 };
