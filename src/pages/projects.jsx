@@ -39,6 +39,13 @@ const Projects = () => {
         <div className="projectList">
           <ProjectContainer
             project={{
+              title: "State Redistricter",
+              description: "Multi-member district simulation based off H.R.3863",
+              github: "https://github.com/nimatullo/state-redistricter"
+            }}
+            />
+          <ProjectContainer
+            project={{
               title: "Reminderse",
               description:
                 "Reminderse reminds you about the links, articles and other media that you’ve consumed surfing the internet.",
