@@ -28,16 +28,6 @@ const SocialmediaNav = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="http://twitter.com/mmvvpp123"
-            title="Twitter"
-          >
-            <Twitter size="2em" color="#1c1c1c" />
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="noreferrer"
             href="http://github.com/nimatullo"
             title="Github"
           >
