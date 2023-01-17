@@ -37,8 +37,12 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/summer-22/pl.u-GgA5eoRIpaav82"
       />
       <PlaylistEntry
-        title="fall 22"
-        source="https://embed.music.apple.com/us/playlist/fall-22/pl.u-NpXm98Vs7jjJpy"
+        title="grad sh!t"
+        source="https://embed.music.apple.com/us/playlist/grad/grad-sh-t/pl.u-NpXm98Vs7jjJpy"
+      />
+      <PlaylistEntry
+        title="winter 22"
+        source="https://embed.music.apple.com/us/playlist/winter-22/pl.u-GgA5e8bUpaav82"
       />
     </>
   );
