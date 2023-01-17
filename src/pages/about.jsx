@@ -45,7 +45,7 @@ const About = () => {
       <div className="container">
         <PageIntro
           header="About"
-          text="I am a computer science student from NYC attending Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
+          text="I am a Computer Science graduate of Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
         />
         <p>
           I am currently on:{" "}
@@ -53,16 +53,6 @@ const About = () => {
             {wydResponseTitle}
           </a>
         </p>
-        <small>
-          <a
-            id="mark-link"
-            target="_blank"
-            rel="noreferrer"
-            href="https://markmoawad.com"
-          >
-            YOU KNOW THE VIBES
-          </a>
-        </small>
       </div>
       <SocialMediaNav />
     </>
