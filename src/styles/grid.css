@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   justify-content: center;
   column-gap: 1em;
   row-gap: 1em;
@@ -81,12 +81,13 @@
     background-color: #262525;
   }
 
-  .hover:hover div header h4, .hover:hover div p {
+  .hover:hover div header h4,
+  .hover:hover div p {
     color: #b1b1b1;
   }
 
   .hover:hover .playlist-title h3 {
-    color:#1c1c1c;
+    color: #1c1c1c;
   }
 
   .hover:hover {

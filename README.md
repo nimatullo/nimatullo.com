@@ -10,7 +10,6 @@
     <img src="https://i.imgur.com/NLNnixf.gif" width="25"> nimatullo dot com
 </h1>
 
-
 <p align="center">
   The third iteration of my personal website <a href="https://nimatullo.com">nimatullo.com</a> built with ❤️‍🔥 and <a href="https://www.gatsbyjs.com/">Gatsby</a>, deployed on <a href="https://netlify.com">Netlify</a>.
 </p>
@@ -18,12 +17,6 @@
 <p align="center">
   <img src="https://api.netlify.com/api/v1/badges/d712b5f3-8c0c-448c-ae89-827bd5667a9c/deploy-status">
 </p>
-
-<p align="center">
-  The <code>v1</code> folder contains the first version of my porfolio. I've kept it in this repo as a meme. 
-</p>
-
-
 
 ## Currently the website consists of
 

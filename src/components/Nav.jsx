@@ -23,23 +23,13 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link activeClassName="active" to="/resume">
-              🖊️ Resume
-            </Link>
-          </li>
-          <li>
-            <Link activeClassName="active" to="/uses">
-              ⌨️ Uses
-            </Link>
-          </li>
-          <li>
             <Link activeClassName="active" to="/culture">
               🎨 Culture
             </Link>
           </li>
           <li>
-            <Link activeClassName="active" to="/about">
-              🚶‍♂️ About
+            <Link activeClassName="active" to="/resume">
+              🖊️ Resume
             </Link>
           </li>
         </ul>

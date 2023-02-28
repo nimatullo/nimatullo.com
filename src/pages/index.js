@@ -8,20 +8,14 @@ import PageIntro from "../components/PageIntro";
 import favicon from "../images/favicon.png";
 
 const Index = () => {
-
   return (
     <div className="container">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Home Page / Sherzod Nimatullo</title>
+        <title>Home Page</title>
         <link rel="icon" href={favicon} />
       </Helmet>
-      <PageIntro
-        header="Hey, I'm Sherzod.👋"
-        text={
-          "I'm a senior computer science student with a passion for software development."
-        }
-      />
+      <PageIntro header="why worry 🧦" text={""} />
       <Grid />
       <SocialmediaNav />
     </div>
