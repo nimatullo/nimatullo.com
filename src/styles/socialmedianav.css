@@ -8,7 +8,7 @@ footer {
 }
 footer ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 1em;
   text-align: center;
 }
@@ -31,7 +31,6 @@ footer ul li a svg:hover {
   position: absolute;
   bottom: 1em;
 }
-
 
 .current-build a:hover {
   text-decoration: underline;

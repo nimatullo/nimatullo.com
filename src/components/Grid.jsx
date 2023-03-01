@@ -10,7 +10,6 @@ const Grid = () => {
         title="‍🚀 Projects"
         description="Projects I've done so far, all open source"
       />
-      <GridChild link="about" title="🚶‍♂️ About" description="A little about me, what I'm doing and the current website I'm on" />
       <GridChild
         link="culture"
         title="🎨 Culture"
@@ -21,12 +20,10 @@ const Grid = () => {
         title="🖊️ Resume"
         description="Professional resume"
       />
-      <GridChild
-        link="uses"
-        title="⌨️ Uses"
-        description="Some of the software that I use that makes me productive"
+      <GridChildExternal
+        title="🤡 Memes"
+        description="Rotating carousel of bad programmer memes"
       />
-      <GridChildExternal title="🤡 Memes" description="Rotating carousel of bad programmer memes" />
     </div>
   );
 };

@@ -6,7 +6,8 @@ const SocialmediaNav = () => {
   const [commit, setCommit] = React.useState("");
 
   React.useEffect(() => {
-    const ghApiUrl = "https://api.github.com/repos/nimatullo/nimatullo.com/commits";
+    const ghApiUrl =
+      "https://api.github.com/repos/nimatullo/nimatullo.com/commits";
     fetch(ghApiUrl)
       .then((res) => res.json())
       .then((json) => setCommit(json[0].sha));
@@ -14,16 +15,6 @@ const SocialmediaNav = () => {
   return (
     <footer>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://instagram.com/sherzodnimatullo"
-            title="Instagram"
-          >
-            <Instagram size="2em" color="#1c1c1c" />
-          </a>
-        </li>
         <li>
           <a
             target="_blank"
@@ -45,7 +36,7 @@ const SocialmediaNav = () => {
           </a>
         </li>
         <li>
-          <a 
+          <a
             target="_blank"
             rel="noreferrer"
             href="https://letterboxd.com/nimatullo/"
@@ -69,7 +60,11 @@ const SocialmediaNav = () => {
         Stay Connected
       </a>
       <div className="current-build">
-        <a target="_blank" rel="noreferrer" href={`https://github.com/nimatullo/nimatullo.com/commit/${commit}`}>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://github.com/nimatullo/nimatullo.com/commit/${commit}`}
+        >
           {commit.substring(0, 7)}
         </a>
       </div>

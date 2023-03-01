@@ -41,7 +41,7 @@ const Playlist = () => {
         source="https://embed.music.apple.com/us/playlist/grad/grad-sh-t/pl.u-NpXm98Vs7jjJpy"
       />
       <PlaylistEntry
-        title="winter 22"
+        title="face of unemployment"
         source="https://embed.music.apple.com/us/playlist/winter-22/pl.u-GgA5e8bUpaav82"
       />
     </>
