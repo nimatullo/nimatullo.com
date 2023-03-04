@@ -18,6 +18,11 @@ const Nav = () => {
             </Link>
           </li>
           <li>
+            <Link activeClassName="active" to="/about">
+              🙋‍♂️ About
+            </Link>
+          </li>
+          <li>
             <Link activeClassName="active" to="/projects">
               ‍🚀 Projects
             </Link>

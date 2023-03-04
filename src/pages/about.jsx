@@ -3,14 +3,11 @@ import Nav from "../components/Nav";
 import SocialMediaNav from "../components/SocialMediaNav";
 import Helmet from "react-helmet";
 import PageIntro from "../components/PageIntro";
+import LoadingComponent from "../components/LoadingText";
 
 const About = () => {
-  const [wydResponseTitle, setWydResponseTitle] = React.useState(
-    "The unknown..."
-  );
-  const [wydResponseUrl, setWydResponseUrl] = React.useState(
-    "https://nimatullo.com"
-  );
+  const [wydResponseTitle, setWydResponseTitle] = React.useState();
+  const [wydResponseUrl, setWydResponseUrl] = React.useState();
 
   React.useEffect(() => {
     fetchWyd();
@@ -45,14 +42,21 @@ const About = () => {
       <div className="container">
         <PageIntro
           header="About"
-          text="I am a Computer Science graduate of Stony Brook University. My interests include backend development, software architecture, basketball and rap music."
+          text="I am a Computer Science graduate of Stony Brook University. My interests include backend development, software architecture, basketball and rap music. I like nature, Timurid art, red, slow days, sun, books, clackity
+          keyboards, games, chatter, beach, sunset, travel, culture, tech, teamwork, blizzards, videos of men building log cabins in the woods"
         />
-        <p>
-          I am currently on:{" "}
-          <a className="link-fat" href={wydResponseUrl}>
-            {wydResponseTitle}
-          </a>
-        </p>
+        <p></p>
+        {wydResponseTitle?.length > 0 ? (
+          <p>
+            I am currently on{" "}
+            <a className="link-fat" href={wydResponseUrl}>
+              {wydResponseTitle}
+            </a>
+            .
+          </p>
+        ) : (
+          <LoadingComponent />
+        )}
       </div>
       <SocialMediaNav />
     </>
