@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 
 const GridChildExternal = ({ title, description }) => {
@@ -30,26 +31,35 @@ const GridChildExternal = ({ title, description }) => {
   ];
 
   return (
-    <a
-      rel="noopener noreferrer"
-      onClick={() => {
-        memeIndex === listOfMemes.length - 1
-          ? setIndex(0)
-          : setIndex(memeIndex + 1);
-        setMemeLink(listOfMemes[memeIndex]);
-      }}
-      target="_blank"
-      href={memeLink}
-      className="gridChildContainer hover"
-    >
-      <div>
-        <header>
-          <h4>{title}</h4>
-          <hr />
-        </header>
-        <p>{description}</p>
-      </div>
-    </a>
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -100, opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="gridChildContainer hover"
+      >
+        <a
+          rel="noopener noreferrer"
+          onClick={() => {
+            memeIndex === listOfMemes.length - 1
+              ? setIndex(0)
+              : setIndex(memeIndex + 1);
+            setMemeLink(listOfMemes[memeIndex]);
+          }}
+          target="_blank"
+          href={memeLink}
+        >
+          <div>
+            <header>
+              <h4>{title}</h4>
+              <hr />
+            </header>
+            <p>{description}</p>
+          </div>
+        </a>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
