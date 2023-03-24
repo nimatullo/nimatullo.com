@@ -8,6 +8,8 @@ import BookList from "../components/BookList";
 import Playlist from "../components/Playlists";
 import Hoarder from "../components/Hoarder";
 
+import { useInView, motion } from "framer-motion";
+
 const Books = () => {
   return (
     <>

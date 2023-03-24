@@ -1,7 +1,7 @@
 import React from "react";
 import PlaylistEntry from "./PlaylistEntry";
 
-const Playlist = () => {
+const Playlist = ({ ...props }) => {
   return (
     <>
       <PlaylistEntry

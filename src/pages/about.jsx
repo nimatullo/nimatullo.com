@@ -43,7 +43,7 @@ const About = () => {
         <PageIntro
           header="About"
           text="I am a Computer Science graduate of Stony Brook University. My interests include backend development, software architecture, basketball and rap music. I like nature, Timurid art, red, slow days, sun, books, clackity
-          keyboards, games, chatter, beach, sunset, travel, culture, tech, teamwork, blizzards, videos of men building log cabins in the woods"
+          keyboards, games, chatter, beach, sunset, travel, culture, tech, teamwork, blizzards, videos of people building log cabins in the woods"
         />
         <p></p>
         {wydResponseTitle?.length > 0 ? (
