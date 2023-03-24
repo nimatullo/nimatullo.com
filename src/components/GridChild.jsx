@@ -1,5 +1,6 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
+import { motion } from "framer-motion";
 
 const GridChild = ({ link, title, description }) => {
   return (
@@ -12,7 +13,7 @@ const GridChild = ({ link, title, description }) => {
         <p>{description}</p>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default GridChild
+export default GridChild;
