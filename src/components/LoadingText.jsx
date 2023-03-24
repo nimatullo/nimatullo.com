@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "./Loader";
+import { motion, AnimatePresence, animate } from "framer-motion";
 
 const techJargon = [
   "Optimizing data pipelines",
@@ -11,6 +11,12 @@ const techJargon = [
   "Building serverless architectures",
   "Designing distributed systems",
 ];
+
+const textVariants = {
+  initial: { opacity: 0, y: -10 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 10 },
+};
 
 const LoadingComponent = ({ isLoading }) => {
   const [jargonIndex, setJargonIndex] = React.useState(0);
@@ -33,10 +39,17 @@ const LoadingComponent = ({ isLoading }) => {
       }}
     >
       <LoadingSpinner />
-      <p>
+      <motion.p
+        style={{ marginTop: 20 }}
+        variants={textVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        key={jargonIndex}
+      >
         {techJargon[jargonIndex]}
         ...
-      </p>
+      </motion.p>
     </div>
   );
 };
