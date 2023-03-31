@@ -44,6 +44,10 @@ const Playlist = ({ ...props }) => {
         title="face of unemployment"
         source="https://embed.music.apple.com/us/playlist/winter-22/pl.u-GgA5e8bUpaav82"
       />
+      <PlaylistEntry
+        title="spring 23"
+        source="https://embed.music.apple.com/us/playlist/spring-23/pl.u-NpXm9xpC7jjJpy"
+      />
     </>
   );
 };
