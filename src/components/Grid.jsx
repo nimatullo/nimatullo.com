@@ -7,21 +7,37 @@ const Grid = () => {
     <div className="grid">
       <GridChild
         link="projects"
-        title="‍🚀 Projects"
+        title="Projects"
         description="Projects I've done so far, all open source"
+        emoji={{
+          name: 'rocket',
+          fallback: '🚀'
+        }}
       />
       <GridChild
         link="culture"
-        title="🎨 Culture"
+        title="Culture"
+        emoji={{
+          name: 'palette',
+          fallback: '🎨'
+        }}
         description="Some of my favorite books, my playlists and articles/blogs everyone should read"
       />
       <GridChild
         link="resume"
-        title="🖊️ Resume"
+        title="Resume"
+        emoji={{
+          name: 'pen',
+          fallback: '🖊️'
+        }}
         description="Professional resume"
       />
       <GridChildExternal
-        title="🤡 Memes"
+        title="Memes"
+        emoji={{
+          name: 'clown',
+          fallback: '🤡'
+        }}
         description="Rotating carousel of bad programmer memes"
       />
     </div>

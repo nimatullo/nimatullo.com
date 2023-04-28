@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import { Emoji } from "./Emoji";
+import { flexStyle } from "./GridChild";
 
-const GridChildExternal = ({ title, description }) => {
+const GridChildExternal = ({ title, description, emoji }) => {
   const [memeLink, setMemeLink] = useState(0);
   const [memeIndex, setIndex] = useState(0);
   const listOfMemes = [
@@ -30,6 +32,8 @@ const GridChildExternal = ({ title, description }) => {
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Google-Joke-1024x956.jpg",
   ];
 
+  const {name: emojiName, fallback} = emoji
+
   return (
     <AnimatePresence>
       <motion.div
@@ -52,7 +56,10 @@ const GridChildExternal = ({ title, description }) => {
         >
           <div>
             <header>
-              <h4>{title}</h4>
+              <div style={flexStyle}>
+                <Emoji name={emojiName} fallback={fallback} />
+                <h4>{title}</h4>
+              </div>
               <hr />
             </header>
             <p>{description}</p>

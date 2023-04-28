@@ -1,8 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
 import { AnimatePresence, motion } from "framer-motion";
+import { Emoji } from "./Emoji";
 
-const GridChild = ({ link, title, description }) => {
+export const flexStyle = {
+  'display': 'flex',
+  'flex-direction': 'row',
+  'justify-content': 'start'
+}
+
+const GridChild = ({ link, title, description, emoji }) => {
+
+  const { name: emojiName, fallback } = emoji
+
+
   return (
     <AnimatePresence>
       <motion.div
@@ -15,7 +26,10 @@ const GridChild = ({ link, title, description }) => {
         <Link to={`/${link}`}>
           <div>
             <header>
-              <h4>{title}</h4>
+              <div style={flexStyle}>
+                <Emoji name={emojiName} fallback={fallback} />
+                <h4>{title}</h4>
+              </div>
               <hr />
             </header>
             <p>{description}</p>

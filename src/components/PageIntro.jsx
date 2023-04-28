@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-const PageIntro = (props) => {
+import { Emoji } from "./Emoji";
+const PageIntro = ({header, text, emoji={}}) => {
+
   return (
     <motion.div className="intro">
       <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {props.header}
+        {header} {emoji ? (<Emoji name={emoji.name} style={{ "width": "50px" }} fallback={emoji.fallback} />) : null}
       </motion.h1>
       <motion.p
         initial={{ opacity: 0 }}
@@ -13,7 +15,7 @@ const PageIntro = (props) => {
           delay: 0.1,
         }}
       >
-        {props.text}
+        {text}
       </motion.p>
     </motion.div>
   );
