@@ -15,7 +15,7 @@ const Index = () => {
         <title>Home Page</title>
         <link rel="icon" href={favicon} />
       </Helmet>
-      <PageIntro header="why worry 🧦" text={""} />
+      <PageIntro header="why worry" text={""} emoji={{ name: 'socks', fallback: '🧦' }} />
       <Grid />
       <SocialmediaNav />
     </div>
