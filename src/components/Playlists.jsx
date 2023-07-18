@@ -45,8 +45,12 @@ const Playlist = ({ ...props }) => {
         source="https://embed.music.apple.com/us/playlist/winter-22/pl.u-GgA5e8bUpaav82"
       />
       <PlaylistEntry
-        title="spring 23"
+        title="ball is life"
         source="https://embed.music.apple.com/us/playlist/spring-23/pl.u-NpXm9xpC7jjJpy"
+      />
+      <PlaylistEntry
+        title="prego"
+        source="https://embed.music.apple.com/us/playlist/prego/pl.u-jV89bXNT3ooPqB"
       />
     </>
   );
