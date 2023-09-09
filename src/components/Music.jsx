@@ -1,5 +1,6 @@
-import React from "react";
+import React from "react"
 
+// Not used
 const Album = ({ album }) => {
   return (
     <div className="book">
@@ -7,7 +8,7 @@ const Album = ({ album }) => {
       <img src={album.coverart} alt={album.album} />
       <p>{album.artist}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Album;
+export default Album

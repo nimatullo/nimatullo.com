@@ -59,7 +59,7 @@ nav ul li a:hover,
 .active {
   background-color: #1e1e1e;
   color: #fefefe;
-  padding: 5px;
+  padding: 3px;
   transition: all 0.2s ease-in-out;
 }
 

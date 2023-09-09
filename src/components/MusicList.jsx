@@ -1,8 +1,8 @@
-import React from "react";
-import { render } from "react-dom";
-import albumList from "../constants/albumsList";
-import Music from "../components/Music";
+import React from "react"
+import Music from "../components/Music"
+import albumList from "../constants/albumsList"
 
+// Not used
 const MusicList = () => {
   return (
     <div className="bookList">
@@ -10,7 +10,7 @@ const MusicList = () => {
         <Music album={album} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default MusicList;
+export default MusicList
