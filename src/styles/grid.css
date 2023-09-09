@@ -19,6 +19,7 @@
 .hover:hover {
   background-color: #1c1c1c;
   color: #fefefe;
+  cursor: pointer;
 }
 
 .hover:hover p {
@@ -54,15 +55,6 @@
 
 .intro img {
   width: 70%;
-}
-
-#mark-link {
-  color: #fefefe;
-}
-
-#mark-link:hover {
-  text-decoration: underline;
-  color: #1c1c1c;
 }
 
 ::-moz-selection {
