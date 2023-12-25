@@ -12,7 +12,7 @@ const Book = ({ book }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.7 }}
-      className="gridChildContainer"
+      className="gridChildContainer center"
     >
       <h2>{title}</h2>
       <img src={thumbnail} alt="Book Img" />
