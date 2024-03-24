@@ -2,7 +2,7 @@
   margin: 1em 0;
   background-color: #efefef;
   padding: 1em;
-  border: 1px solid #6f6f6f1c;
+  border: 3px solid #6f6f6f1c;
 }
 
 .playlist-title {
@@ -24,7 +24,7 @@
 }
 
 .playlist-frame {
-  border: 1px solid transparent;
+  border: 2px solid black;
   width: 70%;
   height: 700px;
 }

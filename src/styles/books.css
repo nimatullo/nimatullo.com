@@ -11,23 +11,9 @@
 }
 
 .book {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  max-height: 400px;
-  padding: 1em;
-  background-color: #efefef;
-  text-align: center;
-  border: 1px solid #6f6f6f1c;
+  position: relative;
 }
 
-.book img {
-  object-fit: cover;
-  height: 250px;
-  box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.028),
-    0 0px 8.3px rgba(253, 253, 253, 0.042), 0 0px 10px rgba(0, 0, 0, 0.07);;
-}
 
 .add-link-container {
   width: 100%;

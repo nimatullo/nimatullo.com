@@ -5,7 +5,6 @@
   padding: 0;
   margin: 0;
   font-family: "Overpass", monospace;
-  /* transition: all 0.1s ease-in-out; */
 }
 
 html {
@@ -32,7 +31,7 @@ body {
 }
 
 hr {
-  border: 1px solid #acacac;
+  border: 2px solid #1c1c1c;
 }
 
 nav {
@@ -67,6 +66,12 @@ nav ul li a:hover,
   margin: 0;
   max-width: 992px;
   width: 80vw;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 
 .loadingIndicator {
@@ -149,16 +154,6 @@ nav ul li a:hover,
     color: #fefefe;
   }
 
-  .gridChildContainer {
-    background-color: #262525;
-  }
-
-  /* Set footer and footer svgs to white and stroke color to white */
-  footer,
-  footer ul li a svg {
-    color: #fefefe;
-    stroke: #fefefe;
-  }
 }
 
 a.link:hover {
