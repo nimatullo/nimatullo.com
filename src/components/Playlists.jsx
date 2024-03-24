@@ -52,6 +52,14 @@ const Playlist = ({ ...props }) => {
         title="prego"
         source="https://embed.music.apple.com/us/playlist/prego/pl.u-jV89bXNT3ooPqB"
       />
+      <PlaylistEntry
+        title="you must mourn the loss of your younger self, the person who has gotten you this far but who is no longer equipped to carry you onward"
+        source="https://embed.music.apple.com/us/playlist/you-must-mourn-the-loss-of-your-younger-self-the/pl.u-2aoqXWLfezzjL2"
+      />
+      <PlaylistEntry
+      title="winter 23"
+      source="https://embed.music.apple.com/us/playlist/winter-23/pl.u-NpXm977F7jjJpy"
+    />
     </>
   );
 };
