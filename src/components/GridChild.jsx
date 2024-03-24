@@ -51,13 +51,19 @@ export const GridChild = ({ link, title, description, emoji, external }) => {
       x: [
         ...Array(5)
           .fill(0)
-          .map((k) => random(window.innerWidth)),
+          .map((_) =>
+            random(typeof window !== "undefined" && window && window.innerWidth)
+          ),
         0,
       ],
       y: [
         ...Array(5)
           .fill(0)
-          .map((k) => random(window.innerHeight)),
+          .map((_) =>
+            random(
+              typeof window !== "undefined" && window && window.innerHeight
+            )
+          ),
         0,
       ],
     },
