@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion"
 import React, { useRef } from "react"
 
+const style = {
+  border: "2px solid black",
+}
+
 const Book = ({ book }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -15,7 +19,7 @@ const Book = ({ book }) => {
       className="gridChildContainer center"
     >
       <h2>{title}</h2>
-      <img src={thumbnail} alt="Book Img" />
+      <img style={style} src={thumbnail} alt="Book Img" />
       <p>{author}</p>
     </motion.div>
   )

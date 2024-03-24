@@ -1,10 +1,10 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import Grid from "../components/Grid";
-import PageIntro from "../components/PageIntro";
-import SocialmediaNav from "../components/SocialMediaNav";
-import favicon from "../images/favicon.png";
-import "../styles/global.css";
+import React from "react"
+import { Helmet } from "react-helmet"
+import Grid from "../components/Grid"
+import PageIntro from "../components/PageIntro"
+import SocialmediaNav from "../components/SocialMediaNav"
+import favicon from "../images/favicon.png"
+import "../styles/global.css"
 
 const Index = () => {
   return (
@@ -14,11 +14,15 @@ const Index = () => {
         <title>Home Page</title>
         <link rel="icon" href={favicon} />
       </Helmet>
-      <PageIntro header="why worry" text={""} emoji={{ name: 'socks', fallback: '🧦' }} />
+      <PageIntro
+        header="why worry"
+        text={""}
+        emoji={{ name: "anxiety", fallback: "🧦" }}
+      />
       <Grid />
       <SocialmediaNav />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

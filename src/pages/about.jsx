@@ -1,32 +1,32 @@
-import React from "react";
-import Nav from "../components/Nav";
-import SocialMediaNav from "../components/SocialMediaNav";
-import Helmet from "react-helmet";
-import PageIntro from "../components/PageIntro";
-import LoadingComponent from "../components/LoadingText";
+import React from "react"
+import Helmet from "react-helmet"
+import LoadingComponent from "../components/LoadingText"
+import Nav from "../components/Nav"
+import PageIntro from "../components/PageIntro"
+import SocialMediaNav from "../components/SocialMediaNav"
 
 const About = () => {
-  const [wydResponseTitle, setWydResponseTitle] = React.useState();
-  const [wydResponseUrl, setWydResponseUrl] = React.useState();
+  const [wydResponseTitle, setWydResponseTitle] = React.useState()
+  const [wydResponseUrl, setWydResponseUrl] = React.useState()
 
   React.useEffect(() => {
-    fetchWyd();
-  }, []);
+    fetchWyd()
+  }, [])
 
   const fetchWyd = async () => {
-    const wydApiUrl = "https://wyd.nimatullo.com/stream";
-    const eventSource = new EventSource(wydApiUrl);
+    const wydApiUrl = "https://wyd.nimatullo.com/stream"
+    const eventSource = new EventSource(wydApiUrl)
     eventSource.addEventListener("message", (event) => {
-      const data = JSON.parse(event.data);
-      setWydResponseTitle(data.name);
-      setWydResponseUrl(data.website);
-    });
+      const data = JSON.parse(event.data)
+      setWydResponseTitle(data.name)
+      setWydResponseUrl(data.website)
+    })
 
     setTimeout(() => {
-      console.log("Stream closed!");
-      eventSource.close();
-    }, 30000); // Close connection after 30 seconds. Sorry, server time is expensive 😖
-  };
+      console.log("Stream closed!")
+      eventSource.close()
+    }, 30000) // Close connection after 30 seconds. Sorry, server time is expensive 😖
+  }
 
   return (
     <>
@@ -44,6 +44,7 @@ const About = () => {
           header="About"
           text="I am a Computer Science graduate of Stony Brook University. My interests include backend development, software architecture, basketball and rap music. I like nature, Timurid art, red, slow days, sun, books, clackity
           keyboards, games, chatter, beach, sunset, travel, culture, tech, teamwork, blizzards, videos of people building log cabins in the woods"
+          obscure={true}
         />
         <p></p>
         {wydResponseTitle?.length > 0 ? (
@@ -60,7 +61,7 @@ const About = () => {
       </div>
       <SocialMediaNav />
     </>
-  );
-};
+  )
+}
 
-export default About;
+export default About

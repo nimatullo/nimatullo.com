@@ -1,10 +1,10 @@
-import React from "react";
-import ProjectContainer from "../components/ProjectContainer";
-import "../styles/projects.css";
-import Nav from "../components/Nav";
-import SocialmediaNav from "../components/SocialMediaNav";
-import Helmet from "react-helmet";
-import PageIntro from "../components/PageIntro";
+import React from "react"
+import Helmet from "react-helmet"
+import Nav from "../components/Nav"
+import PageIntro from "../components/PageIntro"
+import ProjectContainer from "../components/ProjectContainer"
+import SocialmediaNav from "../components/SocialMediaNav"
+import "../styles/projects.css"
 
 const Projects = () => {
   return (
@@ -74,8 +74,7 @@ const Projects = () => {
           <ProjectContainer
             project={{
               title: "Ghost Kitchen",
-              description:
-                "Full stack food delivery sample service made with Spring, React, PSQL.",
+              description: "Mm..Food",
               github: "https://github.com/nimatullo/GhostKitchen",
               link: "https://youtu.be/wSX2Ocldlho",
             }}
@@ -83,8 +82,7 @@ const Projects = () => {
           <ProjectContainer
             project={{
               title: "Prodicter",
-              description:
-                "Machine Learning model using Linear Regression, Random Forest Regression, and Gradient Boosting Regression in order to predict and rank the current NBA season’s Most Valuable Player",
+              description: "MVP!MVP!MMVVPP123!",
               github: "https://github.com/nimatullo/CEWIT-Hackathon-Project",
               link:
                 "https://devpost.com/software/prodict-machine-learning-mvp-prediction",
@@ -94,7 +92,7 @@ const Projects = () => {
       </div>
       <SocialmediaNav />
     </>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

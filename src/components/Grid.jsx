@@ -8,9 +8,9 @@ const Grid = () => {
       <GridChild
         link="projects"
         title="Projects"
-        description="Projects I've done so far, all open source"
+        description="things i make"
         emoji={{
-          name: "rocket",
+          name: "clipartrocket",
           fallback: "🚀",
         }}
       />
@@ -18,28 +18,28 @@ const Grid = () => {
         link="culture"
         title="Culture"
         emoji={{
-          name: "palette",
+          name: "artist",
           fallback: "🎨",
         }}
-        description="Some of my favorite books, my playlists and articles/blogs everyone should read"
+        description="books, music, reading"
       />
       <GridChild
         link="resume"
         title="Resume"
         emoji={{
-          name: "pen",
+          name: "business",
           fallback: "🖊️",
         }}
-        description="Professional resume"
+        description="make sure you look them in their eyes when you shake their hand"
       />
       <GridChild
         external
         title="Memes"
         emoji={{
-          name: "clown",
+          name: "clownonball",
           fallback: "🤡",
         }}
-        description="Rotating carousel of bad programmer memes"
+        description="**bad**"
       />
     </div>
   )

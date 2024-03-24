@@ -8,6 +8,7 @@
     "source-map": "^0.8.0-beta.0"
   },
   "dependencies": {
+    "baffle": "^0.3.6",
     "dotenv": "^16.0.1",
     "firebase": "^9.9.1",
     "framer-motion": "^10.9.0",

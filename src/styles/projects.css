@@ -13,12 +13,11 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: center;
   align-items: center;
-  border: 1px solid #6f6f6f1c;
+  border: 3px solid #000000a6;
   padding: 2em;
   width: 100%;
   background-color: #efefef;
   min-height: 200px;
-  border: 1px solid #6f6f6f1c;
 }
 
 .projectList .info {
@@ -27,6 +26,7 @@
 
 .projectList .info h2 {
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .projectContent .actions {
@@ -36,7 +36,7 @@
 }
 
 .projectContent .actions a {
-  border: 1px solid #1c1c1c;
+  border: 3px solid #1c1c1c;
   padding: 10px;
   transition: ease 0.3s;
   text-align: center;

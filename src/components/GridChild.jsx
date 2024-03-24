@@ -41,11 +41,26 @@ export const GridChild = ({ link, title, description, emoji, external }) => {
     if (!external) navigate(`/${link}`)
   }
 
+  const random = (max) => {
+    return Math.floor(Math.random() * (max - max * -1 + 1)) + max * -1
+  }
+
   const animation = {
-    initial: { y: -100, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: -100, opacity: 0 },
-    transition: { duration: 0.5, ease: "easeIn" },
+    animate: {
+      rotate: [0, 90, 180, 270, 360],
+      x: [
+        ...Array(5)
+          .fill(0)
+          .map((k) => random(window.innerWidth)),
+        0,
+      ],
+      y: [
+        ...Array(5)
+          .fill(0)
+          .map((k) => random(window.innerHeight)),
+        0,
+      ],
+    },
   }
 
   return (

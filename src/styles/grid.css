@@ -10,20 +10,14 @@
   padding: 40px;
   background-color: #efefef;
   color: #1c1c1c;
-  border: 2px solid #eeeeee;
   min-height: 200px;
   transition: ease 0.2s;
-  border: 1px solid #6f6f6f1c;
+  /* border: 3px solid #1c1c1c; */
+  box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
 }
 
 .hover:hover {
-  background-color: #1c1c1c;
-  color: #fefefe;
   cursor: pointer;
-}
-
-.hover:hover p {
-  color: #b1b1b1;
 }
 
 .gridChildContainer div {
@@ -36,6 +30,7 @@
 
 .gridChildContainer div header h4 {
   font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .gridChildContainer div p {
@@ -71,19 +66,16 @@
 @media (prefers-color-scheme: dark) {
   .gridChildContainer {
     background-color: #262525;
+    border: 3px dashed rgb(231, 231, 231);
+    color: #fff;
   }
 
   .hover:hover div header h4,
   .hover:hover div p {
-    color: #b1b1b1;
+    color: #ffffff;
   }
 
   .hover:hover .playlist-title h3 {
     color: #1c1c1c;
-  }
-
-  .hover:hover {
-    background-color: #fefefe;
-    border-color: #6f6f6f1c;
   }
 }
