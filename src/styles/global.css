@@ -108,12 +108,60 @@ nav ul li a:hover,
   text-align: center;
 }
 
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.blob-text {
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  mix-blend-mode: difference;
+  text-align: center;
+  margin: 0;
+  text-align: justify;
+  font-size: calc(20vw);
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+body {
+  animation: changeBackground 120s infinite;
+}
+
+@keyframes changeBackground {
+  0% {
+    background-color: #f49898;
+  }
+  20% {
+    background-color: #ecd788;
+  }
+  40% {
+    background-color: #c9f6f0;
+  }
+  60% {
+    background-color: #bef6d7;
+  }
+  80% {
+    background-color: #ccb0f5;
+  }
+  100% {
+    background-color: #f495b2;
   }
 }
 
@@ -159,7 +207,6 @@ nav ul li a:hover,
   p {
     color: #fefefe;
   }
-
 }
 
 a.link:hover {

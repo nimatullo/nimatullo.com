@@ -2,10 +2,11 @@ import React from "react"
 import { GridChild } from "../components/GridChild"
 import "../styles/grid.css"
 
-const Grid = () => {
+const Grid = ({ setHoverTitle }) => {
   return (
     <div className="grid">
       <GridChild
+        onHover={setHoverTitle}
         link="projects"
         title="Projects"
         description="things i make"
@@ -15,6 +16,7 @@ const Grid = () => {
         }}
       />
       <GridChild
+        onHover={setHoverTitle}
         link="culture"
         title="Culture"
         emoji={{
@@ -24,6 +26,7 @@ const Grid = () => {
         description="books, music, reading"
       />
       <GridChild
+        onHover={setHoverTitle}
         link="resume"
         title="Resume"
         emoji={{
@@ -33,6 +36,7 @@ const Grid = () => {
         description="make sure you look them in their eyes when you shake their hand"
       />
       <GridChild
+        onHover={setHoverTitle}
         external
         title="Memes"
         emoji={{

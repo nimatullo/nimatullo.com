@@ -12,8 +12,6 @@
   color: #1c1c1c;
   min-height: 200px;
   transition: ease 0.2s;
-  /* border: 3px solid #1c1c1c; */
-  box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
 }
 
 .hover:hover {
@@ -53,7 +51,6 @@
 }
 
 ::-moz-selection {
-  /* Code for Firefox */
   color: white;
   background: #434343;
 }

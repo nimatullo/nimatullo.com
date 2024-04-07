@@ -3,7 +3,14 @@ import { Link, navigate } from "gatsby"
 import React from "react"
 import { Emoji } from "./Emoji"
 
-export const GridChild = ({ link, title, description, emoji, external }) => {
+export const GridChild = ({
+  link,
+  title,
+  description,
+  emoji,
+  external,
+  onHover,
+}) => {
   const flexStyle = {
     display: "flex",
     "flex-direction": "row",
@@ -41,40 +48,13 @@ export const GridChild = ({ link, title, description, emoji, external }) => {
     if (!external) navigate(`/${link}`)
   }
 
-  const random = (max) => {
-    return Math.floor(Math.random() * (max - max * -1 + 1)) + max * -1
-  }
-
-  const animation = {
-    animate: {
-      rotate: [0, 90, 180, 270, 360],
-      x: [
-        ...Array(5)
-          .fill(0)
-          .map((_) =>
-            random(typeof window !== "undefined" && window && window.innerWidth)
-          ),
-        0,
-      ],
-      y: [
-        ...Array(5)
-          .fill(0)
-          .map((_) =>
-            random(
-              typeof window !== "undefined" && window && window.innerHeight
-            )
-          ),
-        0,
-      ],
-    },
-  }
-
   return (
     <AnimatePresence>
       <motion.div
-        {...animation}
-        className="gridChildContainer hover"
+        className="gridChildContainer hover glass"
         onClick={clickHandler}
+        onMouseEnter={() => onHover(title)}
+        onMouseLeave={() => onHover(null)}
       >
         {external ? (
           <a
