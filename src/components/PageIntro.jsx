@@ -15,8 +15,14 @@ const PageIntro = ({ header, text, emoji = {}, obscure }) => {
 
   return (
     <motion.div className="intro">
-      <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {header}{" "}
+      <motion.h1
+        style={{
+          letterSpacing: Math.random() > 0.5 ? "0.5em" : "-8px",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {header}
         {emoji ? (
           <Emoji
             name={emoji.name}

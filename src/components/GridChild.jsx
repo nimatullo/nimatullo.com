@@ -1,13 +1,27 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import React from "react"
 import { Emoji } from "./Emoji"
 
-export const GridChild = ({ link, title, description, emoji, external }) => {
+export const GridChild = ({
+  link,
+  title,
+  description,
+  emoji,
+  external,
+  onHover,
+}) => {
   const flexStyle = {
     display: "flex",
     "flex-direction": "row",
     "justify-content": "start",
+  }
+  const variants = {
+    initial: { scale: 1 },
+    zoomIn: {
+      scale: 100,
+      transition: { duration: 0.3 },
+    },
   }
   const [memeIndex, setIndex] = React.useState(0)
   const listOfMemes = [
@@ -36,45 +50,24 @@ export const GridChild = ({ link, title, description, emoji, external }) => {
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Google-Joke-1024x956.jpg",
   ]
   const [memeLink, setMemeLink] = React.useState(listOfMemes[0])
+  const [isZoomed, setZoom] = React.useState(false)
   const { name: emojiName, fallback } = emoji
   const clickHandler = () => {
-    if (!external) navigate(`/${link}`)
-  }
-
-  const random = (max) => {
-    return Math.floor(Math.random() * (max - max * -1 + 1)) + max * -1
-  }
-
-  const animation = {
-    animate: {
-      rotate: [0, 90, 180, 270, 360],
-      x: [
-        ...Array(5)
-          .fill(0)
-          .map((_) =>
-            random(typeof window !== "undefined" && window && window.innerWidth)
-          ),
-        0,
-      ],
-      y: [
-        ...Array(5)
-          .fill(0)
-          .map((_) =>
-            random(
-              typeof window !== "undefined" && window && window.innerHeight
-            )
-          ),
-        0,
-      ],
-    },
+    setZoom(!isZoomed)
+    if (!external) setTimeout(() => navigate(link), 100)
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
-        {...animation}
-        className="gridChildContainer hover"
+        className="gridChildContainer hover glass"
         onClick={clickHandler}
+        onMouseEnter={() => onHover(title)}
+        onMouseLeave={() => onHover(null)}
+        variants={variants}
+        initial="initial"
+        animate={isZoomed ? "zoomIn" : "initial"}
+        whileTap={{ scale: 0.9 }}
       >
         {external ? (
           <a
@@ -104,24 +97,22 @@ export const GridChild = ({ link, title, description, emoji, external }) => {
             </div>
           </a>
         ) : (
-          <Link to={`/${link}`}>
-            <div>
-              <header>
-                <div style={flexStyle}>
-                  <Emoji name={emoji.name} fallback={emoji.fallback} />
-                  <h4
-                    style={{
-                      marginLeft: "10px",
-                    }}
-                  >
-                    {title}
-                  </h4>
-                </div>
-                <hr />
-              </header>
-              <p>{description}</p>
-            </div>
-          </Link>
+          <div>
+            <header>
+              <div style={flexStyle}>
+                <Emoji name={emoji.name} fallback={emoji.fallback} />
+                <h4
+                  style={{
+                    marginLeft: "10px",
+                  }}
+                >
+                  {title}
+                </h4>
+              </div>
+              <hr />
+            </header>
+            <p>{description}</p>
+          </div>
         )}
       </motion.div>
     </AnimatePresence>
