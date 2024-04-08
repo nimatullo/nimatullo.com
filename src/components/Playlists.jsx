@@ -1,5 +1,5 @@
-import React from "react";
-import PlaylistEntry from "./PlaylistEntry";
+import React from "react"
+import PlaylistEntry from "./PlaylistEntry"
 
 const Playlist = ({ ...props }) => {
   return (
@@ -57,11 +57,15 @@ const Playlist = ({ ...props }) => {
         source="https://embed.music.apple.com/us/playlist/you-must-mourn-the-loss-of-your-younger-self-the/pl.u-2aoqXWLfezzjL2"
       />
       <PlaylistEntry
-      title="winter 23"
-      source="https://embed.music.apple.com/us/playlist/winter-23/pl.u-NpXm977F7jjJpy"
-    />
+        title="pashtish de nadish"
+        source="https://embed.music.apple.com/us/playlist/winter-23/pl.u-NpXm977F7jjJpy"
+      />
+      <PlaylistEntry
+        title="spring 24"
+        source="https://embed.music.apple.com/us/playlist/spring-24/pl.u-gxblkX0sZEE2Ml"
+      />
     </>
-  );
-};
+  )
+}
 
-export default Playlist;
+export default Playlist
