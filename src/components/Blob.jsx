@@ -15,12 +15,20 @@ export const Blob = () => {
         x: [
           ...Array(2)
             .fill(0)
-            .map((k) => random(window.innerWidth)),
+            .map((k) =>
+              random(
+                typeof window !== "undefined" && window && window.innerWidth
+              )
+            ),
         ],
         y: [
           ...Array(2)
             .fill(0)
-            .map((k) => random(window.innerHeight)),
+            .map((k) =>
+              random(
+                typeof window !== "undefined" && window && window.innerHeight
+              )
+            ),
         ],
 
         borderRadius: [
