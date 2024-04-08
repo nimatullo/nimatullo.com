@@ -40,6 +40,7 @@ export const Blob = () => {
   const style = React.useMemo(
     () => ({
       position: "absolute",
+      border: "1px solid rgba(255, 255, 255, 0.18)",
       zIndex: -1,
       width: 700,
       height: 700,

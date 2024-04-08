@@ -1,14 +1,12 @@
-import React from "react";
-import Nav from "../components/Nav";
-import "../styles/books.css";
-import SocialMediaNav from "../components/SocialMediaNav";
-import Helmet from "react-helmet";
-import PageIntro from "../components/PageIntro";
-import BookList from "../components/BookList";
-import Playlist from "../components/Playlists";
-import Hoarder from "../components/Hoarder";
-
-import { useInView, motion } from "framer-motion";
+import React from "react"
+import Helmet from "react-helmet"
+import BookList from "../components/BookList"
+import Hoarder from "../components/Hoarder"
+import Nav from "../components/Nav"
+import PageIntro from "../components/PageIntro"
+import Playlist from "../components/Playlists"
+import SocialMediaNav from "../components/SocialMediaNav"
+import "../styles/books.css"
 
 const Books = () => {
   return (
@@ -32,7 +30,7 @@ const Books = () => {
       </div>
       <SocialMediaNav />
     </>
-  );
-};
+  )
+}
 
-export default Books;
+export default Books

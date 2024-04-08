@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import React from "react"
 import { Emoji } from "./Emoji"
 
@@ -15,6 +15,13 @@ export const GridChild = ({
     display: "flex",
     "flex-direction": "row",
     "justify-content": "start",
+  }
+  const variants = {
+    initial: { scale: 1 },
+    zoomIn: {
+      scale: 100,
+      transition: { duration: 0.3 },
+    },
   }
   const [memeIndex, setIndex] = React.useState(0)
   const listOfMemes = [
@@ -43,18 +50,24 @@ export const GridChild = ({
     "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Google-Joke-1024x956.jpg",
   ]
   const [memeLink, setMemeLink] = React.useState(listOfMemes[0])
+  const [isZoomed, setZoom] = React.useState(false)
   const { name: emojiName, fallback } = emoji
   const clickHandler = () => {
-    if (!external) navigate(`/${link}`)
+    setZoom(!isZoomed)
+    if (!external) setTimeout(() => navigate(link), 100)
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
         className="gridChildContainer hover glass"
         onClick={clickHandler}
         onMouseEnter={() => onHover(title)}
         onMouseLeave={() => onHover(null)}
+        variants={variants}
+        initial="initial"
+        animate={isZoomed ? "zoomIn" : "initial"}
+        whileTap={{ scale: 0.9 }}
       >
         {external ? (
           <a
@@ -84,24 +97,22 @@ export const GridChild = ({
             </div>
           </a>
         ) : (
-          <Link to={`/${link}`}>
-            <div>
-              <header>
-                <div style={flexStyle}>
-                  <Emoji name={emoji.name} fallback={emoji.fallback} />
-                  <h4
-                    style={{
-                      marginLeft: "10px",
-                    }}
-                  >
-                    {title}
-                  </h4>
-                </div>
-                <hr />
-              </header>
-              <p>{description}</p>
-            </div>
-          </Link>
+          <div>
+            <header>
+              <div style={flexStyle}>
+                <Emoji name={emoji.name} fallback={emoji.fallback} />
+                <h4
+                  style={{
+                    marginLeft: "10px",
+                  }}
+                >
+                  {title}
+                </h4>
+              </div>
+              <hr />
+            </header>
+            <p>{description}</p>
+          </div>
         )}
       </motion.div>
     </AnimatePresence>

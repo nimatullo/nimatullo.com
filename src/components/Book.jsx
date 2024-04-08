@@ -5,6 +5,19 @@ const style = {
   border: "2px solid black",
 }
 
+function getRandomSideBorderRadius() {
+  const sides = ["TopLeft", "TopRight", "BottomRight", "BottomLeft"]
+  const borderRadius = {}
+
+  sides.forEach((side) => {
+    if (Math.random() > 0.5) {
+      borderRadius[`border${side}Radius`] = "5%"
+    }
+  })
+
+  return borderRadius
+}
+
 const Book = ({ book }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -16,6 +29,9 @@ const Book = ({ book }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.7 }}
+      style={{
+        ...getRandomSideBorderRadius(),
+      }}
       className="gridChildContainer center"
     >
       <h2>{title}</h2>
