@@ -8,18 +8,18 @@ import favicon from "../images/favicon.png"
 import "../styles/global.css"
 
 const anxietyStyle = {
-  zIndex: -1,
+  zIndex: -2,
   position: "absolute",
   right: 0,
   mixBlendMode: "darken",
 }
 
 const fallStyle = {
-  zIndex: -1,
+  zIndex: -2,
   position: "absolute",
   top: 0,
   left: "-15%",
-  height: "100vh",
+  height: "100dvh",
   mixBlendMode: "multiply",
 }
 
@@ -47,7 +47,7 @@ const Index = () => {
             <Blob />
           ))}
         <Grid setHoverTitle={setHoverTitle} />
-        <SocialmediaNav />
+        <SocialmediaNav setHoverTitle={setHoverTitle} />
       </div>
     </div>
   )

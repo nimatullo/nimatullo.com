@@ -2,7 +2,7 @@ import React from "react"
 import { Film, GitHub, Mail, Music } from "react-feather"
 import "../styles/socialmedianav.css"
 
-const SocialmediaNav = () => {
+const SocialmediaNav = ({ setHoverTitle }) => {
   const [commit, setCommit] = React.useState("")
 
   React.useEffect(() => {
@@ -17,6 +17,8 @@ const SocialmediaNav = () => {
       <ul>
         <li>
           <a
+            onMouseEnter={() => setHoverTitle("Github")}
+            onMouseLeave={() => setHoverTitle(null)}
             target="_blank"
             rel="noreferrer"
             href="http://github.com/nimatullo"
@@ -27,6 +29,8 @@ const SocialmediaNav = () => {
         </li>
         <li>
           <a
+            onMouseEnter={() => setHoverTitle("Music")}
+            onMouseLeave={() => setHoverTitle(null)}
             target="_blank"
             rel="noreferrer"
             href="https://music.apple.com/profile/nimatullo"
@@ -37,6 +41,8 @@ const SocialmediaNav = () => {
         </li>
         <li>
           <a
+            onMouseEnter={() => setHoverTitle("Letterboxd")}
+            onMouseLeave={() => setHoverTitle(null)}
             target="_blank"
             rel="noreferrer"
             href="https://letterboxd.com/nimatullo/"
@@ -47,6 +53,8 @@ const SocialmediaNav = () => {
         </li>
         <li>
           <a
+            onMouseEnter={() => setHoverTitle("Email")}
+            onMouseLeave={() => setHoverTitle(null)}
             target="_blank"
             rel="noreferrer"
             href="mailto:sherzod@nimatullo.com"
@@ -56,12 +64,11 @@ const SocialmediaNav = () => {
           </a>
         </li>
       </ul>
-      {/* <a target="_blank" rel="noreferrer" href="https://josh8.com">
-        Stay Connected
-      </a> */}
       <StayConnected />
       <div className="current-build">
         <a
+          onMouseEnter={() => setHoverTitle("Commit")}
+          onMouseLeave={() => setHoverTitle(null)}
           target="_blank"
           rel="noreferrer"
           href={`https://github.com/nimatullo/nimatullo.com/commit/${commit}`}
