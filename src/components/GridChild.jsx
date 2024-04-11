@@ -52,18 +52,20 @@ export const GridChild = ({
   const [memeLink, setMemeLink] = React.useState(listOfMemes[0])
   const [isZoomed, setZoom] = React.useState(false)
   const { name: emojiName, fallback } = emoji
-  const clickHandler = () => {
-    setZoom(!isZoomed)
-    if (!external) setTimeout(() => navigate(link), 100)
+  const handleClick = () => {
+    if (!external) {
+      setZoom(!isZoomed)
+      setTimeout(() => navigate(link), 100)
+    }
   }
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         className="gridChildContainer hover glass"
-        onClick={clickHandler}
         onMouseEnter={() => onHover(title)}
         onMouseLeave={() => onHover(null)}
+        onClick={handleClick}
         variants={variants}
         initial="initial"
         animate={isZoomed ? "zoomIn" : "initial"}

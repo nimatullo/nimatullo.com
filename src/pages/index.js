@@ -25,8 +25,8 @@ const fallStyle = {
 
 const Index = () => {
   const [hoverTitle, setHoverTitle] = React.useState(null)
-
   const blobCount = 3
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768
 
   return (
     <div className="blobContainer">
@@ -41,11 +41,10 @@ const Index = () => {
         </div>
         <Emoji style={anxietyStyle} name="anxiety" fallback="😨" />
         <Emoji style={fallStyle} name="fall" fallback="😨" />
-        {Array(blobCount)
-          .fill(0)
-          .map((k) => (
-            <Blob />
-          ))}
+        {!isMobile &&
+          Array(blobCount)
+            .fill(0)
+            .map((_) => <Blob />)}
         <Grid setHoverTitle={setHoverTitle} />
         <SocialmediaNav setHoverTitle={setHoverTitle} />
       </div>
