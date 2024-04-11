@@ -3,6 +3,33 @@ import { navigate } from "gatsby"
 import React from "react"
 import { Emoji } from "./Emoji"
 
+const flexStyle = {
+  display: "flex",
+  "flex-direction": "row",
+  "justify-content": "start",
+}
+
+const TextContainer = ({ title, description, emojiName, fallback }) => {
+  return (
+    <div className="text-container">
+      <header>
+        <div style={flexStyle}>
+          <Emoji name={emojiName} fallback={fallback} />
+          <h4
+            style={{
+              marginLeft: "10px",
+            }}
+          >
+            {title}
+          </h4>
+        </div>
+        <hr />
+      </header>
+      <p>{description}</p>
+    </div>
+  )
+}
+
 export const GridChild = ({
   link,
   title,
@@ -11,11 +38,6 @@ export const GridChild = ({
   external,
   onHover,
 }) => {
-  const flexStyle = {
-    display: "flex",
-    "flex-direction": "row",
-    "justify-content": "start",
-  }
   const variants = {
     initial: { scale: 1 },
     zoomIn: {
@@ -81,40 +103,20 @@ export const GridChild = ({
             target="_blank"
             href={memeLink}
           >
-            <div>
-              <header>
-                <div style={flexStyle}>
-                  <Emoji name={emojiName} fallback={fallback} />
-                  <h4
-                    style={{
-                      marginLeft: "10px",
-                    }}
-                  >
-                    {title}
-                  </h4>
-                </div>
-                <hr />
-              </header>
-              <p>{description}</p>
-            </div>
+            <TextContainer
+              description={description}
+              title={title}
+              emojiName={emojiName}
+              fallback={fallback}
+            />
           </a>
         ) : (
-          <div>
-            <header>
-              <div style={flexStyle}>
-                <Emoji name={emoji.name} fallback={emoji.fallback} />
-                <h4
-                  style={{
-                    marginLeft: "10px",
-                  }}
-                >
-                  {title}
-                </h4>
-              </div>
-              <hr />
-            </header>
-            <p>{description}</p>
-          </div>
+          <TextContainer
+            description={description}
+            title={title}
+            emojiName={emojiName}
+            fallback={fallback}
+          />
         )}
       </motion.div>
     </AnimatePresence>

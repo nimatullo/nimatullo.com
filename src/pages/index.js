@@ -25,7 +25,7 @@ const fallStyle = {
 
 const Index = () => {
   const [hoverTitle, setHoverTitle] = React.useState(null)
-  const blobCount = 3
+  const blobCount = 2
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768
 
   return (

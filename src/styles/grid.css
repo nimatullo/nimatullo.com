@@ -62,7 +62,6 @@
 @media (prefers-color-scheme: dark) {
   .gridChildContainer {
     background-color: #262525;
-    border: 3px dashed rgb(231, 231, 231);
     color: #fff;
   }
 
