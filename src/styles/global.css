@@ -74,8 +74,8 @@ nav ul li a:hover,
   place-items: center;
   width: 100vw;
   height: 100dvh;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .center {
