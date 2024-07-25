@@ -1,6 +1,5 @@
 import React from "react"
 import Helmet from "react-helmet"
-import BookList from "../components/BookList"
 import Hoarder from "../components/Hoarder"
 import Nav from "../components/Nav"
 import PageIntro from "../components/PageIntro"
@@ -23,8 +22,8 @@ const Media = () => {
       <div className="container">
         <PageIntro header={"Links"} text={"Link hoarding"} />
         <Hoarder />
-        <PageIntro header={"Books"} text={"List of books I recommend"} />
-        <BookList />
+        {/* <PageIntro header={"Books"} text={"List of books I recommend"} />
+        <BookList /> */}
         <PageIntro header={"Music"} text="My playlists" />
         <Playlist />
       </div>
