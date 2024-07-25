@@ -41,8 +41,7 @@ const PageIntro = ({ header, text, emoji = {}, obscure }) => {
         {text}
         {obscure && (
           <span className="obfuscated">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            quisquam consequatur corporis possimus odio ipsum assumenda cumque,
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </span>
         )}
       </motion.p>

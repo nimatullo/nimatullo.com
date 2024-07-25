@@ -2,9 +2,8 @@ import React from "react"
 import emojis from "../data/emojis.json"
 
 const defaultStyle = {
-  "width": "25px"
+  width: "25px",
 }
-
 
 const getEmojiUrl = (emojiName) => {
   const url = emojis[emojiName]
@@ -12,20 +11,18 @@ const getEmojiUrl = (emojiName) => {
   return url || null
 }
 
-
-export const Emoji = ({
-  name,
-  fallback,
-  style = null,
-}) => {
-
+export const Emoji = ({ name, fallback, style = null }) => {
   const url = getEmojiUrl(name)
 
   return url ? (
-    <img 
-      src={url}
-      style={style || defaultStyle}
-      />
+    <div
+      style={{
+        display: "inline-block",
+        ...(style || defaultStyle),
+      }}
+    >
+      <img style={{ width: "100%" }} src={url} />
+    </div>
   ) : (
     <div>{fallback}</div>
   )

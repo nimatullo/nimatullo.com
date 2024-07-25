@@ -17,8 +17,8 @@ const Grid = ({ setHoverTitle }) => {
       />
       <GridChild
         onHover={setHoverTitle}
-        link="culture"
-        title="Culture"
+        link="media"
+        title="media"
         emoji={{
           name: "artist",
           fallback: "🎨",

@@ -3,14 +3,11 @@ import Book from "./Book"
 import Loader from "./Loader"
 
 const ISBN_LIST = [
-  9781501135927, // Shoe Dog
   9781250301697, // Silent Patient
   9780812983586, // Kavalier and Clay
-  9781591841661, // The Dip
   9780767908184, // History of Everthing
   9780142437308, // Power and the Glory
   9780062316103, // Sapiens
-  9781451648539, // Steve Jobs
   9781949759228, // The Mountain is You
 ]
 

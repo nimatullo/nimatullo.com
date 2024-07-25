@@ -22,8 +22,8 @@ const routes = [
     fallback: "🚀",
   },
   {
-    text: "Culture",
-    url: "/culture",
+    text: "media",
+    url: "/media",
     emojiName: "palette",
     fallback: "🎨",
   },
