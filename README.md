@@ -1,30 +1,49 @@
-<div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg/1920px-Pieter_Bruegel_de_Oude_-_De_val_van_Icarus.jpg?1630072286318">
-</div>
 <p align="center">
-  <b>Landscape with the Fall of Icarus</b>
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
 </p>
-<hr>
-
 <h1 align="center">
-    <img src="https://i.imgur.com/NLNnixf.gif" width="25"> nimatullo dot com
+  Gatsby Minimal TypeScript Starter
 </h1>
 
-<p align="center">
-  The third iteration of my personal website <a href="https://nimatullo.com">nimatullo.com</a> built with ❤️‍🔥 and <a href="https://www.gatsbyjs.com/">Gatsby</a>, deployed on <a href="https://netlify.com">Netlify</a>.
-</p>
+## 🚀 Quick start
 
-<p align="center">
-  <img src="https://api.netlify.com/api/v1/badges/d712b5f3-8c0c-448c-ae89-827bd5667a9c/deploy-status">
-</p>
+1.  **Create a Gatsby site.**
 
-## Currently the website consists of
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-- [List of my projects](https://nimatullo.com/projects)
-- [About me](https://nimatullo/about)
-  - [Website I'm currently on](https://github.com/nimatullo/wyd)
-- [Software I use for development](https://nimatullo.com/uses)
-- [Books I've read and music I listen to](https://nimatullo.com/culture)
-  - [Also link hoarding](https://nimatullo.com/culture)
-- [Collection of bad programming memes](https://nimatullo.com)
-- [Resume](https://nimatullo.com/resume)
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby -- -ts
+    ```
+
+2.  **Start developing.**
+
+    Navigate into your new site’s directory and start it up.
+
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
+
+3.  **Open the code and start customizing!**
+
+    Your site is now running at http://localhost:8000!
+
+    Edit `src/pages/index.tsx` to see your site update in real-time!
+
+4.  **Learn more**
+
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+
+## 🚀 Quick start (Netlify)
+
+Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
