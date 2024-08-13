@@ -10,4 +10,6 @@ interface Route {
   title: string
   description: string
   emoji: Emoji
+  showInNav?: boolean
+  showInHome?: boolean
 }

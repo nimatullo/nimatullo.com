@@ -1,4 +1,5 @@
 import { footerRoutes } from "@app/routes"
+import { UnorderedList } from "@components/scaffold/UnorderedList"
 import styled from "@emotion/styled"
 
 const FooterWrapper = styled.footer({
@@ -9,20 +10,19 @@ const FooterWrapper = styled.footer({
   flexDirection: "column",
 })
 
-const UnorderedList = styled.ul({
-  display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
-  columnGap: "1rem",
-  textAlign: "center",
-  listStyle: "none",
-})
-
-export function Footer() {
+export function Footer({
+  onHover,
+}: {
+  onHover?: (title: string | null) => void
+}) {
   return (
     <FooterWrapper>
       <UnorderedList>
         {footerRoutes.map((r) => (
-          <li>
+          <li
+            onMouseOver={() => onHover?.(r.title)}
+            onMouseLeave={() => onHover?.(null)}
+          >
             <a
               title={r.title}
               rel="noopener noreferrer"

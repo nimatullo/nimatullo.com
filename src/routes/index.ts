@@ -1,24 +1,36 @@
 import { Film, GitHub, Icon, Mail, Music } from "react-feather"
 import { Route } from "../nimatullo-types"
 
-const links = ["projects", "media", "resume", "memes"] as const
+const links = ["projects", "media", "resume", "memes", "about", "home"] as const
 const socials = ["github", "applemusic", "letterboxd", "mail"] as const
 
-type Socials = typeof socials[number]
-type Link = typeof links[number]
+type Socials = (typeof socials)[number]
+export type Links = (typeof links)[number]
 
-const homePageRoutesMap: { [link in Link]: Route } = {
+const homePageRoutesMap: { [link in Links]: Route } = {
+  home: {
+    title: "Home",
+    description: "welcome",
+    emoji: { name: "house", fallback: "🏠" },
+    link: "/",
+    showInHome: false,
+    showInNav: true,
+  },
   projects: {
     title: "Projects",
     description: "things i make",
     emoji: { name: "clipartrocket", fallback: "🚀" },
     link: "/projects",
+    showInHome: true,
+    showInNav: true,
   },
   media: {
     title: "Media",
     description: "books, music, reading",
     emoji: { name: "artist", fallback: "🎨" },
     link: "/media",
+    showInHome: true,
+    showInNav: true,
   },
   resume: {
     title: "Resume",
@@ -26,12 +38,23 @@ const homePageRoutesMap: { [link in Link]: Route } = {
       "make sure you look them in their eyes when you shake their hand",
     emoji: { name: "business", fallback: "💼" },
     link: "/resume",
+    showInHome: true,
+    showInNav: true,
   },
   memes: {
     title: "Memes",
     description: "**bad**",
     emoji: { name: "clownonball", fallback: "🤡" },
     link: "/memes",
+    showInHome: true,
+  },
+  about: {
+    title: "About",
+    description: "me",
+    emoji: { name: "man-raising-hand", fallback: "🙋‍♂️" },
+    link: "/about",
+    showInHome: false,
+    showInNav: true,
   },
 }
 
@@ -48,7 +71,7 @@ const footerRoutesMap: { [social in Socials]: Social } = {
     icon: GitHub,
   },
   applemusic: {
-    title: "Apple Music",
+    title: "Music",
     href: "https://music.apple.com/profile/nimatullo",
     icon: Music,
   },
@@ -58,11 +81,16 @@ const footerRoutesMap: { [social in Socials]: Social } = {
     icon: Film,
   },
   mail: {
-    title: "Email",
+    title: "Mail",
     href: "mailto:sherzod@nimatullo.com",
     icon: Mail,
   },
 }
 
-export const homePageRoutes = Object.values(homePageRoutesMap)
+export const homePageRoutes = Object.values(homePageRoutesMap).filter(
+  (r) => r.showInHome
+)
 export const footerRoutes = Object.values(footerRoutesMap)
+export const navRoutes = Object.values(homePageRoutesMap).filter(
+  (r) => r.showInNav
+)

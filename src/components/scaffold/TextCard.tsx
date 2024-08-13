@@ -1,13 +1,10 @@
+import { EmojiProps } from "@app/nimatullo-types"
 import { Emoji } from "@components/Emoji"
-import { Flex } from "@components/layout"
+import { Flex } from "@components/scaffold"
 import styled from "@emotion/styled"
-import { EmojiProps } from "nimatullo-types"
 import React from "react"
 
 const TextContainer = styled.div({
-  padding: "1rem",
-  borderRadius: "0.5rem",
-  boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
   "& header": {
     marginBottom: "1rem",
     "& h4": {
