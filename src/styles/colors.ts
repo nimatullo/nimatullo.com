@@ -1,3 +1,5 @@
+import { randomMinMax } from "@app/utils"
+
 export const baseColors = {
   white: "#fefefe",
   black: "#1e1e1e",
@@ -319,3 +321,10 @@ export type TwColorShades =
   | 900
   | 950
 export type BrightColors = keyof typeof bright
+
+export const randomHSLColor = () => {
+  const h = randomMinMax(0, 360)
+  const s = randomMinMax(42, 98)
+  const l = randomMinMax(40, 90)
+  return `hsla(${h}, ${s}%, ${l}%, 0.4)`
+}

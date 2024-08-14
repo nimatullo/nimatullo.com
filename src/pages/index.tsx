@@ -2,6 +2,8 @@ import { homePageRoutes } from "@app/routes"
 import { GlobalStyle, theme } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
+import { Blob } from "@components/Blob"
+import { Emoji } from "@components/Emoji"
 import { Footer } from "@components/Footer"
 import { Container, Grid, TextCard } from "@components/scaffold"
 import { css, ThemeProvider } from "@emotion/react"
@@ -25,7 +27,7 @@ const BlobText = styled.h1({
   position: "absolute",
   bottom: 0,
   left: 0,
-  mixBlendMode: "difference",
+  mixBlendMode: "soft-light",
   textAlign: "center",
   margin: 0,
   textAlignLast: "justify",
@@ -55,6 +57,10 @@ const textCardGlassStyle = css({
   },
   p: {
     fontSize: "smaller",
+  },
+  "&:hover": {
+    backdropFilter: "brightness(0.7)",
+    cursor: "pointer",
   },
 })
 
@@ -89,6 +95,40 @@ const IndexPage: React.FC<PageProps> = () => {
           </Grid>
           <Footer onHover={debouncedSetHoverTitle} />
         </Container>
+
+        <Emoji
+          name="anxiety"
+          fallback="😱"
+          css={{
+            zIndex: -2,
+            position: "absolute",
+            right: 0,
+            mixBlendMode: "darken",
+            overflow: "hidden",
+            width: 500,
+          }}
+        />
+
+        <Emoji
+          name="fall"
+          fallback="🤯"
+          css={{
+            zIndex: -10,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100dvh",
+            width: "auto",
+            mixBlendMode: "multiply",
+            overflow: "hidden",
+          }}
+        />
+
+        {Array(2)
+          .fill(0)
+          .map((_, i) => (
+            <Blob key={i} />
+          ))}
       </BlobContainer>
     </ThemeProvider>
   )

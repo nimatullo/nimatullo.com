@@ -1,6 +1,7 @@
 import { db } from "@app/db"
 import { HoarderLinks, Playlist } from "@app/nimatullo-types"
 import { Accordion } from "@components/scaffold/Accordion"
+import { ListItem } from "@components/scaffold/UnorderedList"
 import { PageProps } from "gatsby"
 import React from "react"
 
@@ -24,7 +25,9 @@ const MediaPage = ({ serverData }: MediaPageProps) => {
         <h3>Links</h3>
         <ul>
           {links.map((link) => (
-            <li key={link.url}>{link.title}</li>
+            <ListItem key={link.url}>
+              <a href={link.url}>{link.title}</a>
+            </ListItem>
           ))}
         </ul>
       </div>

@@ -1,4 +1,5 @@
 import { Image } from "@components/scaffold"
+import React from "react"
 import type { EmojiProps } from "../nimatullo-types"
 
 const emojiData = {
@@ -27,8 +28,14 @@ const emojiData = {
 
 export type EmojiName = keyof typeof emojiData
 
-export const Emoji = ({ name, fallback }: EmojiProps) => {
+type EmojiImageProps = React.ImgHTMLAttributes<HTMLImageElement> & EmojiProps
+
+export const Emoji = ({ name, fallback, ...html }: EmojiImageProps) => {
   const url = emojiData[name]
 
-  return url ? <Image width="25px" src={url} alt={fallback} /> : fallback
+  return url ? (
+    <Image {...html} width="25px" src={url} alt={fallback} />
+  ) : (
+    fallback
+  )
 }
