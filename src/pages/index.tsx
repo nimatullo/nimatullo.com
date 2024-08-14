@@ -1,5 +1,6 @@
 import { homePageRoutes } from "@app/routes"
-import { colors, GlobalStyle, theme } from "@app/styles"
+import { GlobalStyle, theme } from "@app/styles"
+import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Footer } from "@components/Footer"
 import { Container, Grid, TextCard } from "@components/scaffold"
@@ -41,7 +42,7 @@ const textCardGlassStyle = css({
   backdropFilter: "blur(4px)",
   border: "1px solid rgba(255, 255, 255, 0.18)",
   padding: 40,
-  color: colors.black,
+  color: baseColors.black,
   minHeight: 200,
   transition: "ease 0.2s",
   display: "flex",

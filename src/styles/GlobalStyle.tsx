@@ -2,14 +2,14 @@ import { css, Global, keyframes, Theme, useTheme } from "@emotion/react"
 
 export const GlobalStyle = () => {
   const theme = useTheme()
-  const { colors } = theme
+  const { baseColors } = theme
   return (
     <Global
       styles={css({
         a: { textDecoration: "none", color: "inherit" },
         body: {
-          backgroundColor: colors.white,
-          color: colors.black,
+          backgroundColor: baseColors.white,
+          color: baseColors.black,
           display: "grid",
           placeItems: "center",
           animation: `${backgroundChangeKeyframes(theme)} 120s infinite`,
@@ -27,24 +27,26 @@ export const GlobalStyle = () => {
   )
 }
 
-const backgroundChangeKeyframes = (props: Theme) =>
-  keyframes({
+const backgroundChangeKeyframes = (props: Theme) => {
+  const { bright } = props
+  return keyframes({
     "0%": {
-      backgroundColor: props.colors.green,
+      backgroundColor: bright.green,
     },
     "20%": {
-      backgroundColor: props.colors.red,
+      backgroundColor: bright.red,
     },
     "40%": {
-      backgroundColor: props.colors.purple,
+      backgroundColor: bright.purple,
     },
     "60%": {
-      backgroundColor: props.colors.pink,
+      backgroundColor: bright.pink,
     },
     "80%": {
-      backgroundColor: props.colors.yellow,
+      backgroundColor: bright.yellow,
     },
     "100%": {
-      backgroundColor: props.colors.blue,
+      backgroundColor: bright.blue,
     },
   })
+}

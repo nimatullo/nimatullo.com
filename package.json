@@ -20,6 +20,8 @@
     "@emotion/styled": "^11.13.0",
     "@types/feather-icons": "^4.29.4",
     "feather-icons": "^4.29.2",
+    "firebase": "^10.12.5",
+    "framer-motion": "^11.3.27",
     "gatsby": "^5.13.5",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-emotion": "^8.13.1",

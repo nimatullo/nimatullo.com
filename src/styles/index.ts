@@ -1,8 +1,9 @@
-import { colors } from "@app/styles/colors"
+import { baseColors, bright, twColors } from "@app/styles/colors"
 
 export const theme = {
-  colors,
+  bright,
+  twColors,
+  baseColors,
 }
 
-export { colors } from "./colors"
 export { GlobalStyle } from "./GlobalStyle"

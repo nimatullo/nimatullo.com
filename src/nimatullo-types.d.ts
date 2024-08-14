@@ -13,3 +13,13 @@ interface Route {
   showInNav?: boolean
   showInHome?: boolean
 }
+
+interface Playlist {
+  name: string
+  source: string
+}
+
+interface HoarderLinks {
+  title: string
+  url: string
+}
