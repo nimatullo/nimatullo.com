@@ -1,6 +1,6 @@
 import { navRoutes } from "@app/routes"
 import { Emoji } from "@components/Emoji"
-import { UnorderedList } from "@components/scaffold/UnorderedList"
+import { ColumnList } from "@components/scaffold/List"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { Link, PageProps } from "gatsby"
@@ -37,7 +37,7 @@ export const Navbar: React.FC<PageProps> = (props) => {
 
   return (
     <Nav>
-      <UnorderedList css={css({ width: "100%" })}>
+      <ColumnList column={navRoutes.length} css={css({ width: "100%" })}>
         {navRoutes.map((route) => {
           const isActive =
             active === route.link.replace(/[^a-zA-Z ]/g, "").toLowerCase()
@@ -51,7 +51,7 @@ export const Navbar: React.FC<PageProps> = (props) => {
             </NavItem>
           )
         })}
-      </UnorderedList>
+      </ColumnList>
     </Nav>
   )
 }

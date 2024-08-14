@@ -19,7 +19,14 @@ interface Playlist {
   source: string
 }
 
-interface HoarderLinks {
+interface HoarderLink {
   title: string
   url: string
+}
+
+interface Project {
+  title: string
+  description: string
+  github?: string
+  link?: string
 }

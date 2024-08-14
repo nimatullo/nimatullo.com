@@ -1,5 +1,6 @@
 import { footerRoutes } from "@app/routes"
-import { UnorderedList } from "@components/scaffold/UnorderedList"
+import { randomHSLColor } from "@app/styles/colors"
+import { ColumnList } from "@components/scaffold/List"
 import styled from "@emotion/styled"
 
 const FooterWrapper = styled.footer({
@@ -17,7 +18,7 @@ export function Footer({
 }) {
   return (
     <FooterWrapper>
-      <UnorderedList>
+      <ColumnList>
         {footerRoutes.map((r) => (
           <li
             onMouseOver={() => onHover?.(r.title)}
@@ -29,11 +30,14 @@ export function Footer({
               target="_blank"
               href={r.href}
             >
-              <r.icon />
+              <r.icon
+                css={{ mixBlendMode: "color-dodge" }}
+                stroke={randomHSLColor(1)}
+              />
             </a>
           </li>
         ))}
-      </UnorderedList>
+      </ColumnList>
     </FooterWrapper>
   )
 }

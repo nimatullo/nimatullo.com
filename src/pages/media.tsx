@@ -1,7 +1,7 @@
 import { db } from "@app/db"
 import { HoarderLinks, Playlist } from "@app/nimatullo-types"
 import { Accordion } from "@components/scaffold/Accordion"
-import { ListItem } from "@components/scaffold/UnorderedList"
+import { ListItem } from "@components/scaffold/List"
 import { PageProps } from "gatsby"
 import React from "react"
 

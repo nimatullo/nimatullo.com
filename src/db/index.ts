@@ -1,5 +1,5 @@
 import { store } from "@app/config/firebaseConfig"
-import { HoarderLinks, Playlist } from "@app/nimatullo-types"
+import { HoarderLink, Playlist, Project } from "@app/nimatullo-types"
 import {
   collection,
   DocumentData,
@@ -21,7 +21,8 @@ const dataPoint = <T extends DocumentData>(collectionPath: string) => ({
 
 const db = {
   playlists: dataPoint<Playlist>("playlists"),
-  links: dataPoint<HoarderLinks>("links"),
+  links: dataPoint<HoarderLink>("links"),
+  projects: dataPoint<Project>("projects"),
 }
 
 export { db }

@@ -322,9 +322,9 @@ export type TwColorShades =
   | 950
 export type BrightColors = keyof typeof bright
 
-export const randomHSLColor = () => {
+export const randomHSLColor = (opacity: number = 0.4) => {
   const h = randomMinMax(0, 360)
   const s = randomMinMax(42, 98)
   const l = randomMinMax(40, 90)
-  return `hsla(${h}, ${s}%, ${l}%, 0.4)`
+  return `hsla(${h}, ${s}%, ${l}%, ${opacity})`
 }

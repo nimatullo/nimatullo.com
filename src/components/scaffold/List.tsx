@@ -1,12 +1,12 @@
 import styled from "@emotion/styled"
 
-export const UnorderedList = styled.ul({
+export const ColumnList = styled.ul<{ column?: number }>(({ column = 4 }) => ({
   display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
+  gridTemplateColumns: `repeat(${column}, 1fr)`,
   columnGap: "1rem",
   textAlign: "center",
   listStyle: "none",
-})
+}))
 
 export const ListItem = styled.li((props) => ({
   padding: "2px 0",
