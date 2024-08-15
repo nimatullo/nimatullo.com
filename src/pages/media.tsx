@@ -1,12 +1,12 @@
 import { db } from "@app/db"
-import { HoarderLinks, Playlist } from "@app/nimatullo-types"
+import { HoarderLink, Playlist } from "@app/nimatullo-types"
 import { Accordion } from "@components/scaffold/Accordion"
 import { ListItem } from "@components/scaffold/List"
 import { PageProps } from "gatsby"
 import React from "react"
 
 interface MediaPageProps extends PageProps {
-  serverData: { playlists: Playlist[]; links: HoarderLinks[] }
+  serverData: { playlists: Playlist[]; links: HoarderLink[] }
 }
 
 const MediaPage = ({ serverData }: MediaPageProps) => {

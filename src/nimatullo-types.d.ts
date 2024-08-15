@@ -14,19 +14,17 @@ interface Route {
   showInHome?: boolean
 }
 
-interface Playlist {
-  name: string
-  source: string
-}
-
-interface HoarderLink {
+interface LinkWithDisplay {
   title: string
   url: string
 }
 
-interface Project {
-  title: string
+interface MyThings extends LinkWithDisplay {
+  url?: string
+}
+
+interface Project extends LinkWithDisplay {
   description: string
   github?: string
-  link?: string
+  url?: string
 }
