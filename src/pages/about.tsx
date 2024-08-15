@@ -14,7 +14,7 @@ const AboutPage: React.FC<AboutPageProps> = (props) => {
   return (
     <PageIntro
       header="About"
-      text={
+      content={
         <div
           css={{
             p: { marginBottom: 20 },

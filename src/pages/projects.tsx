@@ -1,5 +1,6 @@
 import { db } from "@app/db"
 import type { Project } from "@app/nimatullo-types"
+import { PageIntro } from "@components/scaffold/PageIntro"
 import styled from "@emotion/styled"
 import { motion, useInView } from "framer-motion"
 import { HeadFC, PageProps } from "gatsby"
@@ -56,8 +57,8 @@ const ProjectItem = ({ project }: { project: Project }) => {
             <GitBranch />
           </a>
         )}
-        {project.link && (
-          <a href={project.link}>
+        {project.url && (
+          <a href={project.url}>
             <ExternalLink />
           </a>
         )}
@@ -73,14 +74,13 @@ interface ProjectsPageProps extends PageProps {
 const ProjectsPage: React.FC<ProjectsPageProps> = (props) => {
   const { serverData } = props
   return (
-    <div>
-      <h1>Projects</h1>
+    <PageIntro header="Projects">
       <ul>
         {serverData.map((project) => (
           <ProjectItem key={project.title} project={project} />
         ))}
       </ul>
-    </div>
+    </PageIntro>
   )
 }
 export default ProjectsPage

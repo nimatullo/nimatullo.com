@@ -14,10 +14,10 @@ const PageIntroContainer = styled.div({
 
 interface PageIntroProps {
   header: string
-  text: React.ReactNode
+  children: React.ReactNode
 }
 export const PageIntro: React.FC<PageIntroProps> = (props) => {
-  const { header, text } = props
+  const { header, children } = props
   return (
     <PageIntroContainer>
       <motion.h1
@@ -33,7 +33,7 @@ export const PageIntro: React.FC<PageIntroProps> = (props) => {
         exit={{ opacity: 0, y: -20 }}
         transition={{ delay: 0.1 }}
       >
-        {text}
+        {children}
       </motion.div>
     </PageIntroContainer>
   )
