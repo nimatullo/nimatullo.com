@@ -4,11 +4,8 @@ const path = require("path")
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `nimatullo`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://nimatullo.com`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-emotion",
@@ -22,6 +19,30 @@ const config: GatsbyConfig = {
           "@utils": path.resolve(__dirname, "src/utils"),
           "@types": path.resolve(__dirname, "src/types"),
         },
+      },
+    },
+    {
+      resolve: "gatsby-omni-font-loader",
+      options: {
+        enableListener: true,
+        preconnect: [
+          "https://fonts.gstatic.com",
+          "https://fonts.googleapis.com",
+        ],
+        web: [
+          {
+            name: "DM Serif Text",
+            file: "https://fonts.googleapis.com/css2?family=DM+Serif+Text:wght@400;500;700&display=swap",
+          },
+          {
+            name: "Overpass",
+            file: "https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap",
+          },
+          {
+            name: "Inconsolata",
+            file: "https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap",
+          },
+        ],
       },
     },
   ],

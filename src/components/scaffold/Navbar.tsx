@@ -1,5 +1,6 @@
 import { navRoutes } from "@app/routes"
 import { Emoji } from "@components/Emoji"
+import { Flex } from "@components/scaffold/Flex"
 import { ColumnList } from "@components/scaffold/List"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
@@ -46,8 +47,10 @@ export const Navbar: React.FC<PageProps> = (props) => {
           return (
             <NavItem active={isActive}>
               <Link to={route.link}>
-                <Emoji {...route.emoji} />
-                <span>{route.title}</span>
+                <Flex css={{ height: "100%" }}>
+                  <Emoji {...route.emoji} />
+                  <span>{route.title}</span>
+                </Flex>
               </Link>
             </NavItem>
           )

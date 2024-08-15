@@ -37,8 +37,6 @@ const MediaPage = ({ serverData }: MediaPageProps) => {
   )
 }
 
-export default MediaPage
-
 export async function getServerData() {
   const [playlists, links] = await Promise.all([
     db.playlists.all(),
@@ -47,3 +45,5 @@ export async function getServerData() {
 
   return { props: { playlists, links } }
 }
+
+export default MediaPage

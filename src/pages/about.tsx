@@ -6,11 +6,11 @@ import { PageProps } from "gatsby"
 import React from "react"
 
 interface AboutPageProps extends PageProps {
-  serverData: MyThings[]
+  serverData: { things: MyThings[] }
 }
 
-const AboutPage: React.FC<AboutPageProps> = (props) => {
-  const { serverData } = props
+const AboutPage: React.FC<AboutPageProps> = ({ serverData }) => {
+  const { things } = serverData
   return (
     <PageIntro header="About">
       <div
@@ -34,7 +34,7 @@ const AboutPage: React.FC<AboutPageProps> = (props) => {
 
         <p>
           Here’s a list of my many things:{" "}
-          {serverData.map((thing) =>
+          {things.map((thing) =>
             thing.url ? (
               <>
                 <ExternalAnchor href={thing.url}>{thing.title}</ExternalAnchor>
@@ -50,9 +50,8 @@ const AboutPage: React.FC<AboutPageProps> = (props) => {
   )
 }
 
-export default AboutPage
-
-export const getServerData = async () => {
+export async function getServerData() {
   const things = await db.things.all()
-  return { props: things }
+  return { props: { things } }
 }
+export default AboutPage

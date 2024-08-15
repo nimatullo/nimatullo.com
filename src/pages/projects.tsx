@@ -69,15 +69,15 @@ const ProjectItem = ({ project }: { project: Project }) => {
 }
 
 interface ProjectsPageProps extends PageProps {
-  serverData: Project[]
+  serverData: { projects: Project[] }
 }
 
-const ProjectsPage: React.FC<ProjectsPageProps> = (props) => {
-  const { serverData } = props
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ serverData }) => {
+  const { projects } = serverData
   return (
     <PageIntro header="Projects">
       <ul>
-        {serverData.map((project) => (
+        {projects.map((project) => (
           <ProjectItem key={project.title} project={project} />
         ))}
       </ul>
@@ -88,7 +88,7 @@ export default ProjectsPage
 
 export const getServerData = async () => {
   const projects = await db.projects.all()
-  return { props: projects }
+  return { props: { projects } }
 }
 
 export const Head: HeadFC = () => <title>Projects</title>
