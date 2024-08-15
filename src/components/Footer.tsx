@@ -21,6 +21,7 @@ export function Footer({
       <ColumnList>
         {footerRoutes.map((r) => (
           <li
+            key={r.title}
             onMouseOver={() => onHover?.(r.title)}
             onMouseLeave={() => onHover?.(null)}
           >

@@ -1,3 +1,4 @@
+import { PageProps } from "gatsby"
 import type { EmojiName } from "./components/Emoji"
 
 interface EmojiProps {
@@ -27,4 +28,8 @@ interface Project extends LinkWithDisplay {
   description: string
   github?: string
   url?: string
+}
+
+interface SSRPageProps<V, K extends string> extends PageProps {
+  serverData: { [key in K]: V }
 }
