@@ -13,15 +13,9 @@ interface MediaPageProps extends PageProps {
 
 const MediaPage = ({ serverData }: MediaPageProps) => {
   const { playlists, links } = serverData
+
   return (
     <React.Fragment>
-      <PageIntro header="Playlists">
-        {playlists.map((playlist) => (
-          <Accordion key={playlist.url} title={playlist.title}>
-            <iframe src={playlist.url} width="100%" height="500" />
-          </Accordion>
-        ))}
-      </PageIntro>
       <PageIntro header="Links">
         <ul>
           {links.map((link) => (
@@ -30,6 +24,14 @@ const MediaPage = ({ serverData }: MediaPageProps) => {
             </ListItem>
           ))}
         </ul>
+      </PageIntro>
+
+      <PageIntro header="Playlists">
+        {playlists.map((playlist) => (
+          <Accordion key={playlist.url} title={playlist.title}>
+            <iframe src={playlist.url} width="100%" height="500" />
+          </Accordion>
+        ))}
       </PageIntro>
     </React.Fragment>
   )

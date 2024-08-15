@@ -17,6 +17,7 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
   width: "100%",
   backgroundColor: props.theme.baseColors.white,
   minHeight: "200px",
+  marginBottom: "1rem",
   a: {
     border: `3px solid ${props.theme.twColors.gray[300]}`,
     padding: "0.5rem",

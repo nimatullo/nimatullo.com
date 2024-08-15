@@ -27,13 +27,14 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
 
 export const Navbar: React.FC<PageProps> = (props) => {
   const [active, setActive] = React.useState<string | null>(null)
+  const { location } = props
 
   React.useEffect(() => {
     const path = props.location.pathname
       .replace(/[^a-zA-Z ]/g, "")
       .toLowerCase()
     setActive(path)
-  }, [])
+  }, [location])
 
   return (
     <Nav>
