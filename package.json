@@ -1,56 +1,40 @@
 {
   "name": "nimatullo",
+  "version": "1.0.0",
   "private": true,
-  "description": "Sherzod Nimatullo Personal Website",
-  "version": "0.1.0",
-  "author": "Sherzod Nimatullo <sherzodnimatullo@gmail.com>",
-  "resolutions": {
-    "source-map": "^0.8.0-beta.0"
-  },
-  "dependencies": {
-    "baffle": "^0.3.6",
-    "dotenv": "^16.0.1",
-    "firebase": "^9.9.1",
-    "framer-motion": "^10.9.0",
-    "gatsby": "^5.9.1",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-manifest": "^5.8.0",
-    "gatsby-plugin-react-helmet": "^6.8.0",
-    "gatsby-plugin-sharp": "^5.8.0",
-    "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-transformer-sharp": "^5.8.0",
-    "get-title-at-url": "^1.1.8",
-    "path-browserify": "^1.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-feather": "^2.0.9",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^3.9.0",
-    "source-map": "^0.8.0-beta.0"
-  },
-  "devDependencies": {
-    "@netlify/plugin-gatsby": "^3.3.1",
-    "prettier": "^1.19.1"
-  },
+  "description": "nimatullo",
+  "author": "Sherzod Nimatullo",
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "typecheck": "tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@types/feather-icons": "^4.29.4",
+    "feather-icons": "^4.29.2",
+    "firebase": "^10.12.5",
+    "framer-motion": "^11.3.27",
+    "gatsby": "^5.13.5",
+    "gatsby-adapter-netlify": "^1.1.7",
+    "gatsby-omni-font-loader": "^2.0.2",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-emotion": "^8.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   }
 }
