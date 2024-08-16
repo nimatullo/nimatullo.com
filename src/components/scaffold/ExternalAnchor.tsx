@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
-import { motion } from "framer-motion"
 import React from "react"
 
-const StyledAnchor = styled(motion.a)((props) => ({
+const StyledAnchor = styled.a((props) => ({
   textDecoration: "underline",
   transition: "all 0.2s",
   "&:hover": {
@@ -15,10 +14,10 @@ const StyledAnchor = styled(motion.a)((props) => ({
 export const ExternalAnchor: React.FC<React.AnchorHTMLAttributes<any>> = (
   props
 ) => {
-  const { href, children } = props
+  const { href, children, ...rest } = props
   return (
     <React.Fragment>
-      <StyledAnchor href={href} target="_blank" rel="noreferrer">
+      <StyledAnchor {...rest} href={href} target="_blank" rel="noreferrer">
         {children}
       </StyledAnchor>
     </React.Fragment>

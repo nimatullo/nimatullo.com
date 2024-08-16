@@ -13,6 +13,7 @@ interface LayoutProps extends PageProps {
 export const Layout = (props: LayoutProps) => {
   const { renderNavbar = true, renderFooter = true } = props
   const { isDarkMode } = useDarkMode()
+
   return (
     <ThemeProvider theme={isDarkMode ? themeDark : theme}>
       <Container>
