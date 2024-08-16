@@ -1,3 +1,4 @@
+import { useMobile } from "@app/hooks"
 import { navRoutes } from "@app/routes"
 import { Emoji } from "@components/Emoji"
 import { Flex } from "@components/scaffold/Flex"
@@ -29,6 +30,7 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
 export const Navbar: React.FC<PageProps> = (props) => {
   const [active, setActive] = React.useState<string | null>(null)
   const { location } = props
+  const { isMobile } = useMobile()
 
   React.useEffect(() => {
     const path = props.location.pathname
@@ -48,7 +50,7 @@ export const Navbar: React.FC<PageProps> = (props) => {
             <NavItem active={isActive}>
               <Link to={route.link}>
                 <Flex css={{ height: "100%" }}>
-                  <Emoji {...route.emoji} />
+                  {!isMobile && <Emoji {...route.emoji} />}
                   <span>{route.title}</span>
                 </Flex>
               </Link>
