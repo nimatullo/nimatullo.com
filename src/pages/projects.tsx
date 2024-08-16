@@ -12,14 +12,14 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
   gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
   justifyContent: "center",
   alignItems: "center",
-  border: `3px solid ${props.theme.twColors.gray[300]}`,
+  border: `3px solid ${props.theme.twColors.neutral[300]}`,
   padding: "1rem",
   width: "100%",
-  backgroundColor: props.theme.baseColors.white,
+  backgroundColor: props.theme.twColors.neutral[100],
   minHeight: "200px",
   marginBottom: "1rem",
   a: {
-    border: `3px solid ${props.theme.twColors.gray[300]}`,
+    border: `3px solid ${props.theme.twColors.neutral[300]}`,
     padding: "0.5rem",
     transition: "ease 0.3s",
     textAlign: "center",
@@ -27,7 +27,9 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
     display: "grid",
     placeItems: "center",
   },
-  "a:hover": { opacity: 0.7 },
+  "a:hover": {
+    backgroundColor: props.theme.twColors.neutral[300],
+  },
   h2: { marginBottom: "10px", textTransform: "uppercase" },
 }))
 

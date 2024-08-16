@@ -37,7 +37,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ serverData }) => {
           {things.map((thing) =>
             thing.url ? (
               <>
-                <ExternalAnchor href={thing.url}>{thing.title}</ExternalAnchor>
+                <ExternalAnchor key={thing.url} href={thing.url}>
+                  {thing.title}
+                </ExternalAnchor>
                 {", "}
               </>
             ) : (

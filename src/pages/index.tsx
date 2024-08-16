@@ -1,6 +1,6 @@
-import { useMobile } from "@app/hooks"
+import { useDarkMode, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
-import { GlobalStyle, theme } from "@app/styles"
+import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Blob } from "@components/Blob"
@@ -67,6 +67,7 @@ const textCardGlassStyle = css({
 const IndexPage: React.FC<PageProps> = () => {
   const [hoverTitle, setHoverTitle] = React.useState<string | null>(null)
   const { isMobile } = useMobile()
+  const { isDarkMode } = useDarkMode()
 
   const debouncedSetHoverTitle = React.useCallback(
     debounce(
@@ -77,7 +78,7 @@ const IndexPage: React.FC<PageProps> = () => {
   )
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkMode ? themeDark : theme}>
       <BlobContainer isMobile={isMobile}>
         <Container>
           <GlobalStyle />

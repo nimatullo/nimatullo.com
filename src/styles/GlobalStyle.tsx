@@ -22,31 +22,32 @@ export const GlobalStyle = () => {
           fontFamily: "Overpass, monospace",
         },
         "h1, h2, h3, h4": { fontFamily: "Inconsolata, monospace" },
+        iframe: { border: "none" },
       })}
     />
   )
 }
 
 const backgroundChangeKeyframes = (props: Theme) => {
-  const { bright } = props
+  const { twColors } = props
   return keyframes({
     "0%": {
-      backgroundColor: bright.green,
+      backgroundColor: twColors.green[300],
     },
     "20%": {
-      backgroundColor: bright.red,
+      backgroundColor: twColors.red[300],
     },
     "40%": {
-      backgroundColor: bright.purple,
+      backgroundColor: twColors.purple[300],
     },
     "60%": {
-      backgroundColor: bright.pink,
+      backgroundColor: twColors.pink[300],
     },
     "80%": {
-      backgroundColor: bright.yellow,
+      backgroundColor: twColors.yellow[300],
     },
     "100%": {
-      backgroundColor: bright.blue,
+      backgroundColor: twColors.blue[300],
     },
   })
 }

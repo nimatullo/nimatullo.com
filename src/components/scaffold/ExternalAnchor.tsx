@@ -1,11 +1,13 @@
 import styled from "@emotion/styled"
+import { motion } from "framer-motion"
 import React from "react"
 
-const StyledAnchor = styled.a((props) => ({
+const StyledAnchor = styled(motion.a)((props) => ({
   textDecoration: "underline",
+  transition: "all 0.2s",
   "&:hover": {
-    backgroundColor: props.theme.baseColors.black,
-    color: props.theme.baseColors.white,
+    backgroundColor: props.theme.twColors.neutral[200],
+    color: props.theme.twColors.neutral[900],
     textDecoration: "none",
   },
 }))
