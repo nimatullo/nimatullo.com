@@ -1,4 +1,5 @@
-import { GlobalStyle, theme } from "@app/styles"
+import { useDarkMode } from "@app/hooks"
+import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { Footer } from "@components/Footer"
 import { Container, Navbar } from "@components/scaffold"
 import { ThemeProvider } from "@emotion/react"
@@ -11,8 +12,10 @@ interface LayoutProps extends PageProps {
 
 export const Layout = (props: LayoutProps) => {
   const { renderNavbar = true, renderFooter = true } = props
+  const { isDarkMode } = useDarkMode()
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkMode ? themeDark : theme}>
       <Container>
         <GlobalStyle />
         {renderNavbar && <Navbar {...props} />}

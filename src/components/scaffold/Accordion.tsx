@@ -9,12 +9,11 @@ interface AccordionProps {
 
 const AccordionWrapper = styled(motion.div)((props) => ({
   margin: "1rem 0",
-  backgroundColor: props.theme.baseColors.black,
-  border: `3px solid ${props.theme.twColors.gray[700]}`,
+  border: `3px solid ${props.theme.twColors.neutral[200]}`,
 }))
 const AccordionButton = styled.button((props) => ({
-  backgroundColor: props.theme.baseColors.black,
-  color: props.theme.baseColors.white,
+  backgroundColor: props.theme.twColors.neutral[100],
+  color: props.theme.twColors.neutral[900],
   width: "100%",
   height: "100%",
   padding: "1rem",
@@ -23,7 +22,10 @@ const AccordionButton = styled.button((props) => ({
   cursor: "pointer",
   display: "flex",
   justifyContent: "space-between",
-  "&:hover": { opacity: 0.5 },
+  transition: "all 0.2s",
+  "&:hover": {
+    backgroundColor: props.theme.twColors.neutral[200],
+  },
 }))
 const AccordionContent = styled(motion.div)()
 

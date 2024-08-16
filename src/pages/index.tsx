@@ -1,5 +1,6 @@
+import { useDarkMode, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
-import { GlobalStyle, theme } from "@app/styles"
+import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Blob } from "@components/Blob"
@@ -11,14 +12,14 @@ import styled from "@emotion/styled"
 import { navigate, type HeadFC, type PageProps } from "gatsby"
 import * as React from "react"
 
-const BlobContainer = styled.div({
+const BlobContainer = styled.div<{ isMobile: boolean }>((props) => ({
   display: "grid",
   placeItems: "center",
   width: "100vw",
   height: "100dvh",
   position: "relative",
-  overflow: "hidden",
-})
+  overflow: props.isMobile ? "visible" : "hidden",
+}))
 
 const BlobText = styled.h1({
   fontFamily: "DM Serif Text, serif",
@@ -45,7 +46,6 @@ const textCardGlassStyle = css({
   border: "1px solid rgba(255, 255, 255, 0.18)",
   padding: 40,
   color: baseColors.black,
-  minHeight: 200,
   transition: "ease 0.2s",
   display: "flex",
   flexDirection: "column",
@@ -66,6 +66,8 @@ const textCardGlassStyle = css({
 
 const IndexPage: React.FC<PageProps> = () => {
   const [hoverTitle, setHoverTitle] = React.useState<string | null>(null)
+  const { isMobile } = useMobile()
+  const { isDarkMode } = useDarkMode()
 
   const debouncedSetHoverTitle = React.useCallback(
     debounce(
@@ -76,15 +78,15 @@ const IndexPage: React.FC<PageProps> = () => {
   )
 
   return (
-    <ThemeProvider theme={theme}>
-      <BlobContainer>
+    <ThemeProvider theme={isDarkMode ? themeDark : theme}>
+      <BlobContainer isMobile={isMobile}>
         <Container>
           <GlobalStyle />
           <BlobText>{hoverTitle ?? "why worry"}</BlobText>
           <Grid>
             {homePageRoutes.map((r) => (
               <TextCard
-                css={textCardGlassStyle}
+                css={{ ...textCardGlassStyle, height: isMobile ? 100 : 200 }}
                 onClick={() => navigate(r.link)}
                 onMouseEnter={(_) => debouncedSetHoverTitle(r.title)}
                 onMouseLeave={(_) => debouncedSetHoverTitle(null)}
@@ -105,7 +107,7 @@ const IndexPage: React.FC<PageProps> = () => {
             right: 0,
             mixBlendMode: "darken",
             overflow: "hidden",
-            width: 500,
+            width: "50%",
           }}
         />
 
@@ -118,7 +120,8 @@ const IndexPage: React.FC<PageProps> = () => {
             top: 0,
             left: 0,
             height: "100dvh",
-            width: "auto",
+            width: "100%",
+            maxWidth: 400,
             mixBlendMode: "multiply",
             overflow: "hidden",
           }}

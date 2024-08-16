@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 import React from "react"
 
 const TextContainer = styled.div({
+  transition: "all 0.2s",
   "& header": {
     marginBottom: "1rem",
     "& h4": {
