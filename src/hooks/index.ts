@@ -36,17 +36,17 @@ export const useDarkMode = (): { isDarkMode: boolean } => {
   return { isDarkMode }
 }
 
-export const useAuth = () => {
+export const useUser = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser)
 
   useEffect(() => {
-    const listener = onAuthStateChanged(auth, async (user) => {
-      if (user) setCurrentUser(user)
-    })
+    const listener = onAuthStateChanged(auth, async (user) =>
+      setCurrentUser(user)
+    )
 
     return () => listener()
   }),
     [auth]
 
-  return { currentUser }
+  return { currentUser, setCurrentUser }
 }

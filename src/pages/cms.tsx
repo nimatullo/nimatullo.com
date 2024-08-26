@@ -1,9 +1,12 @@
+import { auth } from "@app/config/firebaseConfig"
 import { db } from "@app/db"
-import { useAuth } from "@app/hooks"
+import { useUser } from "@app/hooks"
 import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
+import { randomHSLColor } from "@app/styles/colors"
 import styled from "@emotion/styled"
+import { signInWithEmailAndPassword, signOut, User } from "firebase/auth"
 import "firebaseui/dist/firebaseui.css"
-import { PageProps, navigate } from "gatsby"
+import { PageProps } from "gatsby"
 import React from "react"
 
 type Options = keyof typeof db
@@ -16,18 +19,60 @@ const TextField = styled.input({
 })
 
 const SubmitButton = styled.button((props) => ({
-  padding: "0.5rem",
+  padding: "0 16px",
+  height: "40px",
+  lineHeight: "1",
   fontSize: "1rem",
   marginBottom: "1rem",
+  textTransform: "uppercase",
   backgroundColor: props.theme.twColors.neutral[900],
   color: props.theme.twColors.neutral[100],
-  border: "none",
   cursor: "pointer",
+  border: `3px solid ${randomHSLColor(1)}`,
   transition: "0.2s ease all",
   "&:hover": {
-    backgroundColor: props.theme.twColors.neutral[500],
+    transform: "translateY(-2px)",
+    backgroundColor: randomHSLColor(1),
+    boxShadow:
+      "0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)",
   },
 }))
+
+const LoginForm = ({ onLogin }: { onLogin: (user: User) => void }) => {
+  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("")
+
+  const handleLogin = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        onLogin(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.error(errorCode, errorMessage)
+      })
+  }
+
+  return (
+    <div>
+      <TextField
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        placeholder="Email"
+      />
+      <TextField
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        placeholder="Password"
+      />
+      <SubmitButton onClick={handleLogin}>Login</SubmitButton>
+    </div>
+  )
+}
 
 const CMSPage = (props: PageProps) => {
   const additionsOptions = Object.keys(db).map((key) => ({
@@ -39,10 +84,10 @@ const CMSPage = (props: PageProps) => {
     additionsOptions[0].value as Options
   )
 
-  const { currentUser } = useAuth()
+  const { currentUser, setCurrentUser } = useUser()
 
   if (!currentUser) {
-    navigate("/cms/login")
+    return <LoginForm onLogin={setCurrentUser} />
   }
 
   return (
@@ -56,6 +101,7 @@ const CMSPage = (props: PageProps) => {
       </select>
 
       <AdditionsForm selectedOption={selected} />
+      <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
     </div>
   )
 }
