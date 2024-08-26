@@ -12,6 +12,7 @@ const FooterWrapper = styled.footer({
   minWidth: "30vw",
   justifyContent: "center",
   flexDirection: "column",
+  position: "relative",
 })
 
 export function Footer({
@@ -32,7 +33,7 @@ export function Footer({
 
   return (
     <FooterWrapper>
-      <ColumnList>
+      <ColumnList column={footerRoutes.length}>
         {footerRoutes.map((r) => (
           <li
             key={r.title}
@@ -53,13 +54,7 @@ export function Footer({
           </li>
         ))}
       </ColumnList>
-      <Flex
-        css={{
-          position: "absolute",
-          bottom: "1em",
-          width: "100%",
-        }}
-      >
+      <Flex css={{ marginTop: "1rem" }}>
         {commitSHA && (
           <ExternalAnchor
             css={{
