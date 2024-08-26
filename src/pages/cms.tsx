@@ -5,7 +5,6 @@ import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
 import { randomHSLColor } from "@app/styles/colors"
 import styled from "@emotion/styled"
 import { signInWithEmailAndPassword, signOut, User } from "firebase/auth"
-import "firebaseui/dist/firebaseui.css"
 import { PageProps } from "gatsby"
 import React from "react"
 
