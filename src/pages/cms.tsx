@@ -1,10 +1,14 @@
 import { auth } from "@app/config/firebaseConfig"
 import { db } from "@app/db"
-import { useUser } from "@app/hooks"
 import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
 import { randomHSLColor } from "@app/styles/colors"
 import styled from "@emotion/styled"
-import { signInWithEmailAndPassword, signOut, User } from "firebase/auth"
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  User,
+} from "firebase/auth"
 import { PageProps } from "gatsby"
 import React from "react"
 
@@ -32,6 +36,7 @@ const SubmitButton = styled.button((props) => ({
   "&:hover": {
     transform: "translateY(-2px)",
     backgroundColor: randomHSLColor(1),
+    borderColor: randomHSLColor(1),
     boxShadow:
       "0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)",
   },
@@ -83,7 +88,18 @@ const CMSPage = (props: PageProps) => {
     additionsOptions[0].value as Options
   )
 
-  const { currentUser, setCurrentUser } = useUser()
+  const [currentUser, setCurrentUser] = React.useState<User | null>(
+    auth.currentUser
+  )
+
+  React.useEffect(() => {
+    const listener = onAuthStateChanged(auth, async (user) =>
+      setCurrentUser(user)
+    )
+
+    return () => listener()
+  }),
+    [auth]
 
   if (!currentUser) {
     return <LoginForm onLogin={setCurrentUser} />
