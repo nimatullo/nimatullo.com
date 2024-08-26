@@ -1,7 +1,6 @@
 import { store } from "@app/config/firebaseConfig"
 import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
 import {
-  addDoc,
   collection,
   DocumentData,
   getDocs,
@@ -18,7 +17,7 @@ const dataPoint = <T extends DocumentData>(collectionPath: string) => ({
     getDocs(
       collection(store, collectionPath).withConverter(converter<T>())
     ).then((snapshot) => snapshot.docs.map((doc) => doc.data())),
-  add: async (data: T) => addDoc(collection(store, collectionPath), data),
+  add: async (data: T) => console.log(data), //addDoc(collection(store, collectionPath), data),
 })
 
 const db = {
