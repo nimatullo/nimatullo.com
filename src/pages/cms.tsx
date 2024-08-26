@@ -98,8 +98,7 @@ const CMSPage = (props: PageProps) => {
     )
 
     return () => listener()
-  }),
-    [auth]
+  }, [])
 
   if (!currentUser) {
     return <LoginForm onLogin={setCurrentUser} />
