@@ -21,6 +21,7 @@
     "@types/feather-icons": "^4.29.4",
     "feather-icons": "^4.29.2",
     "firebase": "^10.12.5",
+    "firebaseui": "^6.1.0",
     "framer-motion": "^11.3.27",
     "gatsby": "^5.13.5",
     "gatsby-adapter-netlify": "^1.1.7",

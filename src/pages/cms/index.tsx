@@ -1,17 +1,19 @@
-import { db } from "@app/db";
-import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types";
-import styled from "@emotion/styled";
-import { PageProps } from "gatsby";
-import React from "react";
+import { db } from "@app/db"
+import { useAuth } from "@app/hooks"
+import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
+import styled from "@emotion/styled"
+import "firebaseui/dist/firebaseui.css"
+import { PageProps, navigate } from "gatsby"
+import React from "react"
 
-type Options = keyof typeof db;
+type Options = keyof typeof db
 
 const TextField = styled.input({
   width: "100%",
   padding: "0.5rem",
   fontSize: "1rem",
   margin: "0.5rem 0",
-});
+})
 
 const SubmitButton = styled.button((props) => ({
   padding: "0.5rem",
@@ -25,40 +27,23 @@ const SubmitButton = styled.button((props) => ({
   "&:hover": {
     backgroundColor: props.theme.twColors.neutral[500],
   },
-}));
-
-const AuthForm = ({ onSuccess }: { onSuccess: () => void }) => {
-  const [password, setPassword] = React.useState<string>("");
-  const testPassword = "ILoveSyd";
-
-  const handleSubmit = () => password === testPassword && onSuccess();
-
-  return (
-    <div>
-      <TextField
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        type="text"
-        placeholder="Enter special password"
-      />
-      <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
-    </div>
-  );
-};
+}))
 
 const CMSPage = (props: PageProps) => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const additionsOptions = Object.keys(db).map((key) => ({
     label: key,
     value: key,
-  }));
+  }))
 
   const [selected, setSelected] = React.useState<Options>(
-    additionsOptions[0].value as Options,
-  );
+    additionsOptions[0].value as Options
+  )
 
-  if (!isAuthenticated)
-    return <AuthForm onSuccess={() => setIsAuthenticated(true)} />;
+  const { currentUser } = useAuth()
+
+  if (!currentUser) {
+    navigate("/cms/login")
+  }
 
   return (
     <div css={{ margin: "0.5rem 0" }}>
@@ -72,40 +57,40 @@ const CMSPage = (props: PageProps) => {
 
       <AdditionsForm selectedOption={selected} />
     </div>
-  );
-};
+  )
+}
 
 const AdditionsForm = ({ selectedOption }: { selectedOption?: Options }) => {
   switch (selectedOption) {
     case "playlists":
-      return <LinkAddForm onAdd={(d) => db.playlists.add(d)} />;
+      return <LinkAddForm onAdd={(d) => db.playlists.add(d)} />
     case "links":
-      return <LinkAddForm onAdd={(d) => db.links.add(d)} />;
+      return <LinkAddForm onAdd={(d) => db.links.add(d)} />
     case "projects":
-      return <AddProjectsForm onAdd={(d) => db.projects.add(d)} />;
+      return <AddProjectsForm onAdd={(d) => db.projects.add(d)} />
     case "memes":
-      return <UrlAddForm onAdd={(d) => db.memes.add(d)} />;
+      return <UrlAddForm onAdd={(d) => db.memes.add(d)} />
     case "things":
-      return <ThingsAddForm onAdd={(d) => db.things.add(d)} />;
+      return <ThingsAddForm onAdd={(d) => db.things.add(d)} />
     default:
-      return null;
+      return null
   }
-};
+}
 
 const AddProjectsForm = ({ onAdd }: { onAdd: (d: Project) => void }) => {
   const [values, setValues] = React.useState<Project>({
     title: "",
     description: "",
-  });
+  })
 
   const handleSubmit = () => {
     if (
       values.title.trim().length == 0 ||
       values.description.trim().length == 0
     )
-      return;
-    else onAdd(values);
-  };
+      return
+    else onAdd(values)
+  }
 
   return (
     <div>
@@ -135,16 +120,16 @@ const AddProjectsForm = ({ onAdd }: { onAdd: (d: Project) => void }) => {
       />
       <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
     </div>
-  );
-};
+  )
+}
 
 const UrlAddForm = ({ onAdd }: { onAdd: (d: { url: string }) => void }) => {
-  const [url, setUrl] = React.useState("");
+  const [url, setUrl] = React.useState("")
 
   const handleSubmit = () => {
-    if (url.trim().length == 0) return;
-    else onAdd({ url });
-  };
+    if (url.trim().length == 0) return
+    else onAdd({ url })
+  }
 
   return (
     <div>
@@ -156,20 +141,19 @@ const UrlAddForm = ({ onAdd }: { onAdd: (d: { url: string }) => void }) => {
       />
       <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
     </div>
-  );
-};
+  )
+}
 
 const LinkAddForm = ({ onAdd }: { onAdd: (d: LinkWithDisplay) => void }) => {
   const [values, setValues] = React.useState<LinkWithDisplay>({
     title: "",
     url: "",
-  });
+  })
 
   const handleSubmit = () => {
-    if (values.title.trim().length == 0 || values.url.trim().length == 0)
-      return;
-    else console.log(values);
-  };
+    if (values.title.trim().length == 0 || values.url.trim().length == 0) return
+    else onAdd(values)
+  }
 
   return (
     <div>
@@ -187,18 +171,18 @@ const LinkAddForm = ({ onAdd }: { onAdd: (d: LinkWithDisplay) => void }) => {
       />
       <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
     </div>
-  );
-};
+  )
+}
 
 const ThingsAddForm = ({ onAdd }: { onAdd: (d: MyThings) => void }) => {
   const [values, setValues] = React.useState<MyThings>({
     title: "",
-  });
+  })
 
   const handleSubmit = () => {
-    if (values.title.trim().length == 0) return;
-    else onAdd(values);
-  };
+    if (values.title.trim().length == 0) return
+    else onAdd(values)
+  }
 
   return (
     <div>
@@ -216,7 +200,7 @@ const ThingsAddForm = ({ onAdd }: { onAdd: (d: MyThings) => void }) => {
       />
       <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
     </div>
-  );
-};
+  )
+}
 
-export default CMSPage;
+export default CMSPage

@@ -1,3 +1,5 @@
+import { auth } from "@app/config/firebaseConfig"
+import { User, onAuthStateChanged } from "firebase/auth"
 import { useEffect, useState } from "react"
 
 export const useMobile = (): { isMobile: boolean } => {
@@ -32,4 +34,19 @@ export const useDarkMode = (): { isDarkMode: boolean } => {
   }, [])
 
   return { isDarkMode }
+}
+
+export const useAuth = () => {
+  const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser)
+
+  useEffect(() => {
+    const listener = onAuthStateChanged(auth, async (user) => {
+      if (user) setCurrentUser(user)
+    })
+
+    return () => listener()
+  }),
+    [auth]
+
+  return { currentUser }
 }
