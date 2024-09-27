@@ -1,10 +1,10 @@
-import { db } from "@app/db"
+import { useDB } from "@app/hooks"
 import type { Project } from "@app/nimatullo-types"
 import { PageIntro } from "@components/scaffold/PageIntro"
 import styled from "@emotion/styled"
 import { motion, useInView } from "framer-motion"
-import { HeadFC, PageProps } from "gatsby"
-import React, { useRef } from "react"
+import { HeadFC } from "gatsby"
+import { useRef } from "react"
 import { ExternalLink, GitBranch } from "react-feather"
 
 const ProjectItemContainer = styled(motion.li)((props) => ({
@@ -70,14 +70,11 @@ const ProjectItem = ({ project }: { project: Project }) => {
   )
 }
 
-interface ProjectsPageProps extends PageProps {
-  serverData: { projects: Project[] }
-}
+const ProjectsPage = () => {
+  const { data: projects, loading } = useDB("projects")
 
-const ProjectsPage: React.FC<ProjectsPageProps> = ({ serverData }) => {
-  const { projects } = serverData
   return (
-    <PageIntro header="Projects">
+    <PageIntro header="Projects" loading={loading}>
       <ul>
         {projects.map((project) => (
           <ProjectItem key={project.title} project={project} />
@@ -87,10 +84,5 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ serverData }) => {
   )
 }
 export default ProjectsPage
-
-export const getServerData = async () => {
-  const projects = await db.projects.all()
-  return { props: { projects } }
-}
 
 export const Head: HeadFC = () => <title>Projects</title>

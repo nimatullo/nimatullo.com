@@ -1,6 +1,6 @@
-import { db } from "@app/db"
-import type { SSRPageProps } from "@app/nimatullo-types"
+import { useDB } from "@app/hooks"
 import { Flex } from "@components/scaffold"
+import { Spinner } from "@components/scaffold/Spinner"
 import styled from "@emotion/styled"
 import React from "react"
 import { ArrowLeft, ArrowRight } from "react-feather"
@@ -13,11 +13,13 @@ const StyledButton = styled.button({
   padding: "0.5rem",
 })
 
-const MemesPage: React.FC<SSRPageProps<{ url: string }[], "memes">> = ({
-  serverData,
-}) => {
-  const { memes } = serverData
+const MemesPage = () => {
+  const { data: memes, loading } = useDB("memes")
   const [i, setIndex] = React.useState(0)
+
+  if (loading) {
+    return <Spinner />
+  }
 
   return (
     <Flex direction="column">
@@ -43,9 +45,6 @@ const MemesPage: React.FC<SSRPageProps<{ url: string }[], "memes">> = ({
   )
 }
 
-export async function getServerData() {
-  const memes = await db.memes.all()
-  return { props: { memes } }
-}
-
 export default MemesPage
+
+export const MemesPageHead: React.FC = () => <title>Memes</title>

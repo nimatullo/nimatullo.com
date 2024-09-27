@@ -1,4 +1,5 @@
 import { randomMinMax } from "@app/utils"
+import { Spinner } from "@components/scaffold/Spinner"
 import styled from "@emotion/styled"
 import { motion } from "framer-motion"
 import React from "react"
@@ -15,9 +16,11 @@ const PageIntroContainer = styled.div({
 interface PageIntroProps {
   header: string
   children: React.ReactNode
+  loading?: boolean
 }
 export const PageIntro: React.FC<PageIntroProps> = (props) => {
-  const { header, children } = props
+  const { header, children, loading = false } = props
+
   return (
     <PageIntroContainer>
       <motion.h1
@@ -27,14 +30,18 @@ export const PageIntro: React.FC<PageIntroProps> = (props) => {
       >
         {header}
       </motion.h1>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ delay: 0.1 }}
-      >
-        {children}
-      </motion.div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ delay: 0.1 }}
+        >
+          {children}
+        </motion.div>
+      )}
     </PageIntroContainer>
   )
 }
