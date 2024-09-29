@@ -4,12 +4,18 @@ import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Blob } from "@components/Blob"
-import { Emoji } from "@components/Emoji"
 import { Footer } from "@components/Footer"
 import { Container, Grid, TextCard } from "@components/scaffold"
+import { GifVideo } from "@components/scaffold/GifVideo"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
-import { navigate, type HeadFC, type PageProps } from "gatsby"
+import {
+  graphql,
+  navigate,
+  useStaticQuery,
+  type HeadFC,
+  type PageProps,
+} from "gatsby"
 import * as React from "react"
 
 const BlobContainer = styled.div<{ isMobile: boolean }>((props) => ({
@@ -77,6 +83,20 @@ const IndexPage: React.FC<PageProps> = () => {
     [hoverTitle]
   )
 
+  const { fallVideo, anxietyVideo } = useStaticQuery(
+    graphql`
+      query {
+        fallVideo: file(relativePath: { eq: "fall.webm" }) {
+          publicURL
+        }
+        anxietyVideo: file(relativePath: { eq: "anxiety.webm" }) {
+          publicURL
+        }
+      }
+    `
+  )
+  console.log(fallVideo, anxietyVideo)
+
   return (
     <ThemeProvider theme={isDarkMode ? themeDark : theme}>
       <BlobContainer isMobile={isMobile}>
@@ -98,9 +118,9 @@ const IndexPage: React.FC<PageProps> = () => {
           <Footer onHover={debouncedSetHoverTitle} />
         </Container>
 
-        <Emoji
-          name="anxiety"
-          fallback="😱"
+        <GifVideo
+          src={anxietyVideo.publicURL}
+          alt="anxiety"
           css={{
             zIndex: -2,
             position: "absolute",
@@ -108,22 +128,24 @@ const IndexPage: React.FC<PageProps> = () => {
             mixBlendMode: "darken",
             overflow: "hidden",
             width: "50%",
+            objectFit: "cover",
           }}
         />
 
-        <Emoji
-          name="fall"
-          fallback="🤯"
+        <GifVideo
+          src={fallVideo.publicURL}
+          alt="falling leaves"
           css={{
             zIndex: -10,
             position: "absolute",
             top: 0,
             left: 0,
-            height: "100dvh",
+            height: "100vh",
             width: "100%",
             maxWidth: 400,
             mixBlendMode: "multiply",
             overflow: "hidden",
+            objectFit: "cover",
           }}
         />
 

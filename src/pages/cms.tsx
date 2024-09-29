@@ -28,8 +28,6 @@ const SubmitButton = styled.button((props) => ({
   fontSize: "1rem",
   marginBottom: "1rem",
   textTransform: "uppercase",
-  backgroundColor: props.theme.twColors.neutral[900],
-  color: props.theme.twColors.neutral[100],
   cursor: "pointer",
   border: `3px solid ${randomHSLColor(1)}`,
   transition: "0.2s ease all",

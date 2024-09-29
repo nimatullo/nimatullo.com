@@ -1,18 +1,12 @@
-import { db } from "@app/db"
-import { MyThings } from "@app/nimatullo-types"
+import { useDB } from "@app/hooks"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { PageIntro } from "@components/scaffold/PageIntro"
-import { PageProps } from "gatsby"
 import React from "react"
 
-interface AboutPageProps extends PageProps {
-  serverData: { things: MyThings[] }
-}
-
-const AboutPage: React.FC<AboutPageProps> = ({ serverData }) => {
-  const { things } = serverData
+const AboutPage = () => {
+  const { data: things, loading } = useDB("things")
   return (
-    <PageIntro header="About">
+    <PageIntro header="About" loading={loading}>
       <div
         css={{
           p: { marginBottom: 20 },
@@ -36,12 +30,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ serverData }) => {
           Here’s a list of my many things:{" "}
           {things.map((thing) =>
             thing.url ? (
-              <>
+              <React.Fragment>
                 <ExternalAnchor key={thing.url} href={thing.url}>
                   {thing.title}
                 </ExternalAnchor>
                 {", "}
-              </>
+              </React.Fragment>
             ) : (
               <>{thing.title}, </>
             )
@@ -52,8 +46,4 @@ const AboutPage: React.FC<AboutPageProps> = ({ serverData }) => {
   )
 }
 
-export async function getServerData() {
-  const things = await db.things.all()
-  return { props: { things } }
-}
 export default AboutPage

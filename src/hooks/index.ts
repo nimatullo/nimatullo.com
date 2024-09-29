@@ -1,3 +1,4 @@
+import { db } from "@app/db"
 import { useEffect, useState } from "react"
 
 export const useMobile = (): { isMobile: boolean } => {
@@ -32,4 +33,33 @@ export const useDarkMode = (): { isDarkMode: boolean } => {
   }, [])
 
   return { isDarkMode }
+}
+
+type DBModel = typeof db
+type DBKey = keyof DBModel
+type DBReturnType<K extends DBKey> = Awaited<ReturnType<DBModel[K]["all"]>>
+
+export const useDB = <K extends DBKey>(key: K) => {
+  const [data, setData] = useState<DBReturnType<K>>([] as DBReturnType<K>)
+  const [loading, setLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    const fetch = async () => {
+      setLoading(true)
+      try {
+        const dataPoint = db[key]
+        const result = (await dataPoint.all()) as DBReturnType<K>
+        setData(result ?? [])
+      } catch (error) {
+        console.error(error)
+        setData([] as DBReturnType<K>)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetch()
+  }, [key])
+
+  return { data, loading }
 }
