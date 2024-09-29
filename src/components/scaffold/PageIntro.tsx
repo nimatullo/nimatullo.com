@@ -21,6 +21,8 @@ interface PageIntroProps {
 export const PageIntro: React.FC<PageIntroProps> = (props) => {
   const { header, children, loading = false } = props
 
+  const headerLetters = header.split("")
+
   return (
     <PageIntroContainer>
       <motion.h1
@@ -28,7 +30,24 @@ export const PageIntro: React.FC<PageIntroProps> = (props) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
       >
-        {header}
+        {loading
+          ? headerLetters.map((letter, index) => (
+              <motion.span
+                css={{ display: "inline-block", fontFamily: "inherit" }}
+                key={index}
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                exit={{ y: -20 }}
+                transition={{
+                  delay: index * 0.1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))
+          : header}
       </motion.h1>
       {loading ? (
         <Spinner />

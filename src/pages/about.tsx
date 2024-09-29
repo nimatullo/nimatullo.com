@@ -1,4 +1,3 @@
-import { db } from "@app/db"
 import { useDB } from "@app/hooks"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { PageIntro } from "@components/scaffold/PageIntro"
@@ -47,8 +46,4 @@ const AboutPage = () => {
   )
 }
 
-export async function getServerData() {
-  const things = await db.things.all()
-  return { props: { things } }
-}
 export default AboutPage

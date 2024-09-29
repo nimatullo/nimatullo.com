@@ -47,8 +47,6 @@ export const useDB = <K extends DBKey>(key: K) => {
     const fetch = async () => {
       setLoading(true)
       try {
-        // sleep
-        await new Promise((resolve) => setTimeout(resolve, 5000))
         const dataPoint = db[key]
         const result = (await dataPoint.all()) as DBReturnType<K>
         setData(result ?? [])

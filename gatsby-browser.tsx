@@ -1,3 +1,6 @@
+import "@fontsource/dm-serif-text"
+import "@fontsource/inconsolata"
+import "@fontsource/overpass"
 import type { GatsbyBrowser } from "gatsby"
 import { Layout } from "./src/components/Layout"
 
