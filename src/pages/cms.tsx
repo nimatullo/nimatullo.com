@@ -2,6 +2,7 @@ import { auth } from "@app/config/firebaseConfig"
 import { db } from "@app/db"
 import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
 import { randomHSLColor } from "@app/styles/colors"
+import { Helmet } from "@components/scaffold/Head"
 import styled from "@emotion/styled"
 import {
   onAuthStateChanged,
@@ -262,3 +263,5 @@ const ThingsAddForm = ({ onAdd }: { onAdd: (d: MyThings) => void }) => {
 }
 
 export default CMSPage
+
+export const Head = () => <Helmet title="cms" />

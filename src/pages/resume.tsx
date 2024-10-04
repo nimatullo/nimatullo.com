@@ -1,3 +1,4 @@
+import { Helmet } from "@components/scaffold/Head"
 import { PageIntro } from "@components/scaffold/PageIntro"
 
 const ResumePage: React.FC = (props) => {
@@ -15,3 +16,5 @@ const ResumePage: React.FC = (props) => {
 }
 
 export default ResumePage
+
+export const Head = () => <Helmet title="resume" />

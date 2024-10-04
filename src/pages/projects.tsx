@@ -1,5 +1,6 @@
 import { useDB } from "@app/hooks"
 import type { Project } from "@app/nimatullo-types"
+import { Helmet } from "@components/scaffold/Head"
 import { PageIntro } from "@components/scaffold/PageIntro"
 import styled from "@emotion/styled"
 import { motion, useInView } from "framer-motion"
@@ -85,4 +86,4 @@ const ProjectsPage = () => {
 }
 export default ProjectsPage
 
-export const Head: HeadFC = () => <title>Projects</title>
+export const Head: HeadFC = () => <Helmet title="projects" />

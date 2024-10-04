@@ -7,6 +7,7 @@ import { Blob } from "@components/Blob"
 import { Footer } from "@components/Footer"
 import { Container, Grid, TextCard } from "@components/scaffold"
 import { GifVideo } from "@components/scaffold/GifVideo"
+import { Helmet } from "@components/scaffold/Head"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
@@ -95,7 +96,6 @@ const IndexPage: React.FC<PageProps> = () => {
       }
     `
   )
-  console.log(fallVideo, anxietyVideo)
 
   return (
     <ThemeProvider theme={isDarkMode ? themeDark : theme}>
@@ -161,4 +161,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <Helmet title="homepage" />

@@ -1,5 +1,6 @@
 import { useDB } from "@app/hooks"
 import { Flex } from "@components/scaffold"
+import { Helmet } from "@components/scaffold/Head"
 import { Spinner } from "@components/scaffold/Spinner"
 import styled from "@emotion/styled"
 import React from "react"
@@ -47,4 +48,4 @@ const MemesPage = () => {
 
 export default MemesPage
 
-export const MemesPageHead: React.FC = () => <title>Memes</title>
+export const MemesPageHead: React.FC = () => <Helmet title="memes" />
