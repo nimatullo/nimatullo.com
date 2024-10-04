@@ -1,5 +1,6 @@
 import { useDB } from "@app/hooks"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
+import { Helmet } from "@components/scaffold/Head"
 import { PageIntro } from "@components/scaffold/PageIntro"
 import React from "react"
 
@@ -47,3 +48,5 @@ const AboutPage = () => {
 }
 
 export default AboutPage
+
+export const Head = () => <Helmet title="about" />

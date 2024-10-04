@@ -1,6 +1,7 @@
 import { useDB } from "@app/hooks"
 import { Accordion } from "@components/scaffold/Accordion"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
+import { Helmet } from "@components/scaffold/Head"
 import { ListItem } from "@components/scaffold/List"
 import { PageIntro } from "@components/scaffold/PageIntro"
 import React from "react"
@@ -33,3 +34,5 @@ const MediaPage = () => {
 }
 
 export default MediaPage
+
+export const Head = () => <Helmet title="media" />
