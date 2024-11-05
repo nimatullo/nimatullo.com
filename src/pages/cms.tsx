@@ -1,6 +1,9 @@
 import { auth } from "@app/config/firebaseConfig"
-import { db } from "@app/db"
-import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
+import { db, type Options } from "@app/db"
+import {
+  FirebaseCollectionModel,
+  modelMap,
+} from "@app/model/FirebaseCollectionModel"
 import { randomHSLColor } from "@app/styles/colors"
 import { Helmet } from "@components/scaffold/Head"
 import styled from "@emotion/styled"
@@ -13,13 +16,12 @@ import {
 import { PageProps } from "gatsby"
 import React from "react"
 
-type Options = keyof typeof db
-
 const TextField = styled.input({
   width: "100%",
   padding: "0.5rem",
   fontSize: "1rem",
   margin: "0.5rem 0",
+  border: "3px solid #000",
 })
 
 const SubmitButton = styled.button((props) => ({
@@ -105,158 +107,52 @@ const CMSPage = (props: PageProps) => {
 
   return (
     <div css={{ margin: "0.5rem 0" }}>
-      <select onChange={(e) => setSelected(e.target.value as Options)}>
+      <select
+        css={{ padding: "0.2rem", fontSize: "1rem", margin: "0.5rem 0" }}
+        onChange={(e) => setSelected(e.target.value as Options)}
+      >
         {additionsOptions.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.label}
+            {option.label.toUpperCase()}
           </option>
         ))}
       </select>
 
-      <AdditionsForm selectedOption={selected} />
+      <ModelAddForm model={modelMap[selected]} />
       <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
     </div>
   )
 }
 
-const AdditionsForm = ({ selectedOption }: { selectedOption?: Options }) => {
-  switch (selectedOption) {
-    case "playlists":
-      return <LinkAddForm onAdd={(d) => db.playlists.add(d)} />
-    case "links":
-      return <LinkAddForm onAdd={(d) => db.links.add(d)} />
-    case "projects":
-      return <AddProjectsForm onAdd={(d) => db.projects.add(d)} />
-    case "memes":
-      return <UrlAddForm onAdd={(d) => db.memes.add(d)} />
-    case "things":
-      return <ThingsAddForm onAdd={(d) => db.things.add(d)} />
-    default:
-      return null
-  }
-}
-
-const AddProjectsForm = ({ onAdd }: { onAdd: (d: Project) => void }) => {
-  const [values, setValues] = React.useState<Project>({
-    title: "",
-    description: "",
-  })
+const ModelAddForm = <T extends object>({
+  model,
+}: {
+  model: FirebaseCollectionModel<T>
+}) => {
+  const [value, setValue] = React.useState<T>(model.initialValues)
 
   const handleSubmit = () => {
-    if (
-      values.title.trim().length == 0 ||
-      values.description.trim().length == 0
-    )
-      return
-    else onAdd(values)
+    model.add(value)
+    setValue(model.initialValues)
   }
 
   return (
     <div>
-      <TextField
-        value={values.title}
-        onChange={(e) => setValues({ ...values, title: e.target.value })}
-        type="text"
-        placeholder="Title"
-      />
-      <TextField
-        value={values.description}
-        onChange={(e) => setValues({ ...values, description: e.target.value })}
-        type="text"
-        placeholder="Description"
-      />
-      <TextField
-        value={values.url}
-        onChange={(e) => setValues({ ...values, url: e.target.value })}
-        type="text"
-        placeholder="URL (optional)"
-      />
-      <TextField
-        value={values.github}
-        onChange={(e) => setValues({ ...values, github: e.target.value })}
-        type="text"
-        placeholder="Github (optional)"
-      />
-      <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
-    </div>
-  )
-}
+      {model.fields.map((field) => (
+        <TextField
+          key={field.label}
+          value={field.getValue(value)}
+          onChange={(e) => {
+            setValue({
+              ...value,
+              [field.key]: e.target.value,
+            })
+          }}
+          placeholder={field.label + (field.optional ? " (optional)" : "")}
+          type={field.type}
+        />
+      ))}
 
-const UrlAddForm = ({ onAdd }: { onAdd: (d: { url: string }) => void }) => {
-  const [url, setUrl] = React.useState("")
-
-  const handleSubmit = () => {
-    if (url.trim().length == 0) return
-    else onAdd({ url })
-  }
-
-  return (
-    <div>
-      <TextField
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        type="text"
-        placeholder="URL"
-      />
-      <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
-    </div>
-  )
-}
-
-const LinkAddForm = ({ onAdd }: { onAdd: (d: LinkWithDisplay) => void }) => {
-  const [values, setValues] = React.useState<LinkWithDisplay>({
-    title: "",
-    url: "",
-  })
-
-  const handleSubmit = () => {
-    if (values.title.trim().length == 0 || values.url.trim().length == 0) return
-    else onAdd(values)
-  }
-
-  return (
-    <div>
-      <TextField
-        value={values.title}
-        onChange={(e) => setValues({ ...values, title: e.target.value })}
-        type="text"
-        placeholder="Title"
-      />
-      <TextField
-        value={values.url}
-        onChange={(e) => setValues({ ...values, url: e.target.value })}
-        type="text"
-        placeholder="URL"
-      />
-      <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
-    </div>
-  )
-}
-
-const ThingsAddForm = ({ onAdd }: { onAdd: (d: MyThings) => void }) => {
-  const [values, setValues] = React.useState<MyThings>({
-    title: "",
-  })
-
-  const handleSubmit = () => {
-    if (values.title.trim().length == 0) return
-    else onAdd(values)
-  }
-
-  return (
-    <div>
-      <TextField
-        value={values.title}
-        onChange={(e) => setValues({ ...values, title: e.target.value })}
-        type="text"
-        placeholder="Title"
-      />
-      <TextField
-        value={values.url}
-        onChange={(e) => setValues({ ...values, url: e.target.value })}
-        type="text"
-        placeholder="URL (optional)"
-      />
       <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
     </div>
   )
