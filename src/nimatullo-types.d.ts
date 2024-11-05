@@ -20,7 +20,7 @@ interface LinkWithDisplay {
   url: string
 }
 
-interface MyThings extends LinkWithDisplay {
+interface AboutPageLinks extends LinkWithDisplay {
   url?: string
 }
 

@@ -5,7 +5,7 @@ import { PageIntro } from "@components/scaffold/PageIntro"
 import React from "react"
 
 const AboutPage = () => {
-  const { data: things, loading } = useDB("things")
+  const { data: things, loading } = useDB("aboutPageLinks")
   return (
     <PageIntro header="About" loading={loading}>
       <div

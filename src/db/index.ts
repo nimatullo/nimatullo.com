@@ -1,5 +1,5 @@
 import { store } from "@app/config/firebaseConfig"
-import { LinkWithDisplay, MyThings, Project } from "@app/nimatullo-types"
+import { AboutPageLinks, LinkWithDisplay, Project } from "@app/nimatullo-types"
 import {
   addDoc,
   collection,
@@ -13,53 +13,62 @@ const converter = <T>() => ({
   fromFirestore: (snap: QueryDocumentSnapshot<T>) => snap.data() as T,
 })
 
-const dataPoint = <T extends DocumentData>(collectionPath: string) => ({
+export interface DocumentCollection<T> {
+  all: () => Promise<T[]>
+  add: (data: T) => Promise<void>
+}
+
+const documentDataHandler = <T extends DocumentData>(
+  collectionPath: string
+): DocumentCollection<T> => ({
   all: async () =>
     getDocs(
       collection(store, collectionPath).withConverter(converter<T>())
     ).then((snapshot) => snapshot.docs.map((doc) => doc.data())),
-  add: async (data: T) => addDoc(collection(store, collectionPath), data),
+  add: async (data: T) => {
+    await addDoc(collection(store, collectionPath), data)
+  },
 })
 
 const db = {
-  playlists: dataPoint<LinkWithDisplay>("playlists"),
-  links: dataPoint<LinkWithDisplay>("links"),
-  projects: dataPoint<Project>("projects"),
-  things: dataPoint<MyThings>("things"),
-  memes: dataPoint<{ url: string }>("memes"),
+  playlists: documentDataHandler<LinkWithDisplay>("playlists"),
+  links: documentDataHandler<LinkWithDisplay>("links"),
+  projects: documentDataHandler<Project>("projects"),
+  aboutPageLinks: documentDataHandler<AboutPageLinks>("things"),
+  memes: documentDataHandler<{ url: string }>("memes"),
 }
 
 export { db }
-
+export type Options = keyof typeof db
 /// Add missing information
 
 export const addThings = async () => {
   await Promise.all([
-    db.things.add({ title: "nature" }),
-    db.things.add({
+    db.aboutPageLinks.add({ title: "nature" }),
+    db.aboutPageLinks.add({
       title: "timurid art",
       url: "https://www.metmuseum.org/toah/hd/timu/hd_timu.htm",
     }),
-    db.things.add({ title: "red" }),
-    db.things.add({ title: "slow days" }),
-    db.things.add({ title: "sun" }),
-    db.things.add({ title: "books" }),
-    db.things.add({ title: "clackity keyboards" }),
-    db.things.add({ title: "games" }),
-    db.things.add({ title: "chatter" }),
-    db.things.add({ title: "beaches" }),
-    db.things.add({ title: "sunsets" }),
-    db.things.add({ title: "travel" }),
-    db.things.add({ title: "culture" }),
-    db.things.add({ title: "tech" }),
-    db.things.add({ title: "teamwork" }),
-    db.things.add({ title: "blizzards" }),
-    db.things.add({
+    db.aboutPageLinks.add({ title: "red" }),
+    db.aboutPageLinks.add({ title: "slow days" }),
+    db.aboutPageLinks.add({ title: "sun" }),
+    db.aboutPageLinks.add({ title: "books" }),
+    db.aboutPageLinks.add({ title: "clackity keyboards" }),
+    db.aboutPageLinks.add({ title: "games" }),
+    db.aboutPageLinks.add({ title: "chatter" }),
+    db.aboutPageLinks.add({ title: "beaches" }),
+    db.aboutPageLinks.add({ title: "sunsets" }),
+    db.aboutPageLinks.add({ title: "travel" }),
+    db.aboutPageLinks.add({ title: "culture" }),
+    db.aboutPageLinks.add({ title: "tech" }),
+    db.aboutPageLinks.add({ title: "teamwork" }),
+    db.aboutPageLinks.add({ title: "blizzards" }),
+    db.aboutPageLinks.add({
       title: "videos of people building log cabins in the woods",
       url: "https://www.youtube.com/watch?v=kV7_ZjNP_FM",
     }),
-    db.things.add({ title: "cornettis" }),
-    db.things.add({
+    db.aboutPageLinks.add({ title: "cornettis" }),
+    db.aboutPageLinks.add({
       title: "popcorn and Buncha Crunch combo",
       url: "https://letterboxd.com/nimatullo",
     }),
