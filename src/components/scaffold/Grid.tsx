@@ -6,4 +6,8 @@ export const Grid = styled.div`
   justify-content: center;
   column-gap: 1em;
   row-gap: 1em;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `

@@ -10,23 +10,29 @@ import React from "react"
 
 const Nav = styled.nav((props) => ({
   width: "100%",
-  padding: "1rem",
+  padding: 4,
   display: "flex",
   justifyContent: "space-between",
   borderBottom: `1px solid ${props.theme.twColors.gray[800]}`,
+  span: {
+    fontFamily: "Inconsolata,monospace !important",
+    letterSpacing: 2,
+  },
 }))
 
 const NavItem = styled.li<{ active: boolean }>((props) => ({
-  backgroundColor: props.active
-    ? props.theme.twColors.gray[900]
-    : "transparent",
   color: props.active
     ? props.theme.twColors.neutral[100]
     : props.theme.twColors.neutral[900],
   transition: "all 0.2s",
+  fontSize: "1.1rem",
+  transform: props.active ? "scaleY(1);" : "scaleY(-1)",
   "&:hover": {
-    backgroundColor: props.theme.twColors.gray[900],
     color: props.theme.twColors.neutral[100],
+    span: {
+      transform: !props.active ? "scaleY(-1)" : "scaleY(1)",
+      textDecoration: "underline",
+    },
   },
 }))
 
@@ -52,7 +58,7 @@ export const Navbar: React.FC<PageProps> = (props) => {
           return (
             <NavItem active={isActive}>
               <Link to={route.link}>
-                <Flex css={{ height: "100%" }}>
+                <Flex gap={4} css={{ height: "100%" }}>
                   {!isMobile && <Emoji {...route.emoji} />}
                   <span>{route.title}</span>
                 </Flex>

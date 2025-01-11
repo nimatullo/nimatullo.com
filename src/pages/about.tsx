@@ -1,11 +1,22 @@
 import { useDB } from "@app/hooks"
+import { Image } from "@components/scaffold"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { Helmet } from "@components/scaffold/Head"
 import { PageIntro } from "@components/scaffold/PageIntro"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
 const AboutPage = () => {
   const { data: things, loading } = useDB("aboutPageLinks")
+
+  const boyImgLink = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "boy.jpg" }) {
+        publicURL
+      }
+    }
+  `).file.publicURL
+
   return (
     <PageIntro header="About" loading={loading}>
       <div
@@ -13,22 +24,50 @@ const AboutPage = () => {
           p: { marginBottom: 20 },
         }}
       >
+        <Image
+          css={{
+            boxShadow: "0 1px 4px rgba(31, 38, 135, 0.37)",
+            width: "80%",
+            margin: "auto",
+            display: "block",
+            marginBottom: 20,
+            mixBlendMode: "hard-light",
+          }}
+          src={boyImgLink}
+          alt="boy"
+        />
         <p>
-          When someone asks you to tell them more about yourself, what do they
-          mean? I always thought that was a strange question. Do people actually
-          have answers to that? The people in my life often have one standout
-          characteristic. My brain seems to use this to compartmentalize them.
-          For example, my friend{" "}
-          <ExternalAnchor href="https://edrisahmady.com">Edris</ExternalAnchor>{" "}
-          loves cocktails—that's his thing. But for some reason, I can't think
-          of my one thing. I think my brain understands that I am many things
-          and struggles to pinpoint just one. But it's really good at
-          identifying unique traits in others, even though they are their own
-          people with their own many experiences and interests.
+          i was just a mere boy when i developed a love for computers. an uzbek
+          boy. living in uzbekistan. didn’t know what an internet was, but i
+          knew on windows XP if you go to start → all programs → games, then you
+          can play the pinball one.
+        </p>
+        <p>
+          in high school i took a computer science AP class, thought it was
+          stupid that i have to write all this computer shit to see hello world
+          print. then i did some{" "}
+          <ExternalAnchor href="https://codingbat.com/java">
+            leet code-esque problems on this codingbat dot com website.
+          </ExternalAnchor>{" "}
+          they felt like puzzles and when i got them right, it felt good in my
+          belly.
+        </p>
+        <p>
+          then i got this{" "}
+          <ExternalAnchor href="https://www.dummies.com/book/technology/programming-web-design/java/java-for-dummies-2-281748/">
+            java for dummies book
+          </ExternalAnchor>{" "}
+          and made a basketball score desktop app using swing (rip). then i got
+          a web dev book as a gift and i made the first iteration of this
+          website.
+        </p>
+        <p>
+          presently, i still make basketball score apps but on web this time and
+          for the brooklyn nets.
         </p>
 
         <p>
-          Here’s a list of my many things:{" "}
+          outside of this, here's some more things i do / enjoy / support:{" "}
           {things.map((thing) =>
             thing.url ? (
               <React.Fragment>

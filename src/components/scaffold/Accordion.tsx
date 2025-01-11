@@ -9,7 +9,7 @@ interface AccordionProps {
 
 const AccordionWrapper = styled(motion.div)((props) => ({
   margin: "1rem 0",
-  border: `3px solid ${props.theme.twColors.neutral[200]}`,
+  border: `2px solid ${props.theme.twColors.neutral[600]}`,
 }))
 const AccordionButton = styled.button((props) => ({
   backgroundColor: props.theme.twColors.neutral[100],
