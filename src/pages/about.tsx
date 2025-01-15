@@ -31,7 +31,7 @@ const AboutPage = () => {
             margin: "auto",
             display: "block",
             marginBottom: 20,
-            mixBlendMode: "exclusion",
+            mixBlendMode: "hard-light",
           }}
           src={boyImgLink}
           alt="boy"
