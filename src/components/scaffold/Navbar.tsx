@@ -23,10 +23,16 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
   color: props.active
     ? props.theme.twColors.neutral[100]
     : props.theme.twColors.neutral[900],
+  letterSpacing: props.active ? 0 : "0.5em",
   transition: "all 0.2s",
+  transform: props.active ? "scaleY(1);" : "scaleY(-1)",
   "&:hover": {
     backgroundColor: props.theme.twColors.gray[900],
     color: props.theme.twColors.neutral[100],
+    span: {
+      letterSpacing: 0,
+      transform: "scaleY(-1)",
+    },
   },
 }))
 
