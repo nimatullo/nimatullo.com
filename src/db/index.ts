@@ -32,11 +32,10 @@ const documentDataHandler = <T extends TimestampedDocumentData>(
     ).then((snapshot) =>
       snapshot.docs
         .map((doc) => doc.data())
-        .sort((a, b) =>
-          !!a.created && !!b.created
-            ? a.created.toMillis() - b.created.toMillis()
-            : 0
-        )
+        .sort((a, b) => {
+          if (!a.created || !b.created) return 0
+          return a.created.toMillis() - b.created.toMillis()
+        })
     ),
   add: async (data: T) => {
     await addDoc(collection(store, collectionPath), {

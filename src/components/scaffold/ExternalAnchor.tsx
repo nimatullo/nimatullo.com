@@ -8,6 +8,7 @@ const StyledAnchor = styled.a((props) => ({
     backgroundColor: props.theme.twColors.neutral[200],
     color: props.theme.twColors.neutral[900],
     textDecoration: "none",
+    textTransform: "uppercase",
   },
 }))
 

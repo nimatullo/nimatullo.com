@@ -1,5 +1,6 @@
 import { useMobile } from "@app/hooks"
 import { navRoutes } from "@app/routes"
+import { randomMinMax } from "@app/utils"
 import { Emoji } from "@components/Emoji"
 import { Flex } from "@components/scaffold/Flex"
 import { ColumnList } from "@components/scaffold/List"
@@ -26,12 +27,15 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
     : props.theme.twColors.neutral[900],
   transition: "ease-in-out 0.2s",
   fontSize: "1.1rem",
-  transform: props.active ? "scaleY(1);" : "scaleY(-1)",
+  transform: props.active
+    ? `scale(1.1) rotate(${randomMinMax(-5, 5)}deg)`
+    : "scaleY(-1)",
   "&:hover": {
     color: props.theme.twColors.neutral[100],
     span: {
-      transform: !props.active ? "scaleY(-1)" : "scaleY(1)",
+      transform: !props.active ? "scaleY(-1) scale(1.1)" : "scaleY(1)",
       textDecoration: "underline",
+      textTransform: "uppercase",
     },
   },
 }))

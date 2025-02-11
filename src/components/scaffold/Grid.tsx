@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
+import { motion } from "framer-motion"
 
-export const Grid = styled.div`
+export const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   justify-content: center;

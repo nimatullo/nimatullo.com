@@ -1,6 +1,6 @@
 import { useDarkMode, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
-import { GlobalStyle, theme, themeDark } from "@app/styles"
+import { GlobalStyle, theme, themeDark, transition } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Blob } from "@components/Blob"
@@ -108,12 +108,7 @@ const IndexPage: React.FC<PageProps> = () => {
             key={hoverTitle}
             initial={{ bottom: -50, rotate: 0 }}
             animate={{ bottom: 0, rotate: 360 }}
-            transition={{
-              type: "tween",
-              ease: "easeInOut",
-              duration: 0.01,
-              damping: 3,
-            }}
+            transition={transition}
           >
             {hoverTitle ?? "why worry"}
           </BlobText>

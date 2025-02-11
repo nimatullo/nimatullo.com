@@ -1,10 +1,13 @@
 import { EmojiProps } from "@app/nimatullo-types"
+import { transition } from "@app/styles"
+import { randomMinMax } from "@app/utils"
 import { Emoji } from "@components/Emoji"
 import { Flex } from "@components/scaffold"
 import styled from "@emotion/styled"
+import { motion, MotionProps } from "framer-motion"
 import React from "react"
 
-const TextContainer = styled.div({
+const TextContainer = styled(motion.div)({
   transition: "all 0.2s",
   "& header": {
     marginBottom: "1rem",
@@ -17,7 +20,13 @@ const TextContainer = styled.div({
   },
 })
 
-interface TextCardProps extends React.HTMLAttributes<HTMLDivElement> {
+type BaseMotionProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "onAnimationStart"
+> &
+  MotionProps
+
+interface TextCardProps extends BaseMotionProps {
   title: string
   description: string
   emoji: EmojiProps
@@ -30,7 +39,14 @@ export const TextCard = ({
   ...rest
 }: TextCardProps) => {
   return (
-    <TextContainer {...rest}>
+    <TextContainer
+      {...rest}
+      whileHover={{
+        scale: 1.1,
+        rotate: randomMinMax(-2, 2),
+      }}
+      transition={transition}
+    >
       <header>
         <Flex direction="row" justify="start">
           <Emoji {...emoji} />
