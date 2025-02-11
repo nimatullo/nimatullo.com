@@ -24,7 +24,7 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
   color: props.active
     ? props.theme.twColors.neutral[100]
     : props.theme.twColors.neutral[900],
-  transition: "all 0.2s",
+  transition: "ease-in-out 0.2s",
   fontSize: "1.1rem",
   transform: props.active ? "scaleY(1);" : "scaleY(-1)",
   "&:hover": {

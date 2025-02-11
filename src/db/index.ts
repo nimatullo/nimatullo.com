@@ -6,27 +6,43 @@ import {
   DocumentData,
   getDocs,
   type QueryDocumentSnapshot,
+  Timestamp,
 } from "firebase/firestore"
+
+interface TimestampedDocumentData extends DocumentData {
+  created?: Timestamp
+}
 
 const converter = <T>() => ({
   toFirestore: (data: T) => data,
   fromFirestore: (snap: QueryDocumentSnapshot<T>) => snap.data() as T,
 })
 
-export interface DocumentCollection<T> {
+export interface DocumentCollection<T extends TimestampedDocumentData> {
   all: () => Promise<T[]>
   add: (data: T) => Promise<void>
 }
 
-const documentDataHandler = <T extends DocumentData>(
+const documentDataHandler = <T extends TimestampedDocumentData>(
   collectionPath: string
 ): DocumentCollection<T> => ({
   all: async () =>
     getDocs(
       collection(store, collectionPath).withConverter(converter<T>())
-    ).then((snapshot) => snapshot.docs.map((doc) => doc.data())),
+    ).then((snapshot) =>
+      snapshot.docs
+        .map((doc) => doc.data())
+        .sort((a, b) =>
+          !!a.created && !!b.created
+            ? a.created.toMillis() - b.created.toMillis()
+            : 0
+        )
+    ),
   add: async (data: T) => {
-    await addDoc(collection(store, collectionPath), data)
+    await addDoc(collection(store, collectionPath), {
+      ...data,
+      created: Timestamp.now(),
+    })
   },
 })
 
@@ -111,73 +127,82 @@ export const addProjects = async () => {
 }
 
 export const addPlaylists = async () => {
-  Promise.all([
-    db.playlists.add({
+  const playlists = [
+    {
       title: "2:00 AM",
       url: "https://embed.music.apple.com/us/playlist/2-00-am/pl.u-2aoq8meSezzjL2",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "Consensual Seduction",
       url: "https://embed.music.apple.com/us/playlist/consensual-seduction/pl.u-jV890pJu3ooPqB",
-    }),
-    db.playlists.add({
-      title: "Kaleidoscopic",
-      url: "https://embed.music.apple.com/us/playlist/soft-porn/pl.u-xlyNqrlteKKZpv",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "new friends",
       url: "https://embed.music.apple.com/us/playlist/summer-21/pl.u-KVXBD71Idoopm0",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "make clean debug",
       url: "https://embed.music.apple.com/us/playlist/make-clean-debug/pl.u-8aAVXEeIr77EaJ",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "of all things",
       url: "https://embed.music.apple.com/us/playlist/of-all-things/pl.u-WabZ6ojCYppzvN",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "quill",
       url: "https://embed.music.apple.com/us/playlist/quill/pl.u-NpXm9oaF7jjJpy",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "39.641076º, 66.927943º",
       url: "https://embed.music.apple.com/us/playlist/summer-22/pl.u-GgA5eoRIpaav82",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "grad sh!t",
       url: "https://embed.music.apple.com/us/playlist/grad/grad-sh-t/pl.u-NpXm98Vs7jjJpy",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "face of unemployment",
       url: "https://embed.music.apple.com/us/playlist/winter-22/pl.u-GgA5e8bUpaav82",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "ball is life",
       url: "https://embed.music.apple.com/us/playlist/spring-23/pl.u-NpXm9xpC7jjJpy",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "prego",
       url: "https://embed.music.apple.com/us/playlist/prego/pl.u-jV89bXNT3ooPqB",
-    }),
-    db.playlists.add({
+    },
+    {
       title:
         "you must mourn the loss of your younger self, the person who has gotten you this far but who is no longer equipped to carry you onward",
       url: "https://embed.music.apple.com/us/playlist/you-must-mourn-the-loss-of-your-younger-self-the/pl.u-2aoqXWLfezzjL2",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "pashtish de nadish",
       url: "https://embed.music.apple.com/us/playlist/winter-23/pl.u-NpXm977F7jjJpy",
-    }),
-    db.playlists.add({
+    },
+    {
       title: "it just alkahal",
       url: "https://embed.music.apple.com/us/playlist/spring-24/pl.u-gxblkX0sZEE2Ml",
-    }),
-    db.playlists.add({
-      title: "summer 24",
+    },
+    {
+      title: "typescrip",
       url: "https://embed.music.apple.com/us/playlist/summer-24/pl.u-gxblkKJtZEE2Ml",
-    }),
-  ])
+    },
+    {
+      title: "weird",
+      url: "https://embed.music.apple.com/us/playlist/fall-24/pl.u-2aoqXjzsezzjL2",
+    },
+    {
+      title: "i dont always have something to say",
+      url: "https://embed.music.apple.com/us/playlist/winter-24/pl.u-kv9lb8mT6aaMWD",
+    },
+  ]
+
+  for (const playlist of playlists) {
+    await db.playlists.add(playlist)
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+  }
 }
 
 export const addMemes = async () => {

@@ -1,5 +1,7 @@
 import { useDB } from "@app/hooks"
 import type { Project } from "@app/nimatullo-types"
+import { randomHSLColor } from "@app/styles/colors"
+import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
 import { PageIntro } from "@components/scaffold/PageIntro"
 import styled from "@emotion/styled"
@@ -9,26 +11,26 @@ import { useRef } from "react"
 import { ExternalLink, GitBranch } from "react-feather"
 
 const ProjectItemContainer = styled(motion.li)((props) => ({
+  ...getBorderedContainerStyle(props.theme),
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
   justifyContent: "center",
   alignItems: "center",
-  border: `2px solid ${props.theme.twColors.neutral[600]}`,
   padding: "1rem",
-  backgroundColor: props.theme.twColors.neutral[100],
   minHeight: "200px",
   marginBottom: "1rem",
   a: {
-    border: `3px solid ${props.theme.twColors.neutral[600]}`,
+    ...getBorderedContainerStyle(props.theme),
     padding: "0.5rem",
-    transition: "ease 0.3s",
+    transition: "ease 0.1s",
     textAlign: "center",
     margin: "1rem",
     display: "grid",
     placeItems: "center",
   },
   "a:hover": {
-    backgroundColor: props.theme.twColors.neutral[300],
+    borderWidth: "3px",
+    backgroundColor: randomHSLColor(),
   },
   h2: { marginBottom: "10px", textTransform: "uppercase" },
 }))

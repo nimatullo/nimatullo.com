@@ -1,3 +1,4 @@
+import { getBorderedContainerStyle } from "@app/styles/css"
 import styled from "@emotion/styled"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import React from "react"
@@ -8,9 +9,10 @@ interface AccordionProps {
 }
 
 const AccordionWrapper = styled(motion.div)((props) => ({
+  ...getBorderedContainerStyle(props.theme),
   margin: "1rem 0",
-  border: `2px solid ${props.theme.twColors.neutral[600]}`,
 }))
+
 const AccordionButton = styled.button((props) => ({
   backgroundColor: props.theme.twColors.neutral[100],
   color: props.theme.twColors.neutral[900],

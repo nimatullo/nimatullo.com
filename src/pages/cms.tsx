@@ -5,6 +5,7 @@ import {
   modelMap,
 } from "@app/model/FirebaseCollectionModel"
 import { randomHSLColor } from "@app/styles/colors"
+import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
 import styled from "@emotion/styled"
 import {
@@ -16,15 +17,16 @@ import {
 import { PageProps } from "gatsby"
 import React from "react"
 
-const TextField = styled.input({
+const TextField = styled.input((props) => ({
+  ...getBorderedContainerStyle(props.theme),
   width: "100%",
   padding: "0.5rem",
   fontSize: "1rem",
   margin: "0.5rem 0",
-  border: "3px solid #000",
-})
+}))
 
 const SubmitButton = styled.button((props) => ({
+  ...getBorderedContainerStyle(props.theme),
   padding: "0 16px",
   height: "40px",
   lineHeight: "1",
@@ -32,7 +34,6 @@ const SubmitButton = styled.button((props) => ({
   marginBottom: "1rem",
   textTransform: "uppercase",
   cursor: "pointer",
-  border: `3px solid ${randomHSLColor(1)}`,
   transition: "0.2s ease all",
   "&:hover": {
     transform: "translateY(-2px)",

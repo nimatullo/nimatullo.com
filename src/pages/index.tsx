@@ -10,6 +10,7 @@ import { GifVideo } from "@components/scaffold/GifVideo"
 import { Helmet } from "@components/scaffold/Head"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
+import { motion } from "framer-motion"
 import {
   graphql,
   navigate,
@@ -28,7 +29,7 @@ const BlobContainer = styled.div<{ isMobile: boolean }>((props) => ({
   overflow: props.isMobile ? "visible" : "hidden",
 }))
 
-const BlobText = styled.h1({
+const BlobText = styled(motion.h1)({
   fontFamily: "DM Serif Text, serif",
   whiteSpace: "nowrap",
   overflow: "hidden",
@@ -72,13 +73,14 @@ const textCardGlassStyle = css({
 })
 
 const IndexPage: React.FC<PageProps> = () => {
-  const [hoverTitle, setHoverTitle] = React.useState<string | null>(null)
+  const [hoverTitle, setHoverTitle] = React.useState<string>("why worry")
   const { isMobile } = useMobile()
   const { isDarkMode } = useDarkMode()
 
   const debouncedSetHoverTitle = React.useCallback(
     debounce(
-      (t: string | null) => setHoverTitle(t ? t.toLocaleLowerCase() : null),
+      (t: string | null) =>
+        setHoverTitle(t ? t.toLocaleLowerCase() : "why worry"),
       50
     ),
     [hoverTitle]
@@ -102,7 +104,19 @@ const IndexPage: React.FC<PageProps> = () => {
       <BlobContainer isMobile={isMobile}>
         <Container>
           <GlobalStyle />
-          <BlobText>{hoverTitle ?? "why worry"}</BlobText>
+          <BlobText
+            key={hoverTitle}
+            initial={{ bottom: -50, rotate: 0 }}
+            animate={{ bottom: 0, rotate: 360 }}
+            transition={{
+              type: "tween",
+              ease: "easeInOut",
+              duration: 0.01,
+              damping: 3,
+            }}
+          >
+            {hoverTitle ?? "why worry"}
+          </BlobText>
           <Grid>
             {homePageRoutes.map((r) => (
               <TextCard
