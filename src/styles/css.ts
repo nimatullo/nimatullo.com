@@ -6,6 +6,6 @@ export const hover = (style: SerializedStyles) =>
   })
 
 export const getBorderedContainerStyle = (theme: Theme) => ({
-  border: `2px solid ${theme.twColors.neutral[600]}`,
-  backgroundColor: theme.twColors.neutral[100],
+  border: `2px solid ${theme.twColors?.neutral[600] ?? "#525252"}`,
+  backgroundColor: theme.twColors?.neutral[100] ?? "#FAFAFA",
 })
