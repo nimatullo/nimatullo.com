@@ -1,6 +1,6 @@
 import { useDarkMode, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
-import { GlobalStyle, theme, themeDark, transition } from "@app/styles"
+import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
 import { Blob } from "@components/Blob"
@@ -8,9 +8,9 @@ import { Footer } from "@components/Footer"
 import { Container, Grid, TextCard } from "@components/scaffold"
 import { GifVideo } from "@components/scaffold/GifVideo"
 import { Helmet } from "@components/scaffold/Head"
+import { TransformingText } from "@components/TransformingText"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
-import { motion } from "framer-motion"
 import {
   graphql,
   navigate,
@@ -28,24 +28,6 @@ const BlobContainer = styled.div<{ isMobile: boolean }>((props) => ({
   position: "relative",
   overflow: props.isMobile ? "visible" : "hidden",
 }))
-
-const BlobText = styled(motion.h1)({
-  fontFamily: "DM Serif Text, serif",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  mixBlendMode: "soft-light",
-  textAlign: "center",
-  margin: 0,
-  textAlignLast: "justify",
-  fontSize: "calc(20vw)",
-  fontWeight: 600,
-  transition: "all 0.5s",
-  textShadow: "0 1px 4px rgba(31, 38, 135, 0.37)",
-  zIndex: -1,
-})
 
 const textCardGlassStyle = css({
   background: "rgba(255, 255, 255, 0.25)",
@@ -70,6 +52,29 @@ const textCardGlassStyle = css({
     backdropFilter: "brightness(0.7)",
     cursor: "pointer",
   },
+})
+
+const wrapperCss = css({
+  bottom: 0,
+  left: 0,
+  position: "absolute",
+  overflow: "hidden",
+})
+
+const textCss = css({
+  fontFamily: "DM Serif Text, serif",
+  whiteSpace: "nowrap",
+  mixBlendMode: "soft-light",
+  textAlign: "center",
+  margin: 0,
+  textAlignLast: "justify",
+  textTransform: "lowercase",
+  fontSize: "calc(20vw)",
+  fontWeight: 600,
+  transition: "all 0.5s",
+  textShadow: "0 1px 4px rgba(31, 38, 135, 0.37)",
+  display: "inline-block",
+  zIndex: -1,
 })
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -104,14 +109,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <BlobContainer isMobile={isMobile}>
         <Container>
           <GlobalStyle />
-          <BlobText
-            key={hoverTitle}
-            initial={{ bottom: -50, rotate: 0 }}
-            animate={{ bottom: 0, rotate: 360 }}
-            transition={transition}
-          >
-            {hoverTitle ?? "why worry"}
-          </BlobText>
+          <TransformingText
+            textCss={textCss}
+            wrapperCss={wrapperCss}
+            text={hoverTitle}
+          />
           <Grid>
             {homePageRoutes.map((r) => (
               <TextCard
