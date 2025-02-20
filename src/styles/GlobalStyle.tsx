@@ -20,7 +20,9 @@ export const GlobalStyle = () => {
           margin: 0,
           padding: 0,
           fontFamily: "Overpass, monospace",
+          cursor: "none",
         },
+        "*::before, *::after": { cursor: "none" },
         "h1, h2, h3, h4": { fontFamily: "Inconsolata, monospace" },
         iframe: { border: "none" },
       })}

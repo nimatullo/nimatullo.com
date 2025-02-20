@@ -1,4 +1,4 @@
-import { useDarkMode, useMobile } from "@app/hooks"
+import { useCursorHandlers, useDarkMode, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
 import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
@@ -81,6 +81,7 @@ const IndexPage: React.FC<PageProps> = () => {
   const [hoverTitle, setHoverTitle] = React.useState<string>("why worry")
   const { isMobile } = useMobile()
   const { isDarkMode } = useDarkMode()
+  const mouseHandlers = useCursorHandlers()
 
   const debouncedSetHoverTitle = React.useCallback(
     debounce(
@@ -119,8 +120,14 @@ const IndexPage: React.FC<PageProps> = () => {
               <TextCard
                 css={{ ...textCardGlassStyle, height: isMobile ? 100 : 200 }}
                 onClick={() => navigate(r.link)}
-                onMouseEnter={(_) => debouncedSetHoverTitle(r.title)}
-                onMouseLeave={(_) => debouncedSetHoverTitle(null)}
+                onMouseEnter={(e) => {
+                  debouncedSetHoverTitle(r.title)
+                  mouseHandlers.onMouseEnter(e)
+                }}
+                onMouseLeave={(e) => {
+                  debouncedSetHoverTitle(null)
+                  mouseHandlers.onMouseLeave(e)
+                }}
                 key={r.title}
                 {...r}
               />

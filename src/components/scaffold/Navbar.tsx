@@ -1,4 +1,4 @@
-import { useMobile } from "@app/hooks"
+import { useCursorHandlers, useMobile } from "@app/hooks"
 import { navRoutes } from "@app/routes"
 import { randomMinMax } from "@app/utils"
 import { Emoji } from "@components/Emoji"
@@ -32,6 +32,7 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
     : "scaleY(-1)",
   "&:hover": {
     color: props.theme.twColors.neutral[100],
+    backgroundColor: props.theme.twColors.gray[800],
     span: {
       transform: !props.active ? "scaleY(-1) scale(1.1)" : "scaleY(1)",
       textDecoration: "underline",
@@ -42,6 +43,7 @@ const NavItem = styled.li<{ active: boolean }>((props) => ({
 
 export const Navbar: React.FC<PageProps> = (props) => {
   const [active, setActive] = React.useState<string | null>(null)
+  const cursorHandlers = useCursorHandlers()
   const { location } = props
   const { isMobile } = useMobile()
 
@@ -60,7 +62,7 @@ export const Navbar: React.FC<PageProps> = (props) => {
             active === route.link.replace(/[^a-zA-Z ]/g, "").toLowerCase()
 
           return (
-            <NavItem active={isActive}>
+            <NavItem {...cursorHandlers} active={isActive}>
               <Link to={route.link}>
                 <Flex gap={4} css={{ height: "100%" }}>
                   {!isMobile && <Emoji {...route.emoji} />}

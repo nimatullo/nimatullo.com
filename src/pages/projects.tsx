@@ -1,4 +1,4 @@
-import { useDB } from "@app/hooks"
+import { useCursorHandlers, useDB } from "@app/hooks"
 import type { Project } from "@app/nimatullo-types"
 import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
@@ -38,6 +38,7 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
 const ProjectItem = ({ project }: { project: Project }) => {
   const ref = useRef<HTMLLIElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const mouseHandlers = useCursorHandlers()
   return (
     <ProjectItemContainer
       ref={ref}
@@ -58,12 +59,12 @@ const ProjectItem = ({ project }: { project: Project }) => {
         }}
       >
         {project.github && (
-          <a href={project.github}>
+          <a {...mouseHandlers} href={project.github}>
             <GitBranch />
           </a>
         )}
         {project.url && (
-          <a href={project.url}>
+          <a {...mouseHandlers} href={project.url}>
             <ExternalLink />
           </a>
         )}

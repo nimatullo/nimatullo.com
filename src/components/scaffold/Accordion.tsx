@@ -1,3 +1,4 @@
+import { useCursorHandlers } from "@app/hooks"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import styled from "@emotion/styled"
 import { AnimatePresence, motion, useInView } from "framer-motion"
@@ -35,6 +36,7 @@ export const Accordion = ({ title, children }: AccordionProps) => {
   const ref = React.useRef(null)
   const [isOpen, setIsOpen] = React.useState(false)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const mouseHandlers = useCursorHandlers()
 
   return (
     <AccordionWrapper
@@ -43,7 +45,7 @@ export const Accordion = ({ title, children }: AccordionProps) => {
       animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
       transition={{ duration: 0.3 }}
     >
-      <AccordionButton onClick={() => setIsOpen(!isOpen)}>
+      <AccordionButton {...mouseHandlers} onClick={() => setIsOpen(!isOpen)}>
         <h3>{title}</h3>
         <h3>{isOpen ? "-" : "+"}</h3>
       </AccordionButton>

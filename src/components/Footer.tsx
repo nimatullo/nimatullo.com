@@ -1,3 +1,4 @@
+import { useCursorHandlers } from "@app/hooks"
 import { footerRoutes } from "@app/routes"
 import { randomHSLColor } from "@app/styles/colors"
 import { Flex } from "@components/scaffold"
@@ -21,6 +22,7 @@ export function Footer({
   onHover?: (title: string | null) => void
 }) {
   const [commitSHA, setCommitSHA] = React.useState<string | null>(null)
+  const mouseHandlers = useCursorHandlers()
 
   React.useEffect(() => {
     const ghApiUrl =
@@ -41,13 +43,17 @@ export function Footer({
             onMouseLeave={() => onHover?.(null)}
           >
             <a
+              {...mouseHandlers}
               title={r.title}
               rel="noopener noreferrer"
               target="_blank"
               href={r.href}
             >
               <r.icon
-                css={{ mixBlendMode: "color-dodge" }}
+                css={{
+                  mixBlendMode: "color-dodge",
+                  "&:hover": { strokeWidth: 3 },
+                }}
                 stroke={randomHSLColor(1)}
               />
             </a>
