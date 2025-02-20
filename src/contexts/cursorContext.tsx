@@ -5,7 +5,10 @@ interface CursorContext {
   setCursor: ({ active }: { active: boolean }) => void
 }
 
-const CursorContext = React.createContext<CursorContext>(null!)
+const CursorContext = React.createContext<CursorContext>({
+  cursor: { active: false },
+  setCursor: () => {},
+})
 
 export const useCursor = () => React.useContext(CursorContext)
 
