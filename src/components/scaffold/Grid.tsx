@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 export const Grid = styled(motion.div)`
   display: grid;

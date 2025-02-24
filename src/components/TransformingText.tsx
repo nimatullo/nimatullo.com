@@ -1,6 +1,6 @@
 import { Theme } from "@emotion/react"
 import { Interpolation } from "@emotion/styled"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 import { useMemo } from "react"
 
 interface TransformingTextProps {

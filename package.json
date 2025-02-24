@@ -24,12 +24,12 @@
     "@types/feather-icons": "^4.29.4",
     "feather-icons": "^4.29.2",
     "firebase": "^10.12.5",
-    "framer-motion": "^11.9.0",
     "gatsby": "^5.13.5",
     "gatsby-adapter-netlify": "^1.1.7",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-source-filesystem": "^5.13.1",
+    "motion": "^12.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10"

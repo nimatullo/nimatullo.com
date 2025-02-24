@@ -1,6 +1,6 @@
 import { useCursor } from "@app/contexts/cursorContext"
 import { useMousePosition } from "@app/hooks"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 export const Cursor = () => {
   const { x, y } = useMousePosition()

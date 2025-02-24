@@ -1,7 +1,7 @@
 import { randomMinMax } from "@app/utils"
 import { Spinner } from "@components/scaffold/Spinner"
 import styled from "@emotion/styled"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import React from "react"
 
 const PageIntroContainer = styled.div({

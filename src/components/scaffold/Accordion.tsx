@@ -1,7 +1,7 @@
 import { useCursorHandlers } from "@app/hooks"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import styled from "@emotion/styled"
-import { AnimatePresence, motion, useInView } from "framer-motion"
+import { AnimatePresence, motion, useInView } from "motion/react"
 import React from "react"
 
 interface AccordionProps {

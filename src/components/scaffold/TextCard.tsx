@@ -4,7 +4,7 @@ import { randomMinMax } from "@app/utils"
 import { Emoji } from "@components/Emoji"
 import { Flex } from "@components/scaffold"
 import styled from "@emotion/styled"
-import { motion, MotionProps } from "framer-motion"
+import { motion, MotionProps } from "motion/react"
 import React from "react"
 
 const TextContainer = styled(motion.div)({

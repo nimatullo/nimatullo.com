@@ -2,7 +2,7 @@ import { useMobile } from "@app/hooks"
 import { randomHSLColor } from "@app/styles/colors"
 import { random, randomMinMax } from "@app/utils"
 import styled from "@emotion/styled"
-import { animate, motion, useMotionValue } from "framer-motion"
+import { animate, motion, useMotionValue } from "motion/react"
 import React, { useEffect } from "react"
 
 const StyledBlob = styled(motion.div)({
