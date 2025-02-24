@@ -19,5 +19,7 @@ export { GlobalStyle } from "./GlobalStyle"
 
 export const transition = {
   duration: 0.01,
+  stiffness: 100,
+  damping: 10,
   ease: [0.43, 0.13, 0.23, 0.96],
 }

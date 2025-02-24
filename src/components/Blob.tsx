@@ -2,8 +2,8 @@ import { useMobile } from "@app/hooks"
 import { randomHSLColor } from "@app/styles/colors"
 import { random, randomMinMax } from "@app/utils"
 import styled from "@emotion/styled"
-import { motion } from "framer-motion"
-import React from "react"
+import { animate, motion, useMotionValue } from "framer-motion"
+import React, { useEffect } from "react"
 
 const StyledBlob = styled(motion.div)({
   position: "absolute",
@@ -19,6 +19,32 @@ const StyledBlob = styled(motion.div)({
 export const Blob = () => {
   const { isMobile } = useMobile()
   const maybeWindow = typeof window !== "undefined" && window
+
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  useEffect(() => {
+    if (!maybeWindow) return
+
+    const animatePosition = () => {
+      const newX = random(maybeWindow.innerWidth - 700)
+      const newY = random(maybeWindow.innerHeight - 700)
+
+      animate(x, newX, {
+        duration: 20,
+        ease: "linear",
+      })
+
+      animate(y, newY, {
+        duration: 20,
+        ease: "linear",
+        onComplete: animatePosition,
+      })
+    }
+
+    animatePosition()
+  }, [maybeWindow])
+
   const animation = React.useMemo(
     () => ({
       layout: true,
@@ -28,20 +54,6 @@ export const Blob = () => {
             .fill(0)
             .map((_) => random(360)),
         ],
-
-        x: maybeWindow
-          ? [
-              random(maybeWindow.innerWidth - 700),
-              random(maybeWindow.innerWidth - 700),
-            ]
-          : 0,
-        y: maybeWindow
-          ? [
-              random(maybeWindow.innerHeight - 700),
-              random(maybeWindow.innerHeight - 700),
-            ]
-          : 0,
-
         borderRadius: [
           "24% 76% 35% 65% / 27% 36% 64% 73%",
           "76% 24% 33% 67% / 68% 55% 46% 32%",
@@ -61,6 +73,7 @@ export const Blob = () => {
         duration: 20,
       }}
       {...animation}
+      style={{ x, y }}
     />
   )
 }

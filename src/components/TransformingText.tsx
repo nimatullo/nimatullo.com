@@ -9,6 +9,26 @@ interface TransformingTextProps {
   wrapperCss?: Interpolation<Theme>
 }
 
+const variants = {
+  init: {
+    opacity: 0,
+    z: 1,
+  },
+  animate: {
+    opacity: 1,
+    z: 1,
+  },
+  exit: {
+    opacity: 0,
+    z: 0,
+  },
+  transition: {
+    type: "spring",
+    bounce: 0.1,
+    duration: 0.3,
+  },
+}
+
 export const TransformingText = (props: TransformingTextProps) => {
   const { text, textCss, wrapperCss } = props
 
@@ -37,14 +57,11 @@ export const TransformingText = (props: TransformingTextProps) => {
             layoutId={ch.id}
             layout="position"
             css={textCss}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              type: "spring",
-              bounce: 0.1,
-              duration: 0.3,
-            }}
+            variants={variants}
+            initial="init"
+            animate="animate"
+            exit="exit"
+            transition={variants.transition}
           >
             {ch.label}
           </motion.span>

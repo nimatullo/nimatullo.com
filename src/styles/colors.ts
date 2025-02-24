@@ -594,6 +594,7 @@ export const twColorsDark = {
   },
 }
 
+type HSLA = `hsla(${number}, ${number}%, ${number}%, ${number})`
 export type Colors = keyof typeof baseColors
 export type TwColors = keyof typeof twColors
 export type TwColorShades =
@@ -609,9 +610,20 @@ export type TwColorShades =
   | 900
   | 950
 
-export const randomHSLColor = (opacity: number = 0.4) => {
+export const randomHSLColor = (opacity: number = 0.4): HSLA => {
   const h = randomMinMax(0, 360)
   const s = randomMinMax(42, 98)
   const l = randomMinMax(40, 90)
   return `hsla(${h}, ${s}%, ${l}%, ${opacity})`
+}
+
+export const complementColor = (color: HSLA) => {
+  const hsla = color.match(/hsla\((\d+), (\d+)%?, (\d+)%?, (\d+\.?\d*)\)/)
+  if (!hsla) return color
+  const h = parseInt(hsla[1])
+  const s = parseInt(hsla[2])
+  const l = parseInt(hsla[3])
+  const a = parseFloat(hsla[4])
+  const newH = (h + 180) % 360
+  return `hsla(${newH}, ${s}%, ${l}%, ${a})`
 }

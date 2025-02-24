@@ -1,19 +1,22 @@
+import { complementColor, randomHSLColor, twColors } from "@app/styles/colors"
 import { css, Global, keyframes, Theme, useTheme } from "@emotion/react"
 
 export const GlobalStyle = () => {
   const theme = useTheme()
   const { baseColors } = theme
+  const colorBase = randomHSLColor()
+  const inverted = complementColor(colorBase)
+
   return (
     <Global
       styles={css({
         a: { textDecoration: "none", color: "inherit" },
         body: {
-          backgroundColor: baseColors.white,
           color: baseColors.black,
           display: "grid",
           placeItems: "center",
-          animation: `${backgroundChangeKeyframes(theme)} 120s infinite`,
-          animationDirection: "alternate",
+          background: colorBase,
+          transition: "background 0.3s",
         },
         "*": {
           boxSizing: "border-box",
@@ -25,6 +28,10 @@ export const GlobalStyle = () => {
         "*::before, *::after": { cursor: "none" },
         "h1, h2, h3, h4": { fontFamily: "Inconsolata, monospace" },
         iframe: { border: "none" },
+        "::selection": {
+          color: twColors.neutral[700],
+          backgroundColor: inverted,
+        },
       })}
     />
   )
