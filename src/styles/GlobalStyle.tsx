@@ -1,10 +1,11 @@
-import { complementColor, randomHSLColor, twColors } from "@app/styles/colors"
-import { css, Global, keyframes, Theme, useTheme } from "@emotion/react"
+import { complementColor, twColors, TwColorShades } from "@app/styles/colors"
+import { randomMinMax } from "@app/utils"
+import { css, Global, useTheme } from "@emotion/react"
 
 export const GlobalStyle = () => {
   const theme = useTheme()
   const { baseColors } = theme
-  const colorBase = randomHSLColor()
+  const colorBase = backgroundColors[randomMinMax(0, backgroundColors.length)]
   const inverted = complementColor(colorBase)
 
   return (
@@ -23,9 +24,9 @@ export const GlobalStyle = () => {
           margin: 0,
           padding: 0,
           fontFamily: "Overpass, monospace",
-          cursor: "none",
+          // cursor: "none",
         },
-        "*::before, *::after": { cursor: "none" },
+        // "*::before, *::after": { cursor: "none" },
         "h1, h2, h3, h4": { fontFamily: "Inconsolata, monospace" },
         iframe: { border: "none" },
         "::selection": {
@@ -37,26 +38,12 @@ export const GlobalStyle = () => {
   )
 }
 
-const backgroundChangeKeyframes = (props: Theme) => {
-  const { twColors } = props
-  return keyframes({
-    "0%": {
-      backgroundColor: twColors.green[300],
-    },
-    "20%": {
-      backgroundColor: twColors.red[300],
-    },
-    "40%": {
-      backgroundColor: twColors.purple[300],
-    },
-    "60%": {
-      backgroundColor: twColors.pink[300],
-    },
-    "80%": {
-      backgroundColor: twColors.yellow[300],
-    },
-    "100%": {
-      backgroundColor: twColors.blue[300],
-    },
-  })
-}
+const colorShade: TwColorShades = 500
+const backgroundColors = [
+  twColors.green[colorShade],
+  twColors.red[colorShade],
+  twColors.purple[colorShade],
+  twColors.pink[colorShade],
+  twColors.yellow[colorShade],
+  twColors.blue[colorShade],
+]

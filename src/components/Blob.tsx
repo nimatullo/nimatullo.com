@@ -65,7 +65,8 @@ export const Blob = () => {
 
   if (isMobile) return null
   return (
-    <StyledBlob
+    <motion.p
+      css={{ fontSize: 50 }}
       transition={{
         ease: "linear",
         repeat: Infinity,
@@ -74,6 +75,18 @@ export const Blob = () => {
       }}
       {...animation}
       style={{ x, y }}
-    />
+    >
+      😏
+    </motion.p>
+    // <StyledBlob
+    //   transition={{
+    //     ease: "linear",
+    //     repeat: Infinity,
+    //     repeatType: "mirror",
+    //     duration: 20,
+    //   }}
+    //   {...animation}
+    //   style={{ x, y }}
+    // />
   )
 }

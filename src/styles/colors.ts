@@ -617,13 +617,10 @@ export const randomHSLColor = (opacity: number = 0.4): HSLA => {
   return `hsla(${h}, ${s}%, ${l}%, ${opacity})`
 }
 
-export const complementColor = (color: HSLA) => {
-  const hsla = color.match(/hsla\((\d+), (\d+)%?, (\d+)%?, (\d+\.?\d*)\)/)
-  if (!hsla) return color
-  const h = parseInt(hsla[1])
-  const s = parseInt(hsla[2])
-  const l = parseInt(hsla[3])
-  const a = parseFloat(hsla[4])
-  const newH = (h + 180) % 360
-  return `hsla(${newH}, ${s}%, ${l}%, ${a})`
+export const complementColor = (hex: string) => {
+  const r = parseInt(hex.substring(1, 2), 16)
+  const g = parseInt(hex.substring(3, 2), 16)
+  const b = parseInt(hex.substring(5, 2), 16)
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000
+  return yiq >= 128 ? baseColors.black : baseColors.white
 }

@@ -1,7 +1,7 @@
 import { EmojiProps } from "@app/nimatullo-types"
 import { transition } from "@app/styles"
 import { randomMinMax } from "@app/utils"
-import { Emoji } from "@components/Emoji"
+import { Emoji } from "@components/fun/Emoji"
 import { Flex } from "@components/scaffold"
 import styled from "@emotion/styled"
 import { motion, MotionProps } from "motion/react"

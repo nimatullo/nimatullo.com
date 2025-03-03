@@ -1,7 +1,7 @@
 import { useCursorHandlers, useMobile } from "@app/hooks"
 import { navRoutes } from "@app/routes"
 import { randomMinMax } from "@app/utils"
-import { Emoji } from "@components/Emoji"
+import { Emoji } from "@components/fun/Emoji"
 import { Flex } from "@components/scaffold/Flex"
 import { ColumnList } from "@components/scaffold/List"
 import { css } from "@emotion/react"

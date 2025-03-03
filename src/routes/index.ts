@@ -35,7 +35,7 @@ const homePageRoutesMap: { [link in Links]: Route } = {
   resume: {
     title: "Resume",
     description:
-      "make sure you look them in their eyes when you shake their hand",
+      "make sure you look them in their hands when you shake their eyes",
     emoji: { name: "business", fallback: "💼" },
     link: "/resume",
     showInHome: true,

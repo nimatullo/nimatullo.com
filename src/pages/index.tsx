@@ -3,12 +3,12 @@ import { homePageRoutes } from "@app/routes"
 import { GlobalStyle, theme, themeDark } from "@app/styles"
 import { baseColors } from "@app/styles/colors"
 import { debounce } from "@app/utils"
-import { Blob } from "@components/Blob"
 import { Footer } from "@components/Footer"
+import AnimatedPathText from "@components/fun/Text"
+import { TransformingText } from "@components/fun/TransformingText"
 import { Container, Grid, TextCard } from "@components/scaffold"
 import { GifVideo } from "@components/scaffold/GifVideo"
 import { Helmet } from "@components/scaffold/Head"
-import { TransformingText } from "@components/TransformingText"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
@@ -79,6 +79,7 @@ const textCss = css({
 
 const IndexPage: React.FC<PageProps> = () => {
   const [hoverTitle, setHoverTitle] = React.useState<string>("why worry")
+
   const { isMobile } = useMobile()
   const { isDarkMode } = useDarkMode()
   const mouseHandlers = useCursorHandlers()
@@ -104,6 +105,10 @@ const IndexPage: React.FC<PageProps> = () => {
       }
     `
   )
+  const paths = ["M 0 0 L 325 4"]
+  // const paths = []
+
+  const texts = ["i love sydney capobiacno"]
 
   return (
     <ThemeProvider theme={isDarkMode ? themeDark : theme}>
@@ -133,9 +138,32 @@ const IndexPage: React.FC<PageProps> = () => {
               />
             ))}
           </Grid>
+
+          {paths.map((path, i) => (
+            <AnimatedPathText
+              key={`path-${i}`}
+              path={path}
+              pathId={`path-${i}`}
+              text={texts[i]}
+              duration={10}
+              textAnchor="start"
+              viewBox={`0 0 325 150`}
+              svgCss={{
+                position: "absolute",
+                left: -100,
+                top: "33%",
+                width: "calc(100% + 200px)",
+                height: "100%",
+                zIndex: -1,
+                mixBlendMode: "soft-light",
+                fontFamily: "DM Serif Text, serif",
+              }}
+            />
+          ))}
+
           <Footer onHover={debouncedSetHoverTitle} />
         </Container>
-
+        {/*
         <GifVideo
           src={anxietyVideo.publicURL}
           alt="anxiety"
@@ -148,7 +176,7 @@ const IndexPage: React.FC<PageProps> = () => {
             width: "50%",
             objectFit: "cover",
           }}
-        />
+        /> */}
 
         <GifVideo
           src={fallVideo.publicURL}
@@ -167,11 +195,11 @@ const IndexPage: React.FC<PageProps> = () => {
           }}
         />
 
-        {Array(2)
+        {/* {Array(2)
           .fill(0)
           .map((_, i) => (
             <Blob key={i} />
-          ))}
+          ))} */}
       </BlobContainer>
     </ThemeProvider>
   )

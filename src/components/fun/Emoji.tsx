@@ -1,6 +1,6 @@
 import { Image } from "@components/scaffold"
 import React from "react"
-import type { EmojiProps } from "../nimatullo-types"
+import type { EmojiProps } from "../../nimatullo-types"
 
 const emojiData = {
   socks: "https://em-content.zobj.net/thumbs/240/apple/354/socks_1f9e6.png",
