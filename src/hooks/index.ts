@@ -7,7 +7,7 @@ export const useMobile = (): { isMobile: boolean } => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768) // Adjust the breakpoint as needed
+      setIsMobile(window.innerWidth < 768) // mobile breakpoint
     }
 
     handleResize() // Check on initial render
@@ -65,45 +65,16 @@ export const useDB = <K extends DBKey>(key: K) => {
   return { data, loading }
 }
 
-export const useMousePosition = () => {
-  const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  })
-
-  const update = (e: MouseEvent) => {
-    setPosition({ x: e.clientX, y: e.clientY })
-  }
-
-  useEffect(() => {
-    document.addEventListener("mousemove", update, false),
-      document.addEventListener("mouseenter", update, false)
-
-    return () => {
-      document.removeEventListener("mousemove", update, false),
-        document.removeEventListener("mouseenter", update, false)
-    }
-  }, [])
-
-  return position
-}
-
 export const useCursorHandlers = () => {
   const { setCursor } = useCursor()
 
-  const onMouseEnter = React.useCallback(
-    (e: React.MouseEvent) => {
-      setCursor({ active: true })
-    },
-    [setCursor]
-  )
+  const onMouseEnter = React.useCallback(() => {
+    setCursor({ active: true })
+  }, [setCursor])
 
-  const onMouseLeave = React.useCallback(
-    (e: React.MouseEvent) => {
-      setCursor({ active: false })
-    },
-    [setCursor]
-  )
+  const onMouseLeave = React.useCallback(() => {
+    setCursor({ active: false })
+  }, [setCursor])
 
   return { onMouseEnter, onMouseLeave }
 }
