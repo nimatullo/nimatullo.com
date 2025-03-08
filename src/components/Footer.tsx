@@ -1,6 +1,6 @@
 import { useCursorHandlers } from "@app/hooks"
 import { footerRoutes } from "@app/routes"
-import { randomHSLColor } from "@app/styles/colors"
+import { randomHSLColor, twColors } from "@app/styles/colors"
 import { Flex } from "@components/scaffold"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { ColumnList } from "@components/scaffold/List"
@@ -51,8 +51,12 @@ export function Footer({
             >
               <r.icon
                 css={{
+                  "&:hover": {
+                    backgroundColor: twColors.neutral[900],
+                    mixBlendMode: "normal",
+                    borderRadius: 4,
+                  },
                   mixBlendMode: "color-dodge",
-                  "&:hover": { strokeWidth: 3 },
                 }}
                 stroke={randomHSLColor(1)}
               />

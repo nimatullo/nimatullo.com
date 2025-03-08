@@ -6,8 +6,7 @@ import { debounce } from "@app/utils"
 import { Footer } from "@components/Footer"
 import AnimatedPathText from "@components/fun/Text"
 import { TransformingText } from "@components/fun/TransformingText"
-import { Container, Grid, TextCard } from "@components/scaffold"
-import { GifVideo } from "@components/scaffold/GifVideo"
+import { Container, Grid, Image, TextCard } from "@components/scaffold"
 import { Helmet } from "@components/scaffold/Head"
 import { css, ThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
@@ -96,7 +95,7 @@ const IndexPage: React.FC<PageProps> = () => {
   const { fallVideo, anxietyVideo } = useStaticQuery(
     graphql`
       query {
-        fallVideo: file(relativePath: { eq: "fall.webm" }) {
+        fallVideo: file(relativePath: { eq: "fall.gif" }) {
           publicURL
         }
         anxietyVideo: file(relativePath: { eq: "anxiety.webm" }) {
@@ -127,11 +126,11 @@ const IndexPage: React.FC<PageProps> = () => {
                 onClick={() => navigate(r.link)}
                 onMouseEnter={(e) => {
                   debouncedSetHoverTitle(r.title)
-                  mouseHandlers.onMouseEnter(e)
+                  mouseHandlers.onMouseEnter()
                 }}
                 onMouseLeave={(e) => {
                   debouncedSetHoverTitle(null)
-                  mouseHandlers.onMouseLeave(e)
+                  mouseHandlers.onMouseLeave()
                 }}
                 key={r.title}
                 {...r}
@@ -178,7 +177,7 @@ const IndexPage: React.FC<PageProps> = () => {
           }}
         /> */}
 
-        <GifVideo
+        <Image
           src={fallVideo.publicURL}
           alt="falling leaves"
           css={{
@@ -194,12 +193,6 @@ const IndexPage: React.FC<PageProps> = () => {
             objectFit: "cover",
           }}
         />
-
-        {/* {Array(2)
-          .fill(0)
-          .map((_, i) => (
-            <Blob key={i} />
-          ))} */}
       </BlobContainer>
     </ThemeProvider>
   )

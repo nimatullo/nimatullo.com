@@ -1,13 +1,26 @@
 import { useCursor } from "@app/contexts/cursorContext"
-import { useMousePosition } from "@app/hooks"
-import { motion } from "motion/react"
+import { twColors } from "@app/styles/colors"
+import { useEffect, useRef } from "react"
 
 export const Cursor = () => {
-  const { x, y } = useMousePosition()
   const { cursor } = useCursor()
+
+  const mouseDivRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    window.addEventListener("mousemove", (e) => {
+      if (mouseDivRef.current) {
+        mouseDivRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+      }
+    })
+    return () => {
+      window.removeEventListener("mousemove", () => {})
+    }
+  })
 
   return (
     <div
+      ref={mouseDivRef}
       css={{
         position: "fixed",
         top: 0,
@@ -17,24 +30,22 @@ export const Cursor = () => {
         zIndex: 9999,
         pointerEvents: "none",
         mixBlendMode: "difference",
-        border: "1px solid rgba(255, 255, 255, 0.18)",
       }}
     >
-      <motion.svg
-        width={50}
-        height={50}
-        viewBox="0 0 50 50"
+      <div
         css={{
-          position: "absolute",
-          top: y,
-          left: x,
-          transform: `translate(-50%, -50%) scale(${cursor.active ? 1.5 : 1})`,
-          transition: "transform 0.2s",
+          height: 25,
+          width: 25,
+          display: "grid",
+          placeItems: "center",
+          backgroundColor: twColors.neutral[100],
+          transform: "translate(-50%, -50%)",
+          borderRadius: "50%",
+          filter: `drop-shadow(0 0 0.5rem ${twColors.neutral[500]})`,
+          transition: "all 0.1s",
           opacity: cursor.active ? 0 : 1,
         }}
-      >
-        <circle cx={25} cy={25} r={8} fill="white" />
-      </motion.svg>
+      />
     </div>
   )
 }
