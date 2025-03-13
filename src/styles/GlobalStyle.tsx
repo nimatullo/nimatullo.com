@@ -1,11 +1,11 @@
-import { complementColor, randomHSLColor, twColors } from "@app/styles/colors"
-import { css, Global, keyframes, Theme, useTheme } from "@emotion/react"
+import { complementColor, TwColors, twColors } from "@app/styles/colors"
+import { randomMinMax } from "@app/utils"
+import { css, Global, Theme, useTheme } from "@emotion/react"
 
 export const GlobalStyle = () => {
   const theme = useTheme()
   const { baseColors } = theme
-  const colorBase = randomHSLColor()
-  const inverted = complementColor(colorBase)
+  const { primary, complement } = getPallete(theme)
 
   return (
     <Global
@@ -15,7 +15,7 @@ export const GlobalStyle = () => {
           color: baseColors.black,
           display: "grid",
           placeItems: "center",
-          background: colorBase,
+          background: primary,
           transition: "background 0.3s",
         },
         "*": {
@@ -30,33 +30,30 @@ export const GlobalStyle = () => {
         iframe: { border: "none" },
         "::selection": {
           color: twColors.neutral[700],
-          backgroundColor: inverted,
+          backgroundColor: complement,
         },
       })}
     />
   )
 }
 
-const backgroundChangeKeyframes = (props: Theme) => {
-  const { twColors } = props
-  return keyframes({
-    "0%": {
-      backgroundColor: twColors.green[300],
-    },
-    "20%": {
-      backgroundColor: twColors.red[300],
-    },
-    "40%": {
-      backgroundColor: twColors.purple[300],
-    },
-    "60%": {
-      backgroundColor: twColors.pink[300],
-    },
-    "80%": {
-      backgroundColor: twColors.yellow[300],
-    },
-    "100%": {
-      backgroundColor: twColors.blue[300],
-    },
-  })
+const getPallete = (theme: Theme) => {
+  const options = [
+    "green",
+    "red",
+    "purple",
+    "pink",
+    "yellow",
+    "blue",
+  ] as TwColors[]
+  const colorShade = 300
+  const color = options[randomMinMax(0, options.length)]
+
+  const primary = theme.twColors[color][colorShade]
+  const complement = complementColor(primary)
+
+  return {
+    primary,
+    complement,
+  }
 }

@@ -1,20 +1,20 @@
 import { useCursorHandlers } from "@app/hooks"
 import { footerRoutes } from "@app/routes"
-import { randomHSLColor } from "@app/styles/colors"
+import { randomHSLColor, twColors } from "@app/styles/colors"
 import { Flex } from "@components/scaffold"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { ColumnList } from "@components/scaffold/List"
 import styled from "@emotion/styled"
 import React from "react"
 
-const FooterWrapper = styled.footer({
-  display: "flex",
-  margin: "50px 0",
-  minWidth: "30vw",
-  justifyContent: "center",
-  flexDirection: "column",
-  position: "relative",
-})
+const FooterWrapper = styled.footer`
+  display: flex;
+  margin: 50px 0;
+  min-width: 30vw;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+`
 
 export function Footer({
   onHover,
@@ -51,8 +51,12 @@ export function Footer({
             >
               <r.icon
                 css={{
+                  "&:hover": {
+                    backgroundColor: twColors.neutral[900],
+                    mixBlendMode: "normal",
+                    borderRadius: 4,
+                  },
                   mixBlendMode: "color-dodge",
-                  "&:hover": { strokeWidth: 3 },
                 }}
                 stroke={randomHSLColor(1)}
               />
