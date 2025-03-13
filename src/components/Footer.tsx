@@ -7,14 +7,14 @@ import { ColumnList } from "@components/scaffold/List"
 import styled from "@emotion/styled"
 import React from "react"
 
-const FooterWrapper = styled.footer({
-  display: "flex",
-  margin: "50px 0",
-  minWidth: "30vw",
-  justifyContent: "center",
-  flexDirection: "column",
-  position: "relative",
-})
+const FooterWrapper = styled.footer`
+  display: flex;
+  margin: 50px 0;
+  min-width: 30vw;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+`
 
 export function Footer({
   onHover,

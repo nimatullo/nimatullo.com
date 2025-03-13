@@ -1,3 +1,5 @@
+import { CursorProvider } from "@app/contexts/cursorContext"
+import { Cursor } from "@components/fun/Cursor"
 import "@fontsource/dm-serif-text"
 import "@fontsource/inconsolata"
 import "@fontsource/overpass"
@@ -20,16 +22,16 @@ export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
 
   if (excludedPaths.includes(path))
     return (
-      // <CursorProvider>
-      //   <Cursor />
-      element
-      // </CursorProvider>
+      <CursorProvider>
+        <Cursor />
+        {element}
+      </CursorProvider>
     )
 
   return (
-    // <CursorProvider>
-    //   <Cursor />
-    <Layout {...props}>{element as any}</Layout>
-    // </CursorProvider>
+    <CursorProvider>
+      <Cursor />
+      <Layout {...props}>{element as any}</Layout>
+    </CursorProvider>
   )
 }
