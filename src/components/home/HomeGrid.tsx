@@ -14,7 +14,8 @@ const GlassTextCard = styled(TextCard)`
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 40px;
-  color: ${(props) => props.theme.baseColors.black};
+  color: white;
+  text-shadow: 0 0 2px #383838;
   transition: ease 0.2s;
   display: flex;
   flex-direction: column;

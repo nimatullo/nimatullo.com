@@ -9,7 +9,7 @@ import {
   Timestamp,
 } from "firebase/firestore"
 
-interface TimestampedDocumentData extends DocumentData {
+export interface TimestampedDocumentData extends DocumentData {
   created?: Timestamp
 }
 
@@ -51,6 +51,7 @@ const db = {
   projects: documentDataHandler<Project>("projects"),
   aboutPageLinks: documentDataHandler<AboutPageLinks>("things"),
   memes: documentDataHandler<{ url: string }>("memes"),
+  pictures: documentDataHandler<{ file: string }>("pictures"),
 }
 
 export { db }

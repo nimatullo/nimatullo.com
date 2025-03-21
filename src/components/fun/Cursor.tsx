@@ -40,7 +40,7 @@ export const Cursor = () => {
           placeItems: "center",
           backgroundColor: twColors.neutral[100],
           transform: `translate(-50%, -50%) ${
-            cursor.active ? "scale(1.5)" : "scale(1)"
+            cursor.active ? "scale(0.5)" : "scale(1)"
           }`,
           borderRadius: "50%",
           filter: `drop-shadow(0 0 0.5rem ${twColors.neutral[500]})`,

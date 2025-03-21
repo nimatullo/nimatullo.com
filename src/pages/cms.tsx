@@ -1,12 +1,15 @@
 import { auth } from "@app/config/firebaseConfig"
-import { db, type Options } from "@app/db"
+import { db, TimestampedDocumentData, type Options } from "@app/db"
+import { uploadImage } from "@app/lib/cloudinary"
 import {
   FirebaseCollectionModel,
   modelMap,
+  PictureModel,
 } from "@app/model/FirebaseCollectionModel"
 import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
+import { UploadWidget } from "@components/UploadWidget"
 import styled from "@emotion/styled"
 import {
   onAuthStateChanged,
@@ -25,7 +28,7 @@ const TextField = styled.input((props) => ({
   margin: "0.5rem 0",
 }))
 
-const SubmitButton = styled.button((props) => ({
+export const SubmitButton = styled.button((props) => ({
   ...getBorderedContainerStyle(props.theme),
   padding: "0 16px",
   height: "40px",
@@ -125,38 +128,94 @@ const CMSPage = (props: PageProps) => {
   )
 }
 
-const ModelAddForm = <T extends object>({
+const GenericTextFieldForm = <
+  T extends FirebaseCollectionModel<TimestampedDocumentData, Object>
+>({
   model,
 }: {
-  model: FirebaseCollectionModel<T>
+  model: T
 }) => {
-  const [value, setValue] = React.useState<T>(model.initialValues)
+  const [value, setValue] = React.useState<TimestampedDocumentData>(
+    model.initialValues
+  )
+  const [success, setSuccess] = React.useState(false)
 
-  const handleSubmit = () => {
-    model.add(value)
-    setValue(model.initialValues)
+  const handleSubmit = async () => {
+    model.add(value).then(() => {
+      setSuccess(true)
+      setValue(model.initialValues)
+
+      setTimeout(() => {
+        setSuccess(false)
+      }, 5000)
+    })
   }
 
   return (
     <div>
-      {model.fields.map((field) => (
+      {success && <div css={{ marginBottom: 5 }}>✅ good shit</div>}
+
+      {model.fields.map((f) => (
         <TextField
-          key={field.label}
-          value={field.getValue(value)}
+          key={f.label}
+          value={f.getValue(value)}
           onChange={(e) => {
             setValue({
               ...value,
-              [field.key]: e.target.value,
+              [f.key]: e.target.value,
             })
           }}
-          placeholder={field.label + (field.optional ? " (optional)" : "")}
-          type={field.type}
+          placeholder={f.label + (f.optional ? " (optional)" : "")}
+          type={f.type}
         />
       ))}
 
-      <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
+      <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
     </div>
   )
+}
+
+const PictureUploadForm = ({ model }: { model: PictureModel }) => {
+  const [file, setFile] = React.useState<File | null>(null)
+  const [success, setSuccess] = React.useState(false)
+
+  const handleUpload = async () => {
+    if (file) {
+      const url = await uploadImage(file)
+      model.add({ file: url })
+      setSuccess(true)
+      setFile(null)
+
+      setTimeout(() => {
+        setSuccess(false)
+      }, 5000)
+    }
+  }
+
+  return (
+    <div>
+      {success && <div css={{ marginBottom: 5 }}>✅ Upload successful</div>}
+      <UploadWidget onUpload={setFile} />
+      {file && <SubmitButton onClick={handleUpload}>Upload</SubmitButton>}
+    </div>
+  )
+}
+
+const ModelAddForm = <
+  T extends FirebaseCollectionModel<TimestampedDocumentData, Object>
+>({
+  model,
+}: {
+  model: T
+}) => {
+  switch (model.modelType) {
+    case "image":
+      return <PictureUploadForm model={model} />
+    case "text":
+      return <GenericTextFieldForm model={model} />
+    default:
+      return null
+  }
 }
 
 export default CMSPage

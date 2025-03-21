@@ -1,4 +1,9 @@
-import { db, DocumentCollection, type Options } from "@app/db"
+import {
+  db,
+  DocumentCollection,
+  TimestampedDocumentData,
+  type Options,
+} from "@app/db"
 import type {
   AboutPageLinks,
   LinkWithDisplay,
@@ -9,28 +14,38 @@ interface Field<T> {
   key: keyof T
   getValue: (model: T) => string | undefined
   label: string
-  type?: "text" | "number"
+  type?: "text" | "number" | "image"
   optional?: boolean
 }
 
-const removeEmptyStrings = <T extends object>(obj: T): T =>
+const removeEmptyStrings = <T extends TimestampedDocumentData>(obj: T): T =>
   Object.fromEntries(
     Object.entries(obj).filter(([_, value]) => value !== "")
   ) as T
 
-export abstract class FirebaseCollectionModel<T extends Object> {
+export abstract class FirebaseCollectionModel<
+  T extends TimestampedDocumentData,
+  U extends Object
+> {
   collection: DocumentCollection<T>
+  modelType: "text" | "image" = "text"
+
   constructor(collection: DocumentCollection<T>) {
     this.collection = collection
   }
-  add(model: T) {
+
+  async add(model: T) {
     this.collection.add(removeEmptyStrings(model))
   }
+
   abstract fields: Field<T>[]
-  abstract get initialValues(): T
+  abstract get initialValues(): U
 }
 
-export class LinkWithDisplayNameModel extends FirebaseCollectionModel<LinkWithDisplay> {
+export class LinkWithDisplayNameModel extends FirebaseCollectionModel<
+  LinkWithDisplay,
+  LinkWithDisplay
+> {
   fields: Field<LinkWithDisplay>[] = [
     {
       key: "title",
@@ -53,7 +68,10 @@ export class LinkWithDisplayNameModel extends FirebaseCollectionModel<LinkWithDi
   }
 }
 
-export class LinkModel extends FirebaseCollectionModel<{ url: string }> {
+export class LinkModel extends FirebaseCollectionModel<
+  { url: string },
+  { url: string }
+> {
   get initialValues() {
     return { url: "" }
   }
@@ -67,7 +85,10 @@ export class LinkModel extends FirebaseCollectionModel<{ url: string }> {
   ]
 }
 
-export class ThingModel extends FirebaseCollectionModel<AboutPageLinks> {
+export class ThingModel extends FirebaseCollectionModel<
+  AboutPageLinks,
+  AboutPageLinks
+> {
   initialValues = { title: "", url: "" }
 
   fields: Field<AboutPageLinks>[] = [
@@ -81,7 +102,7 @@ export class ThingModel extends FirebaseCollectionModel<AboutPageLinks> {
   ]
 }
 
-export class ProjectModel extends FirebaseCollectionModel<Project> {
+export class ProjectModel extends FirebaseCollectionModel<Project, Project> {
   initialValues = { title: "", description: "", github: "", url: "" }
 
   fields: Field<Project>[] = [
@@ -106,10 +127,28 @@ export class ProjectModel extends FirebaseCollectionModel<Project> {
   ]
 }
 
+export class PictureModel extends FirebaseCollectionModel<
+  { file: string },
+  { file: File | null }
+> {
+  modelType: "image" | "text" = "image"
+  initialValues = { file: null }
+
+  fields: Field<{ file: string }>[] = [
+    {
+      key: "file",
+      getValue: (model) => model.file,
+      label: "File",
+      type: "image",
+    },
+  ]
+}
+
 export const modelMap: Record<Options, any> = {
   playlists: new LinkWithDisplayNameModel(db.playlists),
   aboutPageLinks: new ThingModel(db.aboutPageLinks),
   links: new LinkWithDisplayNameModel(db.links),
   memes: new LinkModel(db.memes),
   projects: new ProjectModel(db.projects),
+  pictures: new PictureModel(db.pictures),
 }

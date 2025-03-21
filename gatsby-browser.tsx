@@ -1,4 +1,5 @@
 import { CursorProvider } from "@app/contexts/cursorContext"
+import { useMobile } from "@app/hooks"
 import { Cursor } from "@components/fun/Cursor"
 import "@fontsource/dm-serif-text"
 import "@fontsource/inconsolata"
@@ -13,25 +14,31 @@ const cleanCurrentPath = (path: string) => {
   return `/${path.replace(/[^a-zA-Z ]/g, "").toLowerCase()}`
 }
 
+const CursorWrapper = ({ children }: { children: React.ReactNode }) => {
+  const { isMobile } = useMobile()
+  return isMobile ? (
+    children
+  ) : (
+    <CursorProvider>
+      <Cursor />
+      {children}
+    </CursorProvider>
+  )
+}
+
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,
   props,
 }) => {
   const { location } = props
   const path = cleanCurrentPath(location.pathname)
-
-  if (excludedPaths.includes(path))
-    return (
-      <CursorProvider>
-        <Cursor />
-        {element}
-      </CursorProvider>
-    )
-
   return (
-    <CursorProvider>
-      <Cursor />
-      <Layout {...props}>{element as any}</Layout>
-    </CursorProvider>
+    <CursorWrapper>
+      {excludedPaths.includes(path) ? (
+        element
+      ) : (
+        <Layout {...props}>{element as any}</Layout>
+      )}
+    </CursorWrapper>
   )
 }

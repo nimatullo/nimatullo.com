@@ -4,8 +4,8 @@ import { Route } from "../nimatullo-types"
 const links = ["projects", "media", "resume", "memes", "about", "home"] as const
 const socials = ["github", "applemusic", "letterboxd", "mail"] as const
 
-type Socials = (typeof socials)[number]
-export type Links = (typeof links)[number]
+type Socials = typeof socials[number]
+export type Links = typeof links[number]
 
 const homePageRoutesMap: { [link in Links]: Route } = {
   home: {
@@ -72,7 +72,7 @@ const footerRoutesMap: { [social in Socials]: Social } = {
   },
   applemusic: {
     title: "Music",
-    href: "https://music.apple.com/profile/nimatullo",
+    href: "https://last.fm/user/nimatullo",
     icon: Music,
   },
   letterboxd: {
