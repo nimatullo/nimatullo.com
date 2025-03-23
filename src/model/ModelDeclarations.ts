@@ -22,7 +22,7 @@ export abstract class BaseModel<T, S = T> {
   }
 
   async save(data: T) {
-    console.log("Saving data", data)
+    this.collection.add(data as any)
   }
 
   abstract fields: Field<T>[]
