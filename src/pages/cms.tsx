@@ -1,12 +1,11 @@
 import { auth } from "@app/config/firebaseConfig"
 import { db, type Options } from "@app/db"
-import {
-  FirebaseCollectionModel,
-  modelMap,
-} from "@app/model/FirebaseCollectionModel"
+import { BaseModel, modelMap } from "@app/model/ModelDeclarations"
 import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
+import { UploadWidget } from "@components/UploadWidget"
+import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   onAuthStateChanged,
@@ -16,6 +15,7 @@ import {
 } from "firebase/auth"
 import { PageProps } from "gatsby"
 import React from "react"
+import { Path, useForm } from "react-hook-form"
 
 const TextField = styled.input((props) => ({
   ...getBorderedContainerStyle(props.theme),
@@ -25,13 +25,12 @@ const TextField = styled.input((props) => ({
   margin: "0.5rem 0",
 }))
 
-const SubmitButton = styled.button((props) => ({
+export const SubmitButton = styled.button((props) => ({
   ...getBorderedContainerStyle(props.theme),
   padding: "0 16px",
   height: "40px",
   lineHeight: "1",
   fontSize: "1rem",
-  marginBottom: "1rem",
   textTransform: "uppercase",
   cursor: "pointer",
   transition: "0.2s ease all",
@@ -65,13 +64,17 @@ const LoginForm = ({ onLogin }: { onLogin: (user: User) => void }) => {
     <div>
       <TextField
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
         type="text"
         placeholder="Email"
       />
       <TextField
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
         type="password"
         placeholder="Password"
       />
@@ -108,53 +111,89 @@ const CMSPage = (props: PageProps) => {
 
   return (
     <div css={{ margin: "0.5rem 0" }}>
-      <select
-        css={{ padding: "0.2rem", fontSize: "1rem", margin: "0.5rem 0" }}
-        onChange={(e) => setSelected(e.target.value as Options)}
+      <div
+        css={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 10,
+          padding: 4,
+          backgroundColor: "rgba(0, 0, 0, 0.3)",
+          marginBottom: "2rem",
+        }}
       >
-        {additionsOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label.toUpperCase()}
-          </option>
-        ))}
-      </select>
+        <select
+          css={{ padding: "0.2rem", fontSize: "1rem", margin: "0.5rem 0" }}
+          onChange={(e) => setSelected(e.target.value as Options)}
+        >
+          {additionsOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label.toUpperCase()}
+            </option>
+          ))}
+        </select>
+        <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
+      </div>
 
-      <ModelAddForm model={modelMap[selected]} />
-      <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
+      <ModelBasedForm model={modelMap[selected]} />
     </div>
   )
 }
 
-const ModelAddForm = <T extends object>({
+const SuccessDialog = () => {
+  const { twColors } = useTheme()
+  return (
+    <div css={{ padding: "0.5rem", backgroundColor: twColors.green[300] }}>
+      <p
+        css={{
+          color: twColors.green[600],
+          fontSize: "1.5rem",
+          fontWeight: "bold",
+        }}
+      >
+        GOOD SHIT
+      </p>
+    </div>
+  )
+}
+
+const ModelBasedForm = <S extends Object, T extends BaseModel<S>>({
   model,
 }: {
-  model: FirebaseCollectionModel<T>
+  model: T
 }) => {
-  const [value, setValue] = React.useState<T>(model.initialValues)
+  const { register, handleSubmit } = useForm<S>()
+  const [isSuccess, setIsSuccess] = React.useState(false)
 
-  const handleSubmit = () => {
-    model.add(value)
-    setValue(model.initialValues)
-  }
+  const onSubmit = handleSubmit((data) =>
+    model.save(data).then(() => setIsSuccess(true))
+  )
 
   return (
     <div>
-      {model.fields.map((field) => (
-        <TextField
-          key={field.label}
-          value={field.getValue(value)}
-          onChange={(e) => {
-            setValue({
-              ...value,
-              [field.key]: e.target.value,
-            })
-          }}
-          placeholder={field.label + (field.optional ? " (optional)" : "")}
-          type={field.type}
-        />
-      ))}
+      {isSuccess && <SuccessDialog />}
 
-      <SubmitButton onClick={handleSubmit}>Add</SubmitButton>
+      {model.fields.map((field) => {
+        switch (field.type) {
+          case "text":
+          case "number":
+            return (
+              <TextField
+                key={field.key as string}
+                placeholder={field.label}
+                {...register(field.key as Path<S>)}
+              />
+            )
+          case "image":
+            return (
+              <UploadWidget key={field.key as string} register={register} />
+            )
+          default:
+            return null
+        }
+      })}
+
+      <SubmitButton onClick={onSubmit}>Let if fly</SubmitButton>
     </div>
   )
 }

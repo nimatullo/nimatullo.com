@@ -78,3 +78,12 @@ export const useCursorHandlers = () => {
 
   return { onMouseEnter, onMouseLeave }
 }
+
+export const useClose = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(true)
+
+  const close = () => setIsOpen(false)
+  const open = () => setIsOpen(true)
+
+  return { isOpen, close, open }
+}

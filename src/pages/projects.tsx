@@ -1,5 +1,5 @@
 import { useCursorHandlers, useDB } from "@app/hooks"
-import type { Project } from "@app/nimatullo-types"
+import type { CMS } from "@app/nimatullo-types"
 import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
@@ -35,7 +35,7 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
   h2: { marginBottom: "10px", textTransform: "uppercase" },
 }))
 
-const ProjectItem = ({ project }: { project: Project }) => {
+const ProjectItem = ({ project }: { project: CMS.Project }) => {
   const ref = useRef<HTMLLIElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const mouseHandlers = useCursorHandlers()

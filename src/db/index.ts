@@ -1,5 +1,5 @@
 import { store } from "@app/config/firebaseConfig"
-import { AboutPageLinks, LinkWithDisplay, Project } from "@app/nimatullo-types"
+import { CMS } from "@app/nimatullo-types"
 import {
   addDoc,
   collection,
@@ -9,7 +9,7 @@ import {
   Timestamp,
 } from "firebase/firestore"
 
-interface TimestampedDocumentData extends DocumentData {
+export interface TimestampedDocumentData extends DocumentData {
   created?: Timestamp
 }
 
@@ -46,11 +46,12 @@ const documentDataHandler = <T extends TimestampedDocumentData>(
 })
 
 const db = {
-  playlists: documentDataHandler<LinkWithDisplay>("playlists"),
-  links: documentDataHandler<LinkWithDisplay>("links"),
-  projects: documentDataHandler<Project>("projects"),
-  aboutPageLinks: documentDataHandler<AboutPageLinks>("things"),
+  playlists: documentDataHandler<CMS.LinkWithDisplay>("playlists"),
+  links: documentDataHandler<CMS.LinkWithDisplay>("links"),
+  projects: documentDataHandler<CMS.Project>("projects"),
+  aboutPageLinks: documentDataHandler<CMS.AboutPageLinks>("things"),
   memes: documentDataHandler<{ url: string }>("memes"),
+  pictures: documentDataHandler<{ file: string }>("pictures"),
 }
 
 export { db }

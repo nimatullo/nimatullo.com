@@ -1,4 +1,5 @@
 import { useDB } from "@app/hooks"
+import { MasonryLayout } from "@components/fun/MasonryLayout"
 import { Accordion } from "@components/scaffold/Accordion"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { Helmet } from "@components/scaffold/Head"
@@ -9,6 +10,7 @@ import React from "react"
 const MediaPage = () => {
   const { data: links, loading: linksLoading } = useDB("links")
   const { data: playlists, loading: playlistsLoading } = useDB("playlists")
+  const { data: pictures, loading: picturesLoading } = useDB("pictures")
 
   return (
     <React.Fragment>
@@ -28,6 +30,10 @@ const MediaPage = () => {
             <iframe src={playlist.url} width="100%" height="500" />
           </Accordion>
         ))}
+      </PageIntro>
+
+      <PageIntro header="Pictures" loading={picturesLoading}>
+        <MasonryLayout pictures={pictures.map((m) => m.file)} />
       </PageIntro>
     </React.Fragment>
   )

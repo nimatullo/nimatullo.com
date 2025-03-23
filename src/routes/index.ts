@@ -26,7 +26,7 @@ const homePageRoutesMap: { [link in Links]: Route } = {
   },
   media: {
     title: "Media",
-    description: "books, music, reading",
+    description: "pictures, music, reading",
     emoji: { name: "artist", fallback: "🎨" },
     link: "/media",
     showInHome: true,
@@ -72,7 +72,7 @@ const footerRoutesMap: { [social in Socials]: Social } = {
   },
   applemusic: {
     title: "Music",
-    href: "https://music.apple.com/profile/nimatullo",
+    href: "https://last.fm/user/nimatullo",
     icon: Music,
   },
   letterboxd: {
