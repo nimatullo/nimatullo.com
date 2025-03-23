@@ -1,6 +1,4 @@
 const cloud = "dhsfjhfll"
-const key = "786421436654842"
-const secret = "8krP1aEiw8J4KXeN5ZfgcNrL2s4"
 const preset = "nimatullo"
 
 export const uploadImage = async (file: File): Promise<string> => {

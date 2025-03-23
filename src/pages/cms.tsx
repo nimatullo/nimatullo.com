@@ -1,11 +1,6 @@
 import { auth } from "@app/config/firebaseConfig"
-import { db, TimestampedDocumentData, type Options } from "@app/db"
-import { uploadImage } from "@app/lib/cloudinary"
-import {
-  FirebaseCollectionModel,
-  modelMap,
-  PictureModel,
-} from "@app/model/FirebaseCollectionModel"
+import { db, type Options } from "@app/db"
+import { BaseModel, modelMap } from "@app/model/ModelDeclarations"
 import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
@@ -19,6 +14,7 @@ import {
 } from "firebase/auth"
 import { PageProps } from "gatsby"
 import React from "react"
+import { Path, useForm } from "react-hook-form"
 
 const TextField = styled.input((props) => ({
   ...getBorderedContainerStyle(props.theme),
@@ -68,13 +64,17 @@ const LoginForm = ({ onLogin }: { onLogin: (user: User) => void }) => {
     <div>
       <TextField
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
         type="text"
         placeholder="Email"
       />
       <TextField
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
         type="password"
         placeholder="Password"
       />
@@ -122,100 +122,46 @@ const CMSPage = (props: PageProps) => {
         ))}
       </select>
 
-      <ModelAddForm model={modelMap[selected]} />
+      <ModelBasedForm model={modelMap[selected]} />
+
       <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
     </div>
   )
 }
 
-const GenericTextFieldForm = <
-  T extends FirebaseCollectionModel<TimestampedDocumentData, Object>
->({
+const ModelBasedForm = <S extends Object, T extends BaseModel<S>>({
   model,
 }: {
   model: T
 }) => {
-  const [value, setValue] = React.useState<TimestampedDocumentData>(
-    model.initialValues
-  )
-  const [success, setSuccess] = React.useState(false)
+  const { register, handleSubmit } = useForm<S>()
 
-  const handleSubmit = async () => {
-    model.add(value).then(() => {
-      setSuccess(true)
-      setValue(model.initialValues)
-
-      setTimeout(() => {
-        setSuccess(false)
-      }, 5000)
-    })
-  }
+  const onSubmit = handleSubmit((data) => model.save(data))
 
   return (
     <div>
-      {success && <div css={{ marginBottom: 5 }}>✅ good shit</div>}
-
-      {model.fields.map((f) => (
-        <TextField
-          key={f.label}
-          value={f.getValue(value)}
-          onChange={(e) => {
-            setValue({
-              ...value,
-              [f.key]: e.target.value,
-            })
-          }}
-          placeholder={f.label + (f.optional ? " (optional)" : "")}
-          type={f.type}
-        />
-      ))}
-
-      <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
+      {model.fields.map((field) => {
+        switch (field.type) {
+          case "text":
+          case "number":
+            return (
+              <TextField
+                key={field.key as string}
+                placeholder={field.label}
+                {...register(field.key as Path<S>)}
+              />
+            )
+          case "image":
+            return (
+              <UploadWidget key={field.key as string} register={register} />
+            )
+          default:
+            return null
+        }
+      })}
+      <SubmitButton onClick={onSubmit}>Submit</SubmitButton>
     </div>
   )
-}
-
-const PictureUploadForm = ({ model }: { model: PictureModel }) => {
-  const [file, setFile] = React.useState<File | null>(null)
-  const [success, setSuccess] = React.useState(false)
-
-  const handleUpload = async () => {
-    if (file) {
-      const url = await uploadImage(file)
-      model.add({ file: url })
-      setSuccess(true)
-      setFile(null)
-
-      setTimeout(() => {
-        setSuccess(false)
-      }, 5000)
-    }
-  }
-
-  return (
-    <div>
-      {success && <div css={{ marginBottom: 5 }}>✅ Upload successful</div>}
-      <UploadWidget onUpload={setFile} />
-      {file && <SubmitButton onClick={handleUpload}>Upload</SubmitButton>}
-    </div>
-  )
-}
-
-const ModelAddForm = <
-  T extends FirebaseCollectionModel<TimestampedDocumentData, Object>
->({
-  model,
-}: {
-  model: T
-}) => {
-  switch (model.modelType) {
-    case "image":
-      return <PictureUploadForm model={model} />
-    case "text":
-      return <GenericTextFieldForm model={model} />
-    default:
-      return null
-  }
 }
 
 export default CMSPage

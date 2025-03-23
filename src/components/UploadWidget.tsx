@@ -2,30 +2,40 @@ import { Image } from "@components/scaffold"
 import React from "react"
 
 interface UploadWidgetProps {
-  onUpload: (picture: File) => void
+  register: any
 }
 
-export const UploadWidget = ({ onUpload }: UploadWidgetProps) => {
-  const [picture, setPicture] = React.useState<string | null>(null)
+export const UploadWidget = ({ register }: UploadWidgetProps) => {
+  const [preview, setPreview] = React.useState<string | null>(null)
+  const { ref: registerRef, ...rest } = register("fileList")
+
+  const handleUploadedFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) setPreview(URL.createObjectURL(file))
+  }
+
   return (
     <div>
       <input
+        name="fileList"
         type="file"
+        {...rest}
         accept="image/*"
-        onChange={(event) => {
-          const file = event.target.files?.[0]
-          if (file) {
-            const reader = new FileReader()
-            reader.onload = (e) => {
-              setPicture(e.target?.result as string)
-            }
-            reader.readAsDataURL(file)
-            onUpload(file)
-          }
-        }}
+        onChange={handleUploadedFile}
+        ref={registerRef}
       />
 
-      {picture && <Image src={picture} alt="uploaded image" />}
+      {preview && (
+        <Image
+          css={{
+            width: "300px",
+            height: "300px",
+            display: "block",
+          }}
+          src={preview}
+          alt="uploaded image"
+        />
+      )}
     </div>
   )
 }
