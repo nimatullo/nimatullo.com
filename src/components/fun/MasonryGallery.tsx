@@ -7,6 +7,14 @@ import React from "react"
 const Container = styled.div`
   column-count: 3;
   column-gap: 1rem;
+
+  @media (max-width: 768px) {
+    column-count: 2;
+  }
+
+  @media (max-width: 480px) {
+    column-count: 1;
+  }
 `
 const StyledImage = styled(Image)`
   width: 100%;
@@ -37,6 +45,14 @@ const OpenedImage = styled(Image)`
   height: 80%;
   width: auto;
   object-fit: contain;
+
+  @media (max-width: 768px) {
+    height: 70%;
+  }
+
+  @media (max-width: 480px) {
+    height: 60%;
+  }
 `
 
 const MotionStyledImage = motion(StyledImage)
@@ -46,7 +62,7 @@ interface MasonryLayoutProps {
   pictures: string[]
 }
 
-export const MasonryLayout: React.FC<MasonryLayoutProps> = ({ pictures }) => {
+export const MasonryGallery: React.FC<MasonryLayoutProps> = ({ pictures }) => {
   const { isOpen, close, open } = useClose()
   const handlers = useCursorHandlers()
   const [openedImage, setOpenedImage] = React.useState<string | null>(null)

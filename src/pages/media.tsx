@@ -1,5 +1,5 @@
 import { useDB } from "@app/hooks"
-import { MasonryLayout } from "@components/fun/MasonryLayout"
+import { MasonryGallery } from "@components/fun/MasonryGallery"
 import { Accordion } from "@components/scaffold/Accordion"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { Helmet } from "@components/scaffold/Head"
@@ -33,7 +33,7 @@ const MediaPage = () => {
       </PageIntro>
 
       <PageIntro header="Pictures" loading={picturesLoading}>
-        <MasonryLayout pictures={pictures.map((m) => m.file)} />
+        <MasonryGallery pictures={pictures.map((m) => m.file)} />
       </PageIntro>
     </React.Fragment>
   )
