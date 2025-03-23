@@ -21,8 +21,9 @@ const StyledImage = styled(Image)`
   display: block;
   margin-bottom: 1rem;
   border: 2px solid transparent;
-  transition: border 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   &:hover {
+    mix-blend-mode: color-burn;
     border: 2px solid black;
   }
 `
