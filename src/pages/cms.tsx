@@ -5,6 +5,7 @@ import { randomHSLColor } from "@app/styles/colors"
 import { getBorderedContainerStyle } from "@app/styles/css"
 import { Helmet } from "@components/scaffold/Head"
 import { UploadWidget } from "@components/UploadWidget"
+import { useTheme } from "@emotion/react"
 import styled from "@emotion/styled"
 import {
   onAuthStateChanged,
@@ -30,7 +31,6 @@ export const SubmitButton = styled.button((props) => ({
   height: "40px",
   lineHeight: "1",
   fontSize: "1rem",
-  marginBottom: "1rem",
   textTransform: "uppercase",
   cursor: "pointer",
   transition: "0.2s ease all",
@@ -111,20 +111,48 @@ const CMSPage = (props: PageProps) => {
 
   return (
     <div css={{ margin: "0.5rem 0" }}>
-      <select
-        css={{ padding: "0.2rem", fontSize: "1rem", margin: "0.5rem 0" }}
-        onChange={(e) => setSelected(e.target.value as Options)}
+      <div
+        css={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 10,
+          padding: 4,
+          backgroundColor: "rgba(0, 0, 0, 0.3)",
+          marginBottom: "2rem",
+        }}
       >
-        {additionsOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label.toUpperCase()}
-          </option>
-        ))}
-      </select>
+        <select
+          css={{ padding: "0.2rem", fontSize: "1rem", margin: "0.5rem 0" }}
+          onChange={(e) => setSelected(e.target.value as Options)}
+        >
+          {additionsOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label.toUpperCase()}
+            </option>
+          ))}
+        </select>
+        <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
+      </div>
 
       <ModelBasedForm model={modelMap[selected]} />
+    </div>
+  )
+}
 
-      <SubmitButton onClick={() => signOut(auth)}>Sign Out</SubmitButton>
+const SuccessDialog = () => {
+  const { twColors } = useTheme()
+  return (
+    <div css={{ padding: "0.5rem", backgroundColor: twColors.green[300] }}>
+      <p
+        css={{
+          color: twColors.green[600],
+          fontSize: "1.5rem",
+          fontWeight: "bold",
+        }}
+      >
+        GOOD SHIT
+      </p>
     </div>
   )
 }
@@ -135,11 +163,16 @@ const ModelBasedForm = <S extends Object, T extends BaseModel<S>>({
   model: T
 }) => {
   const { register, handleSubmit } = useForm<S>()
+  const [isSuccess, setIsSuccess] = React.useState(false)
 
-  const onSubmit = handleSubmit((data) => model.save(data))
+  const onSubmit = handleSubmit((data) =>
+    model.save(data).then(() => setIsSuccess(true))
+  )
 
   return (
     <div>
+      {isSuccess && <SuccessDialog />}
+
       {model.fields.map((field) => {
         switch (field.type) {
           case "text":
@@ -159,7 +192,8 @@ const ModelBasedForm = <S extends Object, T extends BaseModel<S>>({
             return null
         }
       })}
-      <SubmitButton onClick={onSubmit}>Submit</SubmitButton>
+
+      <SubmitButton onClick={onSubmit}>Let if fly</SubmitButton>
     </div>
   )
 }
