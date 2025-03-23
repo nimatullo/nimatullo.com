@@ -4,8 +4,8 @@ import { Route } from "../nimatullo-types"
 const links = ["projects", "media", "resume", "memes", "about", "home"] as const
 const socials = ["github", "applemusic", "letterboxd", "mail"] as const
 
-type Socials = typeof socials[number]
-export type Links = typeof links[number]
+type Socials = (typeof socials)[number]
+export type Links = (typeof links)[number]
 
 const homePageRoutesMap: { [link in Links]: Route } = {
   home: {
@@ -26,7 +26,7 @@ const homePageRoutesMap: { [link in Links]: Route } = {
   },
   media: {
     title: "Media",
-    description: "books, music, reading",
+    description: "pictures, music, reading",
     emoji: { name: "artist", fallback: "🎨" },
     link: "/media",
     showInHome: true,

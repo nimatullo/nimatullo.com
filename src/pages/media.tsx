@@ -1,5 +1,5 @@
 import { useDB } from "@app/hooks"
-import { Grid, Image } from "@components/scaffold"
+import { MasonryLayout } from "@components/fun/MasonryLayout"
 import { Accordion } from "@components/scaffold/Accordion"
 import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
 import { Helmet } from "@components/scaffold/Head"
@@ -33,11 +33,7 @@ const MediaPage = () => {
       </PageIntro>
 
       <PageIntro header="Pictures" loading={picturesLoading}>
-        <Grid>
-          {pictures.map((picture) => (
-            <Image key={picture.file} src={picture.file} alt="uploaded image" />
-          ))}
-        </Grid>
+        <MasonryLayout pictures={pictures.map((m) => m.file)} />
       </PageIntro>
     </React.Fragment>
   )
