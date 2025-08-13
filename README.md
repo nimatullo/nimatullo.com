@@ -17,3 +17,7 @@
 <p align="center">
   <img src="https://api.netlify.com/api/v1/badges/d712b5f3-8c0c-448c-ae89-827bd5667a9c/deploy-status">
 </p>
+
+<p align="center">
+  <a href="https://www.notion.so/nimatullo/nimatullo-com-rewrite-860c0afe542a43dc8fa104ea144f2b69">Other info</a>
+</p>
