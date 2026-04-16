@@ -2,7 +2,7 @@ import { useCursorHandlers, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
 import { Grid, TextCard } from "@components/scaffold"
 import styled from "@emotion/styled"
-import { navigate } from "gatsby"
+import { navigateWithViewTransition } from "@app/utils/viewTransitionNavigate"
 
 interface HomeGridProps {
   onTitleHover: (h: string | null) => void
@@ -58,7 +58,7 @@ export const HomeGrid = (props: HomeGridProps) => {
           onMouseLeave={handleMouseLeave}
           css={{ height: isMobile ? 150 : 200 }}
           key={r.title}
-          onClick={() => navigate(r.link)}
+          onClick={() => navigateWithViewTransition(r.link)}
           {...r}
         />
       ))}
