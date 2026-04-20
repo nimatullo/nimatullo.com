@@ -14,7 +14,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
   `).file.publicURL
 
   return (
-    <PageIntro header="Lost?">
+    <PageIntro header="Adrift?">
       <Image src={imgLink} />
       <p>
         what are you up to...?{" "}

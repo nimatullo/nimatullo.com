@@ -3,7 +3,7 @@ import { PageIntro } from "@components/scaffold/PageIntro"
 
 const ResumePage: React.FC = (props) => {
   return (
-    <PageIntro header="Resume">
+    <PageIntro header="Manifest">
       <div>
         <object
           css={{ width: "100%", height: "100vh" }}

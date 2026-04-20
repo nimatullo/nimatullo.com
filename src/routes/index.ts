@@ -9,15 +9,15 @@ type Links = (typeof links)[number]
 
 const homePageRoutesMap: { [link in Links]: Route } = {
   home: {
-    title: "Home",
+    title: "Orbit",
     description: "welcome",
-    emoji: { name: "house", fallback: "🏠" },
+    emoji: { name: "house", fallback: "🌎" },
     link: "/",
     showInHome: false,
     showInNav: true,
   },
   projects: {
-    title: "Projects",
+    title: "Launchpad",
     description: "things i make",
     emoji: { name: "clipartrocket", fallback: "🚀" },
     link: "/projects",
@@ -25,7 +25,7 @@ const homePageRoutesMap: { [link in Links]: Route } = {
     showInNav: true,
   },
   media: {
-    title: "Media",
+    title: "Nebula",
     description: "pictures, music, reading",
     emoji: { name: "artist", fallback: "🎨" },
     link: "/media",
@@ -33,7 +33,7 @@ const homePageRoutesMap: { [link in Links]: Route } = {
     showInNav: true,
   },
   resume: {
-    title: "Resume",
+    title: "Manifest",
     description:
       "make sure you look them in their hands when you shake their eyes",
     emoji: { name: "business", fallback: "💼" },
@@ -42,14 +42,14 @@ const homePageRoutesMap: { [link in Links]: Route } = {
     showInNav: true,
   },
   memes: {
-    title: "Memes",
+    title: "Blackhole",
     description: "**bad**",
     emoji: { name: "clownonball", fallback: "🤡" },
     link: "/memes",
     showInHome: true,
   },
   about: {
-    title: "About",
+    title: "Astronaut",
     description: "me",
     emoji: { name: "man-raising-hand", fallback: "🙋‍♂️" },
     link: "/about",

@@ -23,23 +23,21 @@ const IndexPage: React.FC<PageProps> = () => {
     debounce(
       (t: string | null) =>
         setHoverTitle(t ? t.toLocaleLowerCase() : "why worry"),
-      50
+      50,
     ),
-    [hoverTitle]
+    [hoverTitle],
   )
 
-  const { fallVideo, anxietyVideo } = useStaticQuery(
-    graphql`
-      query {
-        fallVideo: file(relativePath: { eq: "fall.gif" }) {
-          publicURL
-        }
-        anxietyVideo: file(relativePath: { eq: "anxiety.webm" }) {
-          publicURL
-        }
+  const { fallVideo, anxietyVideo } = useStaticQuery(graphql`
+    query {
+      fallVideo: file(relativePath: { eq: "fall.gif" }) {
+        publicURL
       }
-    `
-  )
+      anxietyVideo: file(relativePath: { eq: "anxiety.webm" }) {
+        publicURL
+      }
+    }
+  `)
 
   return (
     <ThemeProvider theme={isDarkMode ? themeDark : theme}>

@@ -77,7 +77,7 @@ const ProjectsPage = () => {
   const { data: projects, loading } = useDB("projects")
 
   return (
-    <PageIntro header="Projects" loading={loading}>
+    <PageIntro header="Launchpad" loading={loading}>
       <ul>
         {projects.map((project) => (
           <ProjectItem key={project.title} project={project} />

@@ -1,8 +1,8 @@
 import { useCursorHandlers, useMobile } from "@app/hooks"
 import { homePageRoutes } from "@app/routes"
+import { navigateWithViewTransition } from "@app/utils/viewTransitionNavigate"
 import { Grid, TextCard } from "@components/scaffold"
 import styled from "@emotion/styled"
-import { navigateWithViewTransition } from "@app/utils/viewTransitionNavigate"
 
 interface HomeGridProps {
   onTitleHover: (h: string | null) => void

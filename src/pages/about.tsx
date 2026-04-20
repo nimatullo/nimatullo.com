@@ -18,7 +18,7 @@ const AboutPage = () => {
   `).file.publicURL
 
   return (
-    <PageIntro header="About" loading={loading}>
+    <PageIntro header="Astronaut" loading={loading}>
       <div
         css={{
           p: { marginBottom: 20 },
