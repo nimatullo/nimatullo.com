@@ -5,16 +5,19 @@ import React from "react"
 const StyledAnchor = styled.a((props) => ({
   textDecoration: "underline",
   transition: "all 0.2s",
+  lineHeight: 1.2,
   "&:hover": {
     backgroundColor: props.theme.twColors.neutral[200],
     color: props.theme.twColors.neutral[900],
     textDecoration: "none",
-    textTransform: "uppercase",
+    fontFamily: "DM Serif Text, serif",
+    lineHeight: 1.2,
+    fontSize: "1.2rem",
   },
 }))
 
 export const ExternalAnchor: React.FC<React.AnchorHTMLAttributes<any>> = (
-  props
+  props,
 ) => {
   const { href, children, ...rest } = props
   const mouseHandlers = useCursorHandlers()

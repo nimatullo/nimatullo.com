@@ -14,7 +14,7 @@ const MediaPage = () => {
 
   return (
     <React.Fragment>
-      <PageIntro header="Links" loading={linksLoading}>
+      <PageIntro header="Particles" loading={linksLoading}>
         <ul>
           {links.map((link) => (
             <ListItem key={link.url}>
@@ -24,7 +24,7 @@ const MediaPage = () => {
         </ul>
       </PageIntro>
 
-      <PageIntro header="Playlists" loading={playlistsLoading}>
+      <PageIntro header="Frequencies" loading={playlistsLoading}>
         {playlists.map((playlist) => (
           <Accordion key={playlist.url} title={playlist.title}>
             <iframe src={playlist.url} width="100%" height="500" />
@@ -32,7 +32,7 @@ const MediaPage = () => {
         ))}
       </PageIntro>
 
-      <PageIntro header="Pictures" loading={picturesLoading}>
+      <PageIntro header="Luminance" loading={picturesLoading}>
         <MasonryGallery pictures={pictures.map((m) => m.file)} />
       </PageIntro>
     </React.Fragment>

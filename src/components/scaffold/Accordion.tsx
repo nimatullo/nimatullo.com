@@ -30,6 +30,11 @@ const AccordionButton = styled.button((props) => ({
     backgroundColor: props.theme.twColors.neutral[200],
   },
 }))
+
+const AccordionTitle = styled.h3({
+  fontFamily: "Inconsolata, monospace",
+  transition: "all 0.2s",
+})
 const AccordionContent = styled(motion.div)()
 
 export const Accordion = ({ title, children }: AccordionProps) => {
@@ -46,7 +51,7 @@ export const Accordion = ({ title, children }: AccordionProps) => {
       transition={{ duration: 0.3 }}
     >
       <AccordionButton {...mouseHandlers} onClick={() => setIsOpen(!isOpen)}>
-        <h3>{title}</h3>
+        <AccordionTitle>{title}</AccordionTitle>
         <h3>{isOpen ? "-" : "+"}</h3>
       </AccordionButton>
       <AnimatePresence>
