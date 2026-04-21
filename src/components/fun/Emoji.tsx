@@ -24,16 +24,6 @@ const emojiData = {
     "https://em-content.zobj.net/thumbs/240/apple/354/waving-hand_1f44b.png",
   anxiety: "https://media1.tenor.com/m/wyW-1Xi_5AAAAAAC/att-miger.gif",
   fall: "https://media1.tenor.com/m/IXFm1zTO_MEAAAAC/fall-of-icarus.gif",
-  camera:
-    "https://em-content.zobj.net/thumbs/240/apple/354/camera_1f4f7.png",
-  "film-frames":
-    "https://em-content.zobj.net/thumbs/240/apple/354/film-frames_1f39e-fe0f.png",
-  "framed-picture":
-    "https://em-content.zobj.net/thumbs/240/apple/354/framed-picture_1f5bc-fe0f.png",
-  selfie:
-    "https://em-content.zobj.net/thumbs/240/apple/354/selfie_1f933.png",
-  "camera-flash":
-    "https://em-content.zobj.net/thumbs/240/apple/354/camera-with-flash_1f4f8.png",
 }
 
 export type EmojiName = keyof typeof emojiData
