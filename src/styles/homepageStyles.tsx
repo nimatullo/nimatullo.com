@@ -18,7 +18,7 @@ export const homepageTextCss = css({
 
 export const marqueeWrapperCss = css({
   position: "absolute",
-  left: 0,
+  right: 0,
   zIndex: -1,
   mixBlendMode: "soft-light",
   width: "100%",

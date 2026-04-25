@@ -28,12 +28,15 @@ const IndexPage: React.FC<PageProps> = () => {
     [hoverTitle],
   )
 
-  const { fallVideo, anxietyVideo } = useStaticQuery(graphql`
+  const { fallVideo, anxietyVideo, uphillImage } = useStaticQuery(graphql`
     query {
       fallVideo: file(relativePath: { eq: "fall.gif" }) {
         publicURL
       }
       anxietyVideo: file(relativePath: { eq: "anxiety.webm" }) {
+        publicURL
+      }
+      uphillImage: file(relativePath: { eq: "uphill.png" }) {
         publicURL
       }
     }
@@ -75,20 +78,6 @@ const IndexPage: React.FC<PageProps> = () => {
         <BackgroundMedia
           media={[
             {
-              src: anxietyVideo.publicURL,
-              type: "gif",
-              alt: "anxiety",
-              css: {
-                zIndex: -1,
-                position: "absolute",
-                right: 0,
-                mixBlendMode: "darken",
-                overflow: "hidden",
-                width: "50%",
-                objectFit: "cover",
-              },
-            },
-            {
               src: fallVideo.publicURL,
               type: "img",
               alt: "falling leaves",
@@ -101,6 +90,22 @@ const IndexPage: React.FC<PageProps> = () => {
                 width: "100%",
                 maxWidth: 400,
                 mixBlendMode: "multiply",
+                overflow: "hidden",
+                objectFit: "cover",
+                opacity: 0.7,
+              },
+            },
+            {
+              src: uphillImage.publicURL,
+              type: "img",
+              alt: "uphill",
+              css: {
+                zIndex: -1,
+                position: "absolute",
+                opacity: 0.8,
+                bottom: 0,
+                right: 0,
+                mixBlendMode: "soft-light",
                 overflow: "hidden",
                 objectFit: "cover",
               },
