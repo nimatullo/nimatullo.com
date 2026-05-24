@@ -1,8 +1,8 @@
-import { randomMinMax } from "@app/utils"
-import { Spinner } from "@components/scaffold/Spinner"
-import styled from "@emotion/styled"
-import { motion } from "motion/react"
-import React from "react"
+import { randomMinMax } from "@app/utils";
+import { Spinner } from "@components/scaffold/Spinner";
+import styled from "@emotion/styled";
+import { motion } from "motion/react";
+import React from "react";
 
 const PageIntroContainer = styled.div({
   margin: "50px 0",
@@ -11,17 +11,18 @@ const PageIntroContainer = styled.div({
     fontFamily: "DM Serif Text, serif",
     letterSpacing: `${randomMinMax(-5, 5)}px`,
   },
-})
+});
 
 interface PageIntroProps {
-  header: string
-  children: React.ReactNode
-  loading?: boolean
+  header: string;
+  children: React.ReactNode;
+  loading?: boolean;
 }
-export const PageIntro: React.FC<PageIntroProps> = (props) => {
-  const { header, children, loading = false } = props
 
-  const headerLetters = header.split("")
+export const PageIntro: React.FC<PageIntroProps> = (props) => {
+  const { header, children, loading = false } = props;
+
+  const headerLetters = header.split("");
 
   return (
     <PageIntroContainer>
@@ -62,5 +63,5 @@ export const PageIntro: React.FC<PageIntroProps> = (props) => {
         </motion.div>
       )}
     </PageIntroContainer>
-  )
-}
+  );
+};

@@ -1,13 +1,13 @@
-import { useDB } from "@app/hooks"
-import { Image } from "@components/scaffold"
-import { ExternalAnchor } from "@components/scaffold/ExternalAnchor"
-import { Helmet } from "@components/scaffold/Head"
-import { PageIntro } from "@components/scaffold/PageIntro"
-import { graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import { useDB } from "@app/hooks";
+import { Image } from "@components/scaffold";
+import { ExternalAnchor } from "@components/scaffold/ExternalAnchor";
+import { Helmet } from "@components/scaffold/Head";
+import { PageIntro } from "@components/scaffold/PageIntro";
+import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
 
 const AboutPage = () => {
-  const { data: things, loading } = useDB("aboutPageLinks")
+  const { data: things, loading } = useDB("aboutPageLinks");
 
   const boyImgLink = useStaticQuery(graphql`
     query {
@@ -15,10 +15,10 @@ const AboutPage = () => {
         publicURL
       }
     }
-  `).file.publicURL
+  `).file.publicURL;
 
   return (
-    <PageIntro header="Astronaut" loading={loading}>
+    <PageIntro header="About" loading={loading}>
       <div
         css={{
           p: { marginBottom: 20 },
@@ -78,14 +78,14 @@ const AboutPage = () => {
               </React.Fragment>
             ) : (
               <>{thing.title}, </>
-            )
+            ),
           )}
         </p>
       </div>
     </PageIntro>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;
 
-export const Head = () => <Helmet title="about" />
+export const Head = () => <Helmet title="about" />;

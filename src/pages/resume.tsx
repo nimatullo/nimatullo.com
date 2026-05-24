@@ -1,9 +1,9 @@
-import { Helmet } from "@components/scaffold/Head"
-import { PageIntro } from "@components/scaffold/PageIntro"
+import { Helmet } from "@components/scaffold/Head";
+import { PageIntro } from "@components/scaffold/PageIntro";
 
 const ResumePage: React.FC = (props) => {
   return (
-    <PageIntro header="Manifest">
+    <PageIntro header="Resume">
       <div>
         <object
           css={{ width: "100%", height: "100vh" }}
@@ -12,9 +12,9 @@ const ResumePage: React.FC = (props) => {
         />
       </div>
     </PageIntro>
-  )
-}
+  );
+};
 
-export default ResumePage
+export default ResumePage;
 
-export const Head = () => <Helmet title="resume" />
+export const Head = () => <Helmet title="resume" />;

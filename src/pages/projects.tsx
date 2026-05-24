@@ -1,14 +1,14 @@
-import { useCursorHandlers, useDB } from "@app/hooks"
-import type { CMS } from "@app/nimatullo-types"
-import { randomHSLColor } from "@app/styles/colors"
-import { getBorderedContainerStyle } from "@app/styles/css"
-import { Helmet } from "@components/scaffold/Head"
-import { PageIntro } from "@components/scaffold/PageIntro"
-import styled from "@emotion/styled"
-import { HeadFC } from "gatsby"
-import { motion, useInView } from "motion/react"
-import { useRef } from "react"
-import { ExternalLink, GitBranch } from "react-feather"
+import { useCursorHandlers, useDB } from "@app/hooks";
+import type { CMS } from "@app/nimatullo-types";
+import { randomHSLColor } from "@app/styles/colors";
+import { getBorderedContainerStyle } from "@app/styles/css";
+import { Helmet } from "@components/scaffold/Head";
+import { PageIntro } from "@components/scaffold/PageIntro";
+import styled from "@emotion/styled";
+import { HeadFC } from "gatsby";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import { ExternalLink, GitBranch } from "react-feather";
 
 const ProjectItemContainer = styled(motion.li)((props) => ({
   ...getBorderedContainerStyle(props.theme),
@@ -33,12 +33,12 @@ const ProjectItemContainer = styled(motion.li)((props) => ({
     backgroundColor: randomHSLColor(),
   },
   h2: { marginBottom: "10px", textTransform: "uppercase" },
-}))
+}));
 
 const ProjectItem = ({ project }: { project: CMS.Project }) => {
-  const ref = useRef<HTMLLIElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const mouseHandlers = useCursorHandlers()
+  const ref = useRef<HTMLLIElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const mouseHandlers = useCursorHandlers();
   return (
     <ProjectItemContainer
       ref={ref}
@@ -70,22 +70,22 @@ const ProjectItem = ({ project }: { project: CMS.Project }) => {
         )}
       </div>
     </ProjectItemContainer>
-  )
-}
+  );
+};
 
 const ProjectsPage = () => {
-  const { data: projects, loading } = useDB("projects")
+  const { data: projects, loading } = useDB("projects");
 
   return (
-    <PageIntro header="Launchpad" loading={loading}>
+    <PageIntro header="Projects" loading={loading}>
       <ul>
         {projects.map((project) => (
           <ProjectItem key={project.title} project={project} />
         ))}
       </ul>
     </PageIntro>
-  )
-}
-export default ProjectsPage
+  );
+};
+export default ProjectsPage;
 
-export const Head: HeadFC = () => <Helmet title="projects" />
+export const Head: HeadFC = () => <Helmet title="projects" />;
